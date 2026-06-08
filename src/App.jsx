@@ -189,7 +189,7 @@ export default function App() {
 
         <nav className="nav">
           <div className="brand">
-            <div className="brand-mark">BH</div>
+            <div <imgsrc="/brownhill_marketing_and_media_logo.png"alt="BrownHill Marketing & Media logo"className="brand-logo"/>
             <div>
               <p className="brand-name">BrownHill</p>
               <p className="brand-subtitle">Marketing & Media Firm</p>
