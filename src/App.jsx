@@ -256,9 +256,9 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label">The Firm</p>
-            <h2>BrownHill is a strategic marketing firm for businesses that need more than activity.</h2>
-            <p>Many organizations are active but not aligned. They post content, run ads, update websites, or try SEO without a clear market position, customer insight, message strategy, or performance system. BrownHill exists to solve that problem.</p>
-            <p>We help clients understand their market, clarify their value, improve how they show up online, and build marketing systems that connect brand visibility to customer acquisition.</p>
+            <h2>Marketing strategy built for clarity, visibility, and growth.</h2>
+            <p>BrownHill helps businesses move beyond scattered marketing activity and build stronger systems for market positioning, audience insight, digital visibility, and customer acquisition.</p>
+            <p>We help organizations understand their market, sharpen their message, show up stronger online, and connect brand visibility to measurable growth.</p>
           </div>
           <div className="stack">
             {whyBrownHill.map((advantage) => (
