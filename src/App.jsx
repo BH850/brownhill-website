@@ -334,7 +334,7 @@ export default function App() {
           <div>
             <p className="section-label">The BrownHill Method</p>
             <h2>A deeper process for smarter marketing decisions and better execution.</h2>
-            <p>BrownHill’s process is designed to reduce guesswork. The firm studies the business, identifies growth gaps, builds strategy, supports execution, and improves performance through ongoing learning.</p>
+            <p>Our Firm's process is designed to reduce guesswork. The firm studies the business, identifies growth gaps, builds strategy, supports execution, and improves performance through ongoing learning.</p>
           </div>
           <div className="stack">
             {process.map((step, index) => (
@@ -354,7 +354,7 @@ export default function App() {
         <div className="centered wide">
           <p className="section-label">Engagement Models</p>
           <h2>Flexible ways to work with BrownHill.</h2>
-          <p>BrownHill can serve as a strategic advisor, project partner, campaign resource, or ongoing marketing growth firm depending on the client’s stage and needs.</p>
+          <p>Our Firm can serve as a strategic advisor, project partner, campaign resource, or ongoing marketing growth firm depending on the client’s stage and needs.</p>
         </div>
         <div className="grid four">
           {engagementModels.map((model) => (
@@ -383,7 +383,7 @@ export default function App() {
       <section className="section white">
         <div className="founder-panel">
           <div>
-            <p className="section-label gold">Founder & Marketing Strategist</p>
+            <p className="section-label gold">Founder, CEO & Marketing Strategist</p>
             <h2>Michael Hill</h2>
             <p>BrownHill Marketing and Media was founded to help businesses compete with stronger strategy, sharper messaging, and more intentional growth systems. As a founder-led firm, BrownHill combines business development thinking, marketing discipline, customer experience insight, research, media strategy, and brand-building execution.</p>
             <p>The mission is to help serious operators become more visible, more credible, more informed, and better positioned to win in their market.</p>
