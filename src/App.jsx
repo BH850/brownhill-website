@@ -29,7 +29,7 @@ const corePillars = [
     icon: FileSearch,
     title: "Research & Intelligence",
     description:
-      "Before BrownHill recommends tactics, we study the market. We look at audience behavior, competitors, search demand, positioning gaps, customer pain points, local visibility, digital presence, and growth opportunities.",
+      "Before tactics are recommended, we perform an comprehensive market analysis for our clients. We look at audience behaviors, competitors, search demand, positioning gaps, customer pain points, local and national visibility, digital presence, and growth opportunities.",
   },
   {
     icon: Compass,
@@ -245,7 +245,7 @@ export default function App() {
                 })}
               </div>
               <p className="hero-card-copy">
-                BrownHill combines insight, strategy, creative direction, and performance discipline to help brands move from scattered marketing activity to intentional growth.
+                Our Firm combines insight, strategy, creative direction, and performance discipline to help brands move from scattered marketing activity to intentional growth.
               </p>
             </div>
           </motion.div>
