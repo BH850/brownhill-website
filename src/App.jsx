@@ -371,8 +371,8 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label gold">Who We Serve</p>
-            <h2>A firm for founders, service businesses, and organizations with growth ambition.</h2>
-            <p>BrownHill is especially valuable for leaders who know they need stronger marketing, but also need strategic clarity before spending time and money on tactics.</p>
+            <h2>For organizations looking to grow with clarity, strategy, and stronger market presence.</h2>
+            <p>BrownHill serves businesses, service providers, and growth-minded organizations that want to improve visibility, strengthen credibility, and create smarter marketing systems. We help clients move beyond scattered activity and build a clear path toward being seen, trusted, and chosen.</p>
           </div>
           <div className="tag-grid">
             {industries.map((industry) => <span key={industry}>{industry}</span>)}
