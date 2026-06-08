@@ -210,7 +210,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
           >
             <p className="eyebrow"><Sparkles size={16} /> SEO • SMO • Research • Advertising • Growth Strategy</p>
-            <h1>A marketing intelligence and growth firm built for brands that want to be seen, trusted, and chosen.</h1>
+            <h1>Marketing intelligence that helps brands get seen, trusted, and chosen.</h1>
             <p className="hero-copy">
               BrownHill Marketing & Media, LLC helps organizations strengthen their market position, improve search and social visibility, understand their audience, develop stronger campaigns, and build disciplined marketing systems that support sustainable growth.
             </p>
