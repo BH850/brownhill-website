@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import brownHillLogo from "../brownhill_marketing_and_media_logo.png";
 import {
   ArrowRight,
   BarChart3,
