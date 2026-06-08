@@ -649,3 +649,10 @@ footer {
     padding: 68px 20px;
   }
 }
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
