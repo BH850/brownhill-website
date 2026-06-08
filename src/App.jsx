@@ -294,8 +294,8 @@ export default function App() {
       <section id="services" className="section cream">
         <div className="centered wide">
           <p className="section-label">Capabilities</p>
-          <h2>Full-scope marketing services for visibility, credibility, and growth.</h2>
-          <p>BrownHill supports clients across the full marketing ecosystem: SEO, SMO, marketing strategy, research, advertising, brand development, content, analytics, lead generation, and everything related to building stronger market presence.</p>
+          <h2>Full-scope marketing services built to increase visibility, credibility, and growth.</h2>
+          <p>BrownHill helps businesses strengthen their market presence through strategy, SEO, social media optimization, brand development, research, advertising, content, analytics, and lead generation. We support the full marketing ecosystem so organizations can be seen more clearly, communicate with more authority, and convert attention into measurable growth.</p>
         </div>
         <div className="grid two">
           {practiceAreas.map((service) => {
