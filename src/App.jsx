@@ -338,7 +338,6 @@ text: "Welcome to BrownHill. Ask me about SEO, marketing strategy, brand positio
 function handleChatSubmit(event) {
 event.preventDefault();
 
-```
 if (!chatMessage.trim()) return;
 
 const userMessage = chatMessage.trim();
@@ -353,13 +352,11 @@ setChatHistory((messages) => [
 ]);
 
 setChatMessage("");
-```
 
 }
 
 return ( <main className="site"> <section className="hero"> <div className="glow glow-left" /> <div className="glow glow-right" />
 
-```
     <nav className="nav">
       <div className="brand">
         <img
