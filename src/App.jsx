@@ -364,7 +364,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
           className="brand-logo"
         />
 
-        <div>
+<div>
   <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
 </div>
 
@@ -388,7 +388,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
         </p>
         <h1>Marketing intelligence that helps brands get seen, trusted, and chosen.</h1>
         <p className="hero-copy">
-          BrownHill Marketing & Media, LLC helps organizations strengthen their market position, improve search and social visibility, understand their audience, develop stronger campaigns, and build disciplined marketing systems that support sustainable growth.
+          BrownHill helps organizations strengthen their market position, improve search and social visibility, understand their audience, develop stronger campaigns, and build disciplined marketing systems that support sustainable growth.
         </p>
 
         <div className="button-row">
