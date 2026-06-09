@@ -355,45 +355,57 @@ return (
 }
 
 export default function App() {
-const [activeSlide, setActiveSlide] = useState(0);
-const [submitted, setSubmitted] = useState(false);
-const [chatOpen, setChatOpen] = useState(false);
-const [chatMessage, setChatMessage] = useState("");
-const [chatHistory, setChatHistory] = useState([
-{
-sender: "assistant",
-text: "Hi, I’m Michael - Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",},
-]);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [theme, setTheme] = useState("dark");
+  const [submitted, setSubmitted] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatMessage, setChatMessage] = useState("");
+  const [chatHistory, setChatHistory] = useState([
+    {
+      sender: "assistant",
+      text: "Hi, I’m Edna — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
+    },
+  ]);
 
-function handleChatSubmit(event) {
-event.preventDefault();
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % homeSlides.length);
+    }, 5000);
 
-<div className="nav-links">
-  <a href="#firm">The Firm</a>
-  <a href="#culture">Culture</a>
-  <a href="#services">Capabilities</a>
-  <a href="#process">Method</a>
-  <a href="#case-studies">Case Studies</a>
-  <a href="#contact">Contact</a>
+    return () => clearInterval(timer);
+  }, []);
 
-  <button
-    type="button"
-    className="theme-toggle"
-    onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
-  >
-    {theme === "dark" ? "Light" : "Dark"}
-  </button>
-</div>  { sender: "user", text: userMessage },
-  { sender: "assistant", text: response },
-]);
+  function handleChatSubmit(event) {
+    event.preventDefault();
 
-setChatMessage("");
+    if (!chatMessage.trim()) return;
 
-}
+    const userMessage = chatMessage.trim();
 
-return ( <main className="site"> <section className="hero"> <div className="glow glow-left" /> <div className="glow glow-right" />
+    const response =
+      "Great question. BrownHill helps organizations grow by first clarifying the market, message, audience, and visibility gaps — then building a smarter strategy across SEO, social media, advertising, content, lead generation, and analytics.";
+
+    setChatHistory((messages) => [
+      ...messages,
+      { sender: "user", text: userMessage },
+      { sender: "assistant", text: response },
+    ]);
+
+    setChatMessage("");
+<main className={`site theme-${theme}`}>
 
 <nav className="nav">
+  <div className="brand">
+    <img
+      src={brownHillLogo}
+      alt="BrownHill Marketing & Media logo"
+      className="brand-logo"
+    />
+
+    <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
+  </div>
+
+  <nav className="nav">
   <div className="brand">
     <img
       src={brownHillLogo}
@@ -411,7 +423,16 @@ return ( <main className="site"> <section className="hero"> <div className="glow
     <a href="#process">Method</a>
     <a href="#case-studies">Case Studies</a>
     <a href="#contact">Contact</a>
+
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+    >
+      {theme === "dark" ? "Light" : "Dark"}
+    </button>
   </div>
+</nav>
 </nav>
     <div className="hero-grid">
       <motion.div
