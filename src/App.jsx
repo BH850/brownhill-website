@@ -356,18 +356,20 @@ setChatMessage("");
 
 return ( <main className="site"> <section className="hero"> <div className="glow glow-left" /> <div className="glow glow-right" />
 
-    <nav className="nav">
-      <div className="brand">
-        <img
-          src={brownHillLogo}
-          alt="BrownHill Marketing & Media logo"
-          className="brand-logo"
-        />
+<nav className="nav">
+  <div className="brand">
+    <img
+      src={brownHillLogo}
+      alt="BrownHill Marketing & Media logo"
+      className="brand-logo"
+    />
 
- <div>
-  <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
-</div>
-      <div className="nav-links">
+    <div>
+      <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
+    </div>
+  </div>
+
+  <div className="nav-links">
         <a href="#firm">The Firm</a>
         <a href="#services">Capabilities</a>
         <a href="#process">Method</a>
