@@ -364,10 +364,9 @@ return ( <main className="site"> <section className="hero"> <div className="glow
           className="brand-logo"
         />
 
-<div>
+ <div>
   <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
 </div>
-
       <div className="nav-links">
         <a href="#firm">The Firm</a>
         <a href="#services">Capabilities</a>
