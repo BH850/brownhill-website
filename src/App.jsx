@@ -363,20 +363,26 @@ export default function App() {
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
-      text: "Hi, I’m Edna — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
+      text: "Hi, I’m Michael — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
     },
   ]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide((current) => (current + 1) % homeSlides.length);
-    }, 5000);
+ <div className="nav-links">
+  <a href="#firm">The Firm</a>
+  <a href="#culture">Culture</a>
+  <a href="#services">Capabilities</a>
+  <a href="#process">Method</a>
+  <a href="#case-studies">Case Studies</a>
+  <a href="#contact">Contact</a>
 
-    return () => clearInterval(timer);
-  }, []);
-
-  function handleChatSubmit(event) {
-    event.preventDefault();
+    <button
+    type="button"
+    className="theme-toggle"
+    onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+  >
+    {theme === "dark" ? "Light" : "Dark"}
+  </button>
+</div>
 
     if (!chatMessage.trim()) return;
 
