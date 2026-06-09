@@ -331,7 +331,7 @@ const [chatMessage, setChatMessage] = useState("");
 const [chatHistory, setChatHistory] = useState([
 {
 sender: "assistant",
-text: "Hi, I’m Michael — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",},
+text: "Hi, I’m Michael - nice to meet you! Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",},
 ]);
 
 function handleChatSubmit(event) {
