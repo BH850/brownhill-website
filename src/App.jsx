@@ -353,7 +353,6 @@ return (
 {children} <ArrowRight size={20} /> </a>
 );
 }
-
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [theme, setTheme] = useState("dark");
@@ -363,26 +362,20 @@ export default function App() {
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
-      text: "Hi, I’m Michael — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
+      text: "Hi, I’m Edna — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
     },
   ]);
 
- <div className="nav-links">
-  <a href="#firm">The Firm</a>
-  <a href="#culture">Culture</a>
-  <a href="#services">Capabilities</a>
-  <a href="#process">Method</a>
-  <a href="#case-studies">Case Studies</a>
-  <a href="#contact">Contact</a>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % homeSlides.length);
+    }, 5000);
 
-    <button
-    type="button"
-    className="theme-toggle"
-    onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
-  >
-    {theme === "dark" ? "Light" : "Dark"}
-  </button>
-</div>
+    return () => clearInterval(timer);
+  }, []);
+
+  function handleChatSubmit(event) {
+    event.preventDefault();
 
     if (!chatMessage.trim()) return;
 
@@ -398,43 +391,44 @@ export default function App() {
     ]);
 
     setChatMessage("");
-<main className={`site theme-${theme}`}>
+  }
 
-<nav className="nav">
-  <div className="brand">
-    <img
-      src={brownHillLogo}
-      alt="BrownHill Marketing & Media logo"
-      className="brand-logo"
-    />
+  return (
+    <main className={`site theme-${theme}`}>
+      <section className="hero">
+        <div className="glow glow-left" />
+        <div className="glow glow-right" />
 
-    <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
-  </div>
+        <nav className="nav">
+          <div className="brand">
+            <img
+              src={brownHillLogo}
+              alt="BrownHill Marketing & Media logo"
+              className="brand-logo"
+            />
 
-  <nav className="nav">
-  <div className="brand">
-    <img
-      src={brownHillLogo}
-      alt="BrownHill Marketing & Media logo"
-      className="brand-logo"
-    />
+            <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
+          </div>
 
-    <p className="brand-subtitle">Marketing Intelligence • Media • Growth</p>
-  </div>
+          <div className="nav-links">
+            <a href="#firm">The Firm</a>
+            <a href="#culture">Culture</a>
+            <a href="#services">Capabilities</a>
+            <a href="#process">Method</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#contact">Contact</a>
 
-  <div className="nav-links">
-    <a href="#firm">The Firm</a>
-    <a href="#culture">Culture</a>
-    <a href="#services">Capabilities</a>
-    <a href="#process">Method</a>
-    <a href="#case-studies">Case Studies</a>
-    <a href="#contact">Contact</a>
-
-    <button
-      type="button"
-      className="theme-toggle"
-      onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
-    >
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={() =>
+                setTheme((current) => (current === "dark" ? "light" : "dark"))
+              }
+            >
+              {theme === "dark" ? "Light" : "Dark"}
+            </button>
+          </div>
+        </nav>    >
       {theme === "dark" ? "Light" : "Dark"}
     </button>
   </div>
