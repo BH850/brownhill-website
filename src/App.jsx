@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import brownHillLogo from "../brownhill_marketing_and_media_logo.png";
 import {
@@ -322,7 +322,26 @@ const whyBrownHill = [
 "We help clients become clearer, more credible, more visible, and more prepared to convert attention into revenue.",
 "We bring a founder-led mindset: practical, ambitious, disciplined, and focused on building long-term brand equity.",
 ];
-
+const homeSlides = [
+  {
+    label: "Culture-Rooted Strategy",
+    title: "Marketing built with clarity, culture, and growth in mind.",
+    text:
+      "BrownHill helps organizations sharpen their message, strengthen their brand presence, and connect with the audiences they are built to serve.",
+  },
+  {
+    label: "Brand Management",
+    title: "Stronger brands are managed, not guessed.",
+    text:
+      "We help organizations shape how they are seen, understood, remembered, and trusted across websites, campaigns, content, social media, and customer touchpoints.",
+  },
+  {
+    label: "Marketing Intelligence",
+    title: "Better insight creates better marketing decisions.",
+    text:
+      "BrownHill combines research, audience understanding, competitive analysis, analytics, and strategy to help organizations grow with more discipline.",
+  },
+];
 function IconCircle({ icon: Icon }) {
 return ( <div className="icon-circle"> <Icon size={28} /> </div>
 );
@@ -336,6 +355,7 @@ return (
 }
 
 export default function App() {
+const [activeSlide, setActiveSlide] = useState(0);
 const [submitted, setSubmitted] = useState(false);
 const [chatOpen, setChatOpen] = useState(false);
 const [chatMessage, setChatMessage] = useState("");
@@ -348,16 +368,22 @@ text: "Hi, I’m Michael - Ask me about SEO, branding, advertising, lead generat
 function handleChatSubmit(event) {
 event.preventDefault();
 
-if (!chatMessage.trim()) return;
+<div className="nav-links">
+  <a href="#firm">The Firm</a>
+  <a href="#culture">Culture</a>
+  <a href="#services">Capabilities</a>
+  <a href="#process">Method</a>
+  <a href="#case-studies">Case Studies</a>
+  <a href="#contact">Contact</a>
 
-const userMessage = chatMessage.trim();
-
-const response =
-  "Great question. BrownHill helps organizations grow by first clarifying the market, message, audience, and visibility gaps — then building a smarter strategy across SEO, social media, advertising, content, lead generation, and analytics.";
-
-setChatHistory((messages) => [
-  ...messages,
-  { sender: "user", text: userMessage },
+  <button
+    type="button"
+    className="theme-toggle"
+    onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+  >
+    {theme === "dark" ? "Light" : "Dark"}
+  </button>
+</div>  { sender: "user", text: userMessage },
   { sender: "assistant", text: response },
 ]);
 
