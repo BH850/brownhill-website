@@ -388,7 +388,7 @@ function handleChatSubmit(event) {
             <h2>Everything connected to marketing growth lives in the BrownHill ecosystem.</h2>
             <p>Some clients need a complete strategy. Others need a focused improvement in one area. BrownHill can support individual marketing needs while keeping the larger growth picture in view.</p>
           </div>
-          ```
+          
   <section className="section case-study-section">
     <div className="centered wide">
       <p className="section-label">Case Study Frameworks</p>
