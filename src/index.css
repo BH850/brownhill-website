@@ -904,3 +904,11 @@ footer {
     display: none;
   }
 }
+.cultural-card {
+  background: rgba(255, 247, 230, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.18);
+}
+
+.cultural-card svg {
+  color: #fbbf24;
+}
