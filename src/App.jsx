@@ -467,64 +467,45 @@ function handleChatSubmit(event) {
           <p>{study.challenge}</p>
         </div>
 
-        <div>
-          <span>Solution</span>
-          <p>{study.solution}</p>
-        </div>
-
-        <div>
-          <span>Outcome</span>
-          <p>{study.outcome}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
+      ```jsx
+      <section className="section video-section">
+        <div className="two-col video-layout">
           <div>
-            <p className="section-label gold">Founder, CEO & Marketing Strategist</p>
-            <h2>Michael Hill</h2>
-            <p>BrownHill Marketing and Media was founded to help businesses compete with stronger strategy, sharper messaging, and more intentional growth systems. As a founder-led firm, BrownHill combines business development thinking, marketing discipline, customer experience insight, research, media strategy, and brand-building execution.</p>
-            <p>The mission is to help serious operators become more visible, more credible, more informed, and better positioned to win in their market.</p>
+            <p className="section-label gold">BrownHill Video</p>
+            <h2>Marketing should not feel random. It should feel strategic.</h2>
+            <p>
+              BrownHill helps organizations move from scattered activity to clear
+              positioning, stronger visibility, smarter campaigns, and measurable
+              growth systems.
+            </p>
+            <p>
+              This video section can feature a short BrownHill brand intro,
+              founder message, service overview, or client-facing marketing explainer.
+            </p>
           </div>
-          <div className="founder-list">
-            <p><Lightbulb size={24} /> Marketing Intelligence</p>
-            <p><Globe2 size={24} /> Digital Visibility</p>
-            <p><Users size={24} /> Audience Development</p>
-            <p><TrendingUp size={24} /> Revenue Growth</p>
+
+          <div className="video-card">
+            <div className="video-placeholder">
+              <PlayCircle size={64} />
+              <h3>BrownHill Marketing Intro</h3>
+              <p>Short strategy video coming soon.</p>
+            </div>
           </div>
         </div>
       </section>
-<section className="section video-section">
-  <div className="two-col video-layout">
-    <div>
-      <p className="section-label gold">BrownHill Video</p>
-      <h2>Marketing should not feel random. It should feel strategic.</h2>
-      <p>
-        BrownHill helps organizations move from scattered activity to clear
-        positioning, stronger visibility, smarter campaigns, and measurable
-        growth systems.
-      </p>
-      <p>
-        This video section can feature a short BrownHill brand intro,
-        founder message, service overview, or client-facing marketing explainer.
-      </p>
-    </div>
 
-    <div className="video-card">
-      <div className="video-placeholder">
-        <PlayCircle size={64} />
-        <h3>BrownHill Marketing Intro</h3>
-        <p>Short strategy video coming soon.</p>
-      </div>
-    </div>
-  </div>
-</section>
       <section id="contact" className="section contact">
         <div className="two-col">
           <div>
             <p className="section-label gold">Contact the Firm</p>
             <h2>Let’s build the marketing system your organization deserves.</h2>
-            <p>Use the form to request a strategy consultation. BrownHill will review your goals, current marketing, digital presence, research needs, advertising opportunities, and best path toward stronger visibility and growth.</p>
+            <p>
+              Use the form to request a strategy consultation. BrownHill will
+              review your goals, current marketing, digital presence, research
+              needs, advertising opportunities, and best path toward stronger
+              visibility and growth.
+            </p>
+
             <div className="contact-list">
               <p><Phone size={20} /> 850-221-3089</p>
               <p><Mail size={20} /> info@emailaddress.com</p>
@@ -533,13 +514,22 @@ function handleChatSubmit(event) {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+          <form
+            className="contact-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              setSubmitted(true);
+            }}
+          >
             <label>Name</label>
             <input placeholder="Your name" />
+
             <label>Email</label>
             <input type="email" placeholder="you@example.com" />
+
             <label>Organization / Business</label>
             <input placeholder="Company or organization name" />
+
             <label>Primary Area of Interest</label>
             <select>
               <option>SEO / Search Visibility</option>
@@ -551,61 +541,75 @@ function handleChatSubmit(event) {
               <option>Lead Generation</option>
               <option>Full Growth Strategy</option>
             </select>
+
             <label>What growth challenge should we help solve?</label>
             <textarea placeholder="Tell us about your marketing goals, current challenges, target audience, advertising needs, research needs, or growth opportunities..." />
+
             <button type="submit">Request Consultation</button>
-            {submitted && <p className="success">Thank you. This demo form is ready to connect to BrownHill’s email, CRM, or booking system.</p>}
+
+            {submitted && (
+              <p className="success">
+                Thank you. This demo form is ready to connect to BrownHill’s
+                email, CRM, or booking system.
+              </p>
+            )}
           </form>
         </div>
       </section>
-<div className={`ai-chat ${chatOpen ? "open" : ""}`}>
-  {chatOpen && (
-    <div className="ai-chat-panel">
-      <div className="ai-chat-header">
-        <div>
-          <p>BrownHill AI Assistant</p>
-          <span>Marketing guidance for growth-minded organizations</span>
-        </div>
-        <button type="button" onClick={() => setChatOpen(false)}>
-          ×
-        </button>
-      </div>
 
-      <div className="ai-chat-messages">
-        {chatHistory.map((message, index) => (
-          <div
-            key={`${message.sender}-${index}`}
-            className={`chat-bubble ${message.sender}`}
-          >
-            {message.text}
+      <div className={`ai-chat ${chatOpen ? "open" : ""}`}>
+        {chatOpen && (
+          <div className="ai-chat-panel">
+            <div className="ai-chat-header">
+              <div>
+                <p>BrownHill AI Assistant</p>
+                <span>Marketing guidance for growth-minded organizations</span>
+              </div>
+
+              <button type="button" onClick={() => setChatOpen(false)}>
+                ×
+              </button>
+            </div>
+
+            <div className="ai-chat-messages">
+              {chatHistory.map((message, index) => (
+                <div
+                  key={`${message.sender}-${index}`}
+                  className={`chat-bubble ${message.sender}`}
+                >
+                  {message.text}
+                </div>
+              ))}
+            </div>
+
+            <form className="ai-chat-form" onSubmit={handleChatSubmit}>
+              <input
+                value={chatMessage}
+                onChange={(event) => setChatMessage(event.target.value)}
+                placeholder="Ask about SEO, branding, ads, or growth..."
+              />
+
+              <button type="submit">
+                <Send size={18} />
+              </button>
+            </form>
           </div>
-        ))}
+        )}
+
+        <button
+          type="button"
+          className="ai-chat-button"
+          onClick={() => setChatOpen((open) => !open)}
+        >
+          <Bot size={24} />
+          <span>Ask BrownHill AI</span>
+        </button>
       </div>
 
-      <form className="ai-chat-form" onSubmit={handleChatSubmit}>
-        <input
-          value={chatMessage}
-          onChange={(event) => setChatMessage(event.target.value)}
-          placeholder="Ask about SEO, branding, ads, or growth..."
-        />
-        <button type="submit">
-          <Send size={18} />
-        </button>
-      </form>
-    </div>
-  )}
-
-  <button
-    type="button"
-    className="ai-chat-button"
-    onClick={() => setChatOpen((open) => !open)}
-  >
-    <Bot size={24} />
-    <span>Ask BrownHill AI</span>
-  </button>
-</div>
       <footer>
-        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. A strategic marketing intelligence, media, advertising, and growth advisory firm. All rights reserved.
+        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. A
+        strategic marketing intelligence, media, advertising, and growth advisory
+        firm. All rights reserved.
       </footer>
     </main>
   );
