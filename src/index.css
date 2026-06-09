@@ -912,3 +912,123 @@ footer {
 .cultural-card svg {
   color: #fbbf24;
 }
+/* LIGHT / DARK THEME TOGGLE FIX */
+
+.site {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.12);
+  color: inherit;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* DARK THEME */
+.theme-dark {
+  background: #0b0503;
+  color: #fff7e6;
+}
+
+/* LIGHT THEME */
+.theme-light {
+  background: #fffaf3;
+  color: #170c07;
+}
+
+.theme-light .hero {
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.24), transparent 34%),
+    linear-gradient(135deg, #fffaf3 0%, #f3dfbd 52%, #fff7e6 100%);
+  color: #170c07;
+}
+
+.theme-light .cream {
+  background: #fff7e6;
+  color: #170c07;
+}
+
+.theme-light .white {
+  background: #ffffff;
+  color: #170c07;
+}
+
+.theme-light .dark {
+  background:
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.18), transparent 34%),
+    linear-gradient(135deg, #fff1d6 0%, #f1d4a3 52%, #fffaf3 100%);
+  color: #170c07;
+}
+
+.theme-light .dark h2,
+.theme-light .dark h3,
+.theme-light .dark p,
+.theme-light .dark span {
+  color: #170c07;
+}
+
+.theme-light .nav {
+  background: rgba(255, 250, 243, 0.82);
+  border-color: rgba(23, 12, 7, 0.12);
+}
+
+.theme-light .nav a {
+  color: #170c07;
+}
+
+.theme-light .brand-subtitle {
+  color: rgba(23, 12, 7, 0.72);
+}
+
+.theme-light .hero-copy,
+.theme-light .section p,
+.theme-light .card p,
+.theme-light .proof-card p,
+.theme-light .step-card p,
+.theme-light .hero-card-copy {
+  color: rgba(23, 12, 7, 0.72);
+}
+
+.theme-light .hero-card,
+.theme-light .card,
+.theme-light .proof-card,
+.theme-light .step-card,
+.theme-light .founder-panel,
+.theme-light .contact-form {
+  background: rgba(255, 255, 255, 0.78);
+  color: #170c07;
+  border-color: rgba(23, 12, 7, 0.12);
+}
+
+.theme-light .tag-grid span {
+  background: rgba(23, 12, 7, 0.06);
+  color: #170c07;
+  border-color: rgba(23, 12, 7, 0.12);
+}
+
+.theme-light .case-card {
+  background: #fffaf3;
+  color: #170c07;
+  border-color: rgba(23, 12, 7, 0.12);
+}
+
+.theme-light .case-card p {
+  color: rgba(23, 12, 7, 0.72);
+}
+
+.theme-light .case-category,
+.theme-light .section-label,
+.theme-light .section-label.gold,
+.theme-light .slide-label {
+  color: #9a5f00;
+}
+
+.theme-light .theme-toggle {
+  background: #170c07;
+  color: #fff7e6;
+  border-color: #170c07;
+}
