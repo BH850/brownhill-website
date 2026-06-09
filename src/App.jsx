@@ -4,6 +4,7 @@ import brownHillLogo from "../brownhill_marketing_and_media_logo.png";
 import {
   ArrowRight,
   BarChart3,
+  Bot,
   Building2,
   CheckCircle2,
   ClipboardCheck,
@@ -17,14 +18,15 @@ import {
   Megaphone,
   MessageSquareText,
   Phone,
+  PlayCircle,
   Search,
+  Send,
   ShieldCheck,
   Sparkles,
   Target,
   TrendingUp,
   Users,
 } from "lucide-react";
-
 const corePillars = [
   {
     icon: FileSearch,
@@ -147,7 +149,38 @@ const process = [
   { title: "Launch & Execution Support", description: "We help move the plan into market with clear timelines, campaign structure, content direction, advertising support, and accountability around implementation." },
   { title: "Measurement, Optimization & Scale", description: "We review performance, identify what is working, refine what is underperforming, and create recommendations to improve conversion, visibility, and revenue impact over time." },
 ];
-
+const caseStudies = [
+  {
+    title: "Local Service Growth System",
+    category: "SEO • Website Strategy • Lead Generation",
+    challenge:
+      "A service-based organization needed stronger visibility, clearer messaging, and a more structured path to generate qualified inquiries.",
+    solution:
+      "BrownHill developed a visibility plan focused on search optimization, service-page clarity, local positioning, and lead-capture improvements.",
+    outcome:
+      "The organization gained a clearer market position, stronger digital presence, and a practical system for turning visibility into customer opportunities.",
+  },
+  {
+    title: "Brand Positioning Reset",
+    category: "Messaging • Research • Strategy",
+    challenge:
+      "An organization had marketing activity in place, but its message was unclear and did not communicate why customers should choose them.",
+    solution:
+      "BrownHill refined the brand language, clarified audience priorities, strengthened the value proposition, and created a more focused messaging framework.",
+    outcome:
+      "The brand became easier to understand, more credible, and better positioned for campaign execution.",
+  },
+  {
+    title: "Campaign Readiness Blueprint",
+    category: "Advertising • Content • Analytics",
+    challenge:
+      "A growth-minded business wanted to advertise but needed strategic clarity before spending money on campaigns.",
+    solution:
+      "BrownHill built a campaign blueprint covering audience targeting, offer positioning, creative direction, content priorities, and performance tracking.",
+    outcome:
+      "The client received a disciplined marketing roadmap designed to reduce wasted spend and improve campaign focus.",
+  },
+];
 const engagementModels = [
   { title: "Strategic Audit", description: "A focused review of the client’s marketing, website, SEO, social presence, messaging, and growth opportunities. Best for businesses that need clarity before committing to ongoing execution." },
   { title: "Growth Blueprint", description: "A comprehensive strategy engagement that produces a practical roadmap for positioning, visibility, content, advertising, lead generation, and performance measurement." },
@@ -181,6 +214,33 @@ function ButtonLink({ children, variant = "primary" }) {
 
 export default function App() {
   const [submitted, setSubmitted] = useState(false);
+const [chatOpen, setChatOpen] = useState(false);
+const [chatMessage, setChatMessage] = useState("");
+const [chatHistory, setChatHistory] = useState([
+  {
+    sender: "assistant",
+    text: "Welcome to BrownHill. Ask me about SEO, marketing strategy, brand positioning, lead generation, or how we can help your organization grow.",
+  },
+]);
+
+function handleChatSubmit(event) {
+  event.preventDefault();
+
+  if (!chatMessage.trim()) return;
+
+  const userMessage = chatMessage.trim();
+
+  const response =
+    "Great question. BrownHill helps organizations grow by first clarifying the market, message, audience, and visibility gaps — then building a smarter strategy across SEO, social media, advertising, content, lead generation, and analytics.";
+
+  setChatHistory((messages) => [
+    ...messages,
+    { sender: "user", text: userMessage },
+    { sender: "assistant", text: response },
+  ]);
+
+  setChatMessage("");
+}
 
   return (
     <main className="site">
@@ -385,8 +445,41 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section white">
-        <div className="founder-panel">
+      <section className="section case-study-section">
+  <div className="centered wide">
+    <p className="section-label">Case Study Frameworks</p>
+    <h2>How BrownHill turns marketing problems into growth systems.</h2>
+    <p>
+      These examples show the type of strategic work BrownHill builds for
+      organizations that need stronger visibility, clearer messaging, and a
+      more disciplined path to customer acquisition.
+    </p>
+  </div>
+
+  <div className="grid three">
+    {caseStudies.map((study) => (
+      <div key={study.title} className="case-card">
+        <p className="case-category">{study.category}</p>
+        <h3>{study.title}</h3>
+
+        <div>
+          <span>Challenge</span>
+          <p>{study.challenge}</p>
+        </div>
+
+        <div>
+          <span>Solution</span>
+          <p>{study.solution}</p>
+        </div>
+
+        <div>
+          <span>Outcome</span>
+          <p>{study.outcome}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
           <div>
             <p className="section-label gold">Founder, CEO & Marketing Strategist</p>
             <h2>Michael Hill</h2>
@@ -401,7 +494,31 @@ export default function App() {
           </div>
         </div>
       </section>
+<section className="section video-section">
+  <div className="two-col video-layout">
+    <div>
+      <p className="section-label gold">BrownHill Video</p>
+      <h2>Marketing should not feel random. It should feel strategic.</h2>
+      <p>
+        BrownHill helps organizations move from scattered activity to clear
+        positioning, stronger visibility, smarter campaigns, and measurable
+        growth systems.
+      </p>
+      <p>
+        This video section can feature a short BrownHill brand intro,
+        founder message, service overview, or client-facing marketing explainer.
+      </p>
+    </div>
 
+    <div className="video-card">
+      <div className="video-placeholder">
+        <PlayCircle size={64} />
+        <h3>BrownHill Marketing Intro</h3>
+        <p>Short strategy video coming soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
       <section id="contact" className="section contact">
         <div className="two-col">
           <div>
@@ -441,7 +558,52 @@ export default function App() {
           </form>
         </div>
       </section>
+<div className={`ai-chat ${chatOpen ? "open" : ""}`}>
+  {chatOpen && (
+    <div className="ai-chat-panel">
+      <div className="ai-chat-header">
+        <div>
+          <p>BrownHill AI Assistant</p>
+          <span>Marketing guidance for growth-minded organizations</span>
+        </div>
+        <button type="button" onClick={() => setChatOpen(false)}>
+          ×
+        </button>
+      </div>
 
+      <div className="ai-chat-messages">
+        {chatHistory.map((message, index) => (
+          <div
+            key={`${message.sender}-${index}`}
+            className={`chat-bubble ${message.sender}`}
+          >
+            {message.text}
+          </div>
+        ))}
+      </div>
+
+      <form className="ai-chat-form" onSubmit={handleChatSubmit}>
+        <input
+          value={chatMessage}
+          onChange={(event) => setChatMessage(event.target.value)}
+          placeholder="Ask about SEO, branding, ads, or growth..."
+        />
+        <button type="submit">
+          <Send size={18} />
+        </button>
+      </form>
+    </div>
+  )}
+
+  <button
+    type="button"
+    className="ai-chat-button"
+    onClick={() => setChatOpen((open) => !open)}
+  >
+    <Bot size={24} />
+    <span>Ask BrownHill AI</span>
+  </button>
+</div>
       <footer>
         © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. A strategic marketing intelligence, media, advertising, and growth advisory firm. All rights reserved.
       </footer>
