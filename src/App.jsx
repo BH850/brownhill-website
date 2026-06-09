@@ -128,6 +128,18 @@ outcomes: [
 "Better customer understanding",
 ],
 },
+  {
+  icon: Building2,
+  title: "Brand Management",
+  description:
+    "Brand management helps organizations shape, strengthen, and protect how they are seen, understood, and remembered. BrownHill supports brand consistency, messaging clarity, reputation strategy, customer perception, service language, visual alignment, campaign standards, and the systems needed to keep the brand strong across every customer touchpoint.",
+  outcomes: [
+    "Stronger brand identity",
+    "Clearer customer perception",
+    "More consistent messaging",
+    "Better market credibility",
+  ],
+},
 {
 icon: MessageSquareText,
 title: "Content, Media & Communications",
@@ -202,20 +214,19 @@ const relatedCapabilities = [
 ];
 
 const industries = [
-"Professional Services",
-"Healthcare & Wellness",
-"Home Services",
-"Commercial Services",
-"Local Businesses",
-"Organizations Looking to Grow",
-"Community-Focused Organizations",
-"Emerging Service Firms",
-"Real Estate & Property Services",
-"Fitness & Lifestyle Brands",
-"Nonprofits & Civic Groups",
-"Consultants & Coaches",
+  "Healthcare & Wellness",
+  "Professional Services",
+  "Small & Mid-Sized Businesses",
+  "Community-Centered Organizations",
+  "Black-Owned & Diverse Businesses",
+  "Corporate & Institutional Brands",
+  "Home Services",
+  "Commercial Services",
+  "Real Estate & Property Services",
+  "Fitness & Lifestyle Brands",
+  "Nonprofits & Civic Groups",
+  "Consultants & Coaches",
 ];
-
 const process = [
 {
 title: "Discovery & Diagnostic Review",
@@ -331,7 +342,7 @@ const [chatMessage, setChatMessage] = useState("");
 const [chatHistory, setChatHistory] = useState([
 {
 sender: "assistant",
-text: "Hi, I’m Michael - nice to meet you! Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",},
+text: "Hi, I’m Michael - Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",},
 ]);
 
 function handleChatSubmit(event) {
@@ -369,6 +380,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
 
   <div className="nav-links">
     <a href="#firm">The Firm</a>
+    <a href="#culture">Culture</a>
     <a href="#services">Capabilities</a>
     <a href="#process">Method</a>
     <a href="#case-studies">Case Studies</a>
@@ -382,12 +394,10 @@ return ( <main className="site"> <section className="hero"> <div className="glow
         transition={{ duration: 0.7 }}
       >
         <p className="eyebrow">
-          <Sparkles size={16} /> SEO • SMO • Research • Advertising • Growth Strategy
-        </p>
+<Sparkles size={16} /> Culture • Brand Management • SEO • Research • Growth Strategy        </p>
         <h1>Marketing intelligence that helps brands get seen, trusted, and chosen.</h1>
         <p className="hero-copy">
-          BrownHill helps organizations strengthen their market position, improve search and social visibility, understand their audience, develop stronger campaigns, and build disciplined marketing systems that support sustainable growth.
-        </p>
+BrownHill helps organizations strengthen their market position, manage their brand presence, improve search and social visibility, understand their audience, develop stronger campaigns, and build disciplined marketing systems rooted in clarity, culture, and measurable growth.        </p>
 
         <div className="button-row">
           <ButtonLink>Request a Strategy Consultation</ButtonLink>
@@ -452,7 +462,45 @@ return ( <main className="site"> <section className="hero"> <div className="glow
       </div>
     </div>
   </section>
+<section id="culture" className="section dark">
+  <div className="two-col">
+    <div>
+      <p className="section-label gold">Culture & Strategy</p>
+      <h2>Rooted in culture. Built for growth.</h2>
+      <p>
+        BrownHill is a Black-owned strategic marketing firm built to help
+        organizations grow with clarity, culture, and measurable direction.
+      </p>
+      <p>
+        We believe culture shapes how people see, trust, and choose brands. Our
+        perspective helps us understand community, identity, influence, language,
+        and the emotional signals that move people to act.
+      </p>
+      <p>
+        But BrownHill is not limited to culture alone. We combine cultural
+        understanding with marketing strategy, brand management, research,
+        analytics, digital visibility, advertising, content, and lead generation
+        to help organizations build stronger market presence and more disciplined
+        growth systems.
+      </p>
+    </div>
 
+    <div className="stack">
+      <div className="proof-card cultural-card">
+        <Sparkles size={24} />
+        <p>Black-owned and culture-rooted, without limiting who we serve.</p>
+      </div>
+      <div className="proof-card cultural-card">
+        <Target size={24} />
+        <p>Business-first strategy built around visibility, credibility, and growth.</p>
+      </div>
+      <div className="proof-card cultural-card">
+        <BarChart3 size={24} />
+        <p>Marketing decisions supported by research, analytics, and performance discipline.</p>
+      </div>
+    </div>
+  </div>
+</section>
   <section className="section white">
     <div className="centered">
       <p className="section-label">Core Framework</p>
@@ -572,14 +620,18 @@ return ( <main className="site"> <section className="hero"> <div className="glow
   <section className="section dark">
     <div className="two-col">
       <div>
-        <p className="section-label gold">Who We Serve</p>
-        <h2>
-          We help organizations who are looking to grow with clarity, strategy, and stronger market presence.
-        </h2>
-        <p>
-          We serves businesses, service providers, and growth-minded organizations that want to improve visibility, strengthen credibility, and create smarter marketing systems. We help clients move beyond scattered activity and build a clear path toward being seen, trusted, and chosen.
-        </p>
-      </div>
+  <p className="section-label gold">Industries We Serve</p>
+  <h2>
+    BrownHill works with organizations that need stronger visibility, clearer
+    messaging, better brand management, and more disciplined marketing systems.
+  </h2>
+  <p>
+    We serve healthcare and wellness brands, professional service firms, small
+    and mid-sized businesses, community-centered organizations, Black-owned and
+    diverse businesses, and corporate or institutional brands that want to grow
+    with more strategy, credibility, and market clarity.
+  </p>
+</div>
 
       <div className="tag-grid">
         {industries.map((industry) => (
@@ -772,7 +824,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
       onClick={() => setChatOpen((open) => !open)}
     >
       <Bot size={24} />
-      <span>Ask BrownHill AI</span>
+      <span>Ask Michael</span>
     </button>
   </div>
 
