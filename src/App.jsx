@@ -368,16 +368,13 @@ return ( <main className="site"> <section className="hero"> <div className="glow
   </div>
 
   <div className="nav-links">
-
-  <div className="nav-links">
-        <a href="#firm">The Firm</a>
-        <a href="#services">Capabilities</a>
-        <a href="#process">Method</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
+    <a href="#firm">The Firm</a>
+    <a href="#services">Capabilities</a>
+    <a href="#process">Method</a>
+    <a href="#case-studies">Case Studies</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
     <div className="hero-grid">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
