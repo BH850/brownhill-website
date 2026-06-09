@@ -581,7 +581,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
           We help organizations who are looking to grow with clarity, strategy, and stronger market presence.
         </h2>
         <p>
-          BrownHill serves businesses, service providers, and growth-minded organizations that want to improve visibility, strengthen credibility, and create smarter marketing systems. We help clients move beyond scattered activity and build a clear path toward being seen, trusted, and chosen.
+          We serves businesses, service providers, and growth-minded organizations that want to improve visibility, strengthen credibility, and create smarter marketing systems. We help clients move beyond scattered activity and build a clear path toward being seen, trusted, and chosen.
         </p>
       </div>
 
@@ -598,7 +598,7 @@ return ( <main className="site"> <section className="hero"> <div className="glow
       <p className="section-label">Case Study Frameworks</p>
       <h2>How BrownHill turns marketing problems into growth systems.</h2>
       <p>
-        These examples show the type of strategic work BrownHill builds for organizations that need stronger visibility, clearer messaging, and a more disciplined path to customer acquisition.
+        These examples show the type of strategic work we build for organizations that need stronger visibility, clearer messaging, and a more disciplined path to customer acquisition.
       </p>
     </div>
 
