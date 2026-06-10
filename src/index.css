@@ -1032,3 +1032,189 @@ footer {
   color: #fff7e6;
   border-color: #170c07;
 }
+/* AUTO THEME + LIGHT MODE READABILITY FIX */
+
+.site {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.14);
+  color: inherit;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Light mode base */
+.theme-light {
+  background: #fffaf3 !important;
+  color: #170c07 !important;
+}
+
+.theme-light .hero {
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.24), transparent 34%),
+    linear-gradient(135deg, #fffaf3 0%, #f4dfbd 52%, #fff7e6 100%) !important;
+  color: #170c07 !important;
+}
+
+/* Make main text readable in light mode */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light p,
+.theme-light a,
+.theme-light span,
+.theme-light label,
+.theme-light li {
+  color: #170c07 !important;
+}
+
+.theme-light .hero-copy,
+.theme-light .section p,
+.theme-light .card p,
+.theme-light .proof-card p,
+.theme-light .step-card p,
+.theme-light .hero-card-copy,
+.theme-light .case-card p,
+.theme-light .contact-list p {
+  color: rgba(23, 12, 7, 0.76) !important;
+}
+
+/* Section backgrounds */
+.theme-light .cream {
+  background: #fff7e6 !important;
+  color: #170c07 !important;
+}
+
+.theme-light .white {
+  background: #ffffff !important;
+  color: #170c07 !important;
+}
+
+.theme-light .dark {
+  background:
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.18), transparent 34%),
+    linear-gradient(135deg, #fff1d6 0%, #f1d4a3 52%, #fffaf3 100%) !important;
+  color: #170c07 !important;
+}
+
+/* Navigation */
+.theme-light .nav {
+  background: rgba(255, 250, 243, 0.88) !important;
+  border-color: rgba(23, 12, 7, 0.12) !important;
+}
+
+.theme-light .nav-links a,
+.theme-light .brand-subtitle {
+  color: #170c07 !important;
+}
+
+/* Cards and panels */
+.theme-light .hero-card,
+.theme-light .card,
+.theme-light .proof-card,
+.theme-light .step-card,
+.theme-light .founder-panel,
+.theme-light .contact-form,
+.theme-light .video-card {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #170c07 !important;
+  border-color: rgba(23, 12, 7, 0.12) !important;
+}
+
+.theme-light .case-card {
+  background: #fffaf3 !important;
+  color: #170c07 !important;
+  border-color: rgba(23, 12, 7, 0.12) !important;
+}
+
+/* Tags and labels */
+.theme-light .tag-grid span {
+  background: rgba(23, 12, 7, 0.06) !important;
+  color: #170c07 !important;
+  border-color: rgba(23, 12, 7, 0.12) !important;
+}
+
+.theme-light .section-label,
+.theme-light .section-label.gold,
+.theme-light .case-category,
+.theme-light .slide-label {
+  color: #9a5f00 !important;
+}
+
+/* Buttons */
+.theme-light .button.primary {
+  background: #170c07 !important;
+  color: #fff7e6 !important;
+}
+
+.theme-light .button.primary svg {
+  color: #fff7e6 !important;
+}
+
+.theme-light .button.secondary {
+  background: rgba(23, 12, 7, 0.06) !important;
+  color: #170c07 !important;
+  border-color: rgba(23, 12, 7, 0.16) !important;
+}
+
+.theme-light .theme-toggle {
+  background: #170c07 !important;
+  color: #fff7e6 !important;
+  border-color: #170c07 !important;
+}
+
+/* Slider dots */
+.theme-light .slider-dots button {
+  background: rgba(23, 12, 7, 0.22) !important;
+}
+
+.theme-light .slider-dots button.active {
+  background: #9a5f00 !important;
+}
+
+/* Form fields */
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  background: #ffffff !important;
+  color: #170c07 !important;
+  border-color: rgba(23, 12, 7, 0.16) !important;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: rgba(23, 12, 7, 0.45) !important;
+}
+
+/* Chat widget */
+.theme-light .ai-chat-panel {
+  background: #fff7e6 !important;
+  color: #170c07 !important;
+}
+
+.theme-light .ai-chat-header {
+  background: #170c07 !important;
+}
+
+.theme-light .ai-chat-header p,
+.theme-light .ai-chat-header span,
+.theme-light .ai-chat-header button {
+  color: #fff7e6 !important;
+}
+
+.theme-light .chat-bubble.assistant {
+  background: #f1dfc0 !important;
+  color: #170c07 !important;
+}
+
+.theme-light .chat-bubble.user {
+  background: #170c07 !important;
+  color: #fff7e6 !important;
+}
