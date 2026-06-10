@@ -363,14 +363,15 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
 
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [theme, setTheme] = useState("dark");
+ const [themeMode, setThemeMode] = useState("auto");
+const [effectiveTheme, setEffectiveTheme] = useState("dark");
   const [submitted, setSubmitted] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
-      text: "Hi, I’m Edna — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
+      text: "Hi, I’m  — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
     },
   ]);
 
@@ -381,7 +382,25 @@ export default function App() {
 
     return () => clearInterval(timer);
   }, []);
+useEffect(() => {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+  function updateTheme() {
+    if (themeMode === "auto") {
+      setEffectiveTheme(mediaQuery.matches ? "dark" : "light");
+    } else {
+      setEffectiveTheme(themeMode);
+    }
+  }
+
+  updateTheme();
+
+  mediaQuery.addEventListener("change", updateTheme);
+
+  return () => {
+    mediaQuery.removeEventListener("change", updateTheme);
+  };
+}, [themeMode]);
   function handleChatSubmit(event) {
     event.preventDefault();
 
@@ -402,7 +421,7 @@ export default function App() {
   }
 
   return (
-    <main className={`site theme-${theme}`}>
+    <main className={`site theme-${effectiveTheme}`}>
       <section className="hero">
         <div className="glow glow-left" />
         <div className="glow glow-right" />
@@ -428,15 +447,21 @@ export default function App() {
             <a href="#case-studies">Case Studies</a>
             <a href="#contact">Contact</a>
 
-            <button
-              type="button"
-              className="theme-toggle"
-              onClick={() =>
-                setTheme((current) => (current === "dark" ? "light" : "dark"))
-              }
-            >
-              {theme === "dark" ? "Light" : "Dark"}
-            </button>
+<button
+  type="button"
+  className="theme-toggle"
+  onClick={() =>
+   setThemeMode((current) =>
+      current === "auto" ? "light" : current === "light" ? "dark" : "auto"
+    )
+  }
+>
+  {themeMode === "auto"
+    ? `Auto: ${effectiveTheme === "dark" ? "Dark" : "Light"}`
+    : themeMode === "light"
+    ? "Light"
+    : "Dark"}
+</button>
           </div>
         </nav>
 
