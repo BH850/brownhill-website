@@ -1616,3 +1616,23 @@ footer {
     padding: 8px 10px;
   }
 }
+/* AI LAB LIGHT MODE READABILITY FIX */
+.theme-light .ai-lab-section,
+.theme-light .ai-lab-section h2,
+.theme-light .ai-lab-section h3,
+.theme-light .ai-lab-section p,
+.theme-light .ai-lab-section span {
+  color: #fff7e6 !important;
+}
+
+.theme-light .ai-lab-section .section-label.gold,
+.theme-light .ai-feature-tags span,
+.theme-light .ai-marquee-track span {
+  color: #f7d774 !important;
+}
+
+.theme-light .ai-feature-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
