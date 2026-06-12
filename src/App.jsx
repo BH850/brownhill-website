@@ -1092,8 +1092,7 @@ export default function App() {
             <div className="section-cta-row">
               <ButtonLink href="#contact">Work With Us</ButtonLink>
               <button type="button" className="button secondary" onClick={startDiagnostic}>
-                Start Diagnostic <ArrowRight size={20} />
-              </button>
+Start Free Diagnostic <ArrowRight size={20} />              </button>
             </div>
           </div>
 
