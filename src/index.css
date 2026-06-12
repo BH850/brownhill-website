@@ -9145,3 +9145,210 @@ button.button.secondary svg {
     line-height: 1.6;
   }
 }
+/* INTERACTIVE LOGO / AI SIGNAL ACTIVATION */
+
+.interactive-brand {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+}
+
+.brand-logo-shell {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.interactive-brand .brand-logo {
+  position: relative;
+  z-index: 2;
+  transition:
+    transform 0.28s ease,
+    filter 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.interactive-brand:hover .brand-logo,
+.interactive-brand.active .brand-logo {
+  transform: scale(1.06) rotate(-2deg);
+  filter:
+    drop-shadow(0 0 12px rgba(251, 191, 36, 0.45))
+    drop-shadow(0 0 28px rgba(251, 191, 36, 0.22));
+}
+
+.brand-logo-shell::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0);
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.interactive-brand:hover .brand-logo-shell::before,
+.interactive-brand.active .brand-logo-shell::before {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(251, 191, 36, 0.45);
+  animation: logoRingPulse 1.8s ease-in-out infinite;
+}
+
+.logo-orbit-dot {
+  position: absolute;
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.75);
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.interactive-brand:hover .logo-orbit-dot,
+.interactive-brand.active .logo-orbit-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dot-one {
+  top: 4px;
+  left: 50%;
+  animation: logoFloatOne 2.8s ease-in-out infinite;
+}
+
+.dot-two {
+  right: 2px;
+  top: 50%;
+  animation: logoFloatTwo 3.1s ease-in-out infinite;
+}
+
+.dot-three {
+  bottom: 4px;
+  left: 50%;
+  animation: logoFloatThree 2.9s ease-in-out infinite;
+}
+
+.dot-four {
+  left: 2px;
+  top: 50%;
+  animation: logoFloatFour 3.2s ease-in-out infinite;
+}
+
+.brand-text-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.interactive-brand .brand-subtitle {
+  display: block;
+}
+
+.logo-ai-status {
+  width: fit-content;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.13);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  color: #fbbf24;
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease;
+}
+
+.interactive-brand.active .logo-ai-status,
+.interactive-brand:hover .logo-ai-status {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes logoRingPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.22);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(251, 191, 36, 0);
+  }
+}
+
+@keyframes logoFloatOne {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -6px) scale(1.15);
+  }
+}
+
+@keyframes logoFloatTwo {
+  0%,
+  100% {
+    transform: translate(0, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(6px, -50%) scale(1.15);
+  }
+}
+
+@keyframes logoFloatThree {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, 6px) scale(1.15);
+  }
+}
+
+@keyframes logoFloatFour {
+  0%,
+  100% {
+    transform: translate(0, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-6px, -50%) scale(1.15);
+  }
+}
+
+/* MOBILE LOGO CLEANUP */
+
+@media (max-width: 640px) {
+  .interactive-brand {
+    gap: 10px;
+  }
+
+  .logo-ai-status {
+    font-size: 0.54rem;
+    padding: 5px 7px;
+  }
+}
