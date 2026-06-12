@@ -9667,3 +9667,438 @@ button.button.secondary svg {
     letter-spacing: 0.1em;
   }
 }
+/* =========================================================
+   LATEST INDEX.CSS UPDATE
+   Interactive Logo + Scroll Home Button + Founder/Careers
+   Paste at the VERY BOTTOM of src/index.css
+========================================================= */
+
+/* SCROLLING NAV / LOGO HOME BUTTON */
+
+.editorial-nav {
+  transition:
+    top 0.3s ease,
+    width 0.3s ease,
+    padding 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.editorial-nav.nav-scrolled {
+  position: fixed !important;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  width: min(1120px, calc(100% - 28px));
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(23, 12, 7, 0.78);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.editorial-nav.nav-scrolled .nav-links a {
+  font-size: 0.72rem;
+}
+
+/* PREMIUM AI LOGO ANIMATION */
+
+.interactive-brand {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  isolation: isolate;
+}
+
+.brand-logo-shell {
+  position: relative;
+  width: clamp(72px, 7vw, 96px);
+  height: clamp(72px, 7vw, 96px);
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  isolation: isolate;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.interactive-brand .brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 4;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.brand-logo-shell::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 999px;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(251, 191, 36, 0.85),
+      transparent,
+      rgba(255, 247, 230, 0.45),
+      transparent
+    );
+  opacity: 0;
+  transform: scale(0.9) rotate(0deg);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  animation: logoAISpin 3.8s linear infinite;
+  z-index: 1;
+}
+
+.brand-logo-shell::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(23, 12, 7, 0.08), rgba(23, 12, 7, 0.78));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.interactive-brand:hover .brand-logo,
+.interactive-brand.active .brand-logo {
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 0 10px rgba(251, 191, 36, 0.5))
+    drop-shadow(0 0 26px rgba(251, 191, 36, 0.24));
+}
+
+.interactive-brand:hover .brand-logo-shell::before,
+.interactive-brand.active .brand-logo-shell::before {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+}
+
+.interactive-brand:hover .brand-logo-shell::after,
+.interactive-brand.active .brand-logo-shell::after {
+  opacity: 1;
+}
+
+/* Orbiting AI dots */
+
+.logo-orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow:
+    0 0 10px rgba(251, 191, 36, 0.95),
+    0 0 22px rgba(251, 191, 36, 0.45);
+  opacity: 0;
+  z-index: 5;
+  transform:
+    rotate(var(--angle))
+    translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+    rotate(calc(var(--angle) * -1))
+    scale(0.65);
+  transition: opacity 0.25s ease;
+}
+
+.interactive-brand:hover .logo-orbit-dot,
+.interactive-brand.active .logo-orbit-dot {
+  opacity: 1;
+  animation: logoNodeOrbit 4.2s linear infinite;
+}
+
+.dot-one {
+  --angle: 0deg;
+  animation-delay: 0s;
+}
+
+.dot-two {
+  --angle: 90deg;
+  animation-delay: -1s;
+}
+
+.dot-three {
+  --angle: 180deg;
+  animation-delay: -2s;
+}
+
+.dot-four {
+  --angle: 270deg;
+  animation-delay: -3s;
+}
+
+/* Logo text/status */
+
+.brand-text-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.interactive-brand .brand-subtitle {
+  display: block;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.logo-ai-status {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(251, 191, 36, 0.18),
+      rgba(251, 191, 36, 0.06)
+    );
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    font-size 0.25s ease;
+}
+
+.interactive-brand:hover .brand-subtitle,
+.interactive-brand.active .brand-subtitle {
+  color: #fbbf24;
+}
+
+.interactive-brand:hover .logo-ai-status,
+.interactive-brand.active .logo-ai-status {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrolled compact logo */
+
+.interactive-brand.logo-scrolled {
+  gap: 10px;
+}
+
+.interactive-brand.logo-scrolled .brand-logo-shell {
+  width: 58px;
+  height: 58px;
+}
+
+.interactive-brand.logo-scrolled .brand-subtitle {
+  font-size: 0.56rem;
+  letter-spacing: 0.13em;
+  max-width: 180px;
+}
+
+.interactive-brand.logo-scrolled .logo-ai-status {
+  font-size: 0.5rem;
+  padding: 5px 7px;
+}
+
+.interactive-brand.logo-scrolled::after {
+  content: "Home";
+  position: absolute;
+  left: 12px;
+  bottom: -18px;
+  color: rgba(255, 247, 230, 0.7);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.interactive-brand.logo-scrolled:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo animations */
+
+.interactive-brand.active .brand-logo-shell {
+  animation: logoActivationBump 0.75s ease;
+}
+
+@keyframes logoAISpin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes logoNodeOrbit {
+  from {
+    transform:
+      rotate(var(--angle))
+      translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+      rotate(calc(var(--angle) * -1))
+      scale(1);
+  }
+
+  to {
+    transform:
+      rotate(calc(var(--angle) + 360deg))
+      translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+      rotate(calc((var(--angle) + 360deg) * -1))
+      scale(1);
+  }
+}
+
+@keyframes logoActivationBump {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* FOUNDER BIO + CAREERS SECTION */
+
+.founder-bio-section {
+  position: relative;
+}
+
+.bio-signature {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 247, 230, 0.07);
+  border: 1px solid rgba(251, 191, 36, 0.18);
+}
+
+.bio-signature span {
+  display: block;
+  color: #fbbf24;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.bio-signature p {
+  margin: 4px 0 0;
+  color: rgba(255, 247, 230, 0.72);
+}
+
+.careers-section {
+  position: relative;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 26px;
+}
+
+.career-tags span {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.career-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fbbf24;
+  font-weight: 950;
+}
+
+.career-link:hover {
+  color: #fff7e6;
+}
+
+/* MOBILE FIXES */
+
+@media (max-width: 980px) {
+  .editorial-nav.nav-scrolled {
+    top: 10px;
+    width: calc(100% - 20px);
+    border-radius: 26px;
+    padding: 10px 12px;
+  }
+
+  .interactive-brand.logo-scrolled .brand-logo-shell {
+    width: 54px;
+    height: 54px;
+  }
+
+  .interactive-brand.logo-scrolled .brand-subtitle {
+    max-width: 150px;
+    font-size: 0.5rem;
+  }
+
+  .interactive-brand.logo-scrolled::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .editorial-nav.nav-scrolled {
+    border-radius: 22px;
+  }
+
+  .interactive-brand {
+    gap: 10px;
+  }
+
+  .brand-logo-shell {
+    width: 72px;
+    height: 72px;
+  }
+
+  .interactive-brand.logo-scrolled .brand-logo-shell {
+    width: 50px;
+    height: 50px;
+  }
+
+  .interactive-brand.logo-scrolled .logo-ai-status {
+    display: none;
+  }
+
+  .logo-orbit-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .logo-ai-status {
+    font-size: 0.52rem;
+    padding: 5px 7px;
+    letter-spacing: 0.1em;
+  }
+}
