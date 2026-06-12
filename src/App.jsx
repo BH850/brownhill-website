@@ -371,7 +371,7 @@ const [effectiveTheme, setEffectiveTheme] = useState("dark");
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
-      text: "Hi, I’m  — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
+      text: "Hi, I’m Edna  — your AI assistant. Ask me about SEO, branding, advertising, lead generation, or how we can help your organization grow.",
     },
   ]);
 
