@@ -13,11 +13,8 @@ import {
   Menu,
   MessageSquareText,
   Phone,
-  Search,
   Send,
-  ShieldCheck,
   Sparkles,
-  Target,
   TrendingUp,
   X,
 } from "lucide-react";
@@ -56,6 +53,33 @@ const marqueeWords = [
   "STORYTELLING",
   "ANALYTICS",
   "GROWTH",
+];
+
+const intelligenceEngine = [
+  {
+    label: "Signal",
+    title: "Read the market",
+    text:
+      "We look at search demand, audience behavior, brand perception, content gaps, and lead-flow signals.",
+  },
+  {
+    label: "Story",
+    title: "Shape the message",
+    text:
+      "We turn the signal into positioning, campaign angles, creative direction, and brand voice.",
+  },
+  {
+    label: "System",
+    title: "Build the path",
+    text:
+      "We connect the message to content, SEO, landing pages, calls-to-action, and follow-up.",
+  },
+  {
+    label: "Scale",
+    title: "Improve the growth loop",
+    text:
+      "We use performance data and AI-assisted workflows to refine what works and remove what does not.",
+  },
 ];
 
 const povCards = [
@@ -502,6 +526,7 @@ export default function App() {
           </button>
 
           <div className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
+            <a href="#engine" onClick={closeMobileMenu}>Engine</a>
             <a href="#pov" onClick={closeMobileMenu}>POV</a>
             <a href="#work" onClick={closeMobileMenu}>Work</a>
             <a href="#studio" onClick={closeMobileMenu}>Studio</a>
@@ -553,6 +578,55 @@ export default function App() {
           ))}
         </div>
       </div>
+
+      <section id="engine" className="section editorial-section intelligence-engine-section">
+        <div className="editorial-two-col">
+          <div>
+            <p className="section-label gold">Creative Intelligence Engine</p>
+            <h2>The work has a system behind it.</h2>
+          </div>
+
+          <div>
+            <p className="large-editorial-copy">
+              Creativity gets attention. Intelligence gives it direction.
+            </p>
+            <p>
+              The engine is how we turn culture, AI, search behavior, audience
+              insight, and performance data into marketing that feels sharp and
+              moves with purpose.
+            </p>
+          </div>
+        </div>
+
+        <div className="engine-wrap">
+          <div className="engine-visual">
+            <div className="engine-orbit orbit-one" />
+            <div className="engine-orbit orbit-two" />
+            <div className="engine-orbit orbit-three" />
+
+            <div className="engine-core">
+              <Sparkles size={42} />
+              <p>BROWNHILL</p>
+              <span>Creative Signal Engine</span>
+            </div>
+
+            <div className="engine-chip chip-signal">Signal</div>
+            <div className="engine-chip chip-story">Story</div>
+            <div className="engine-chip chip-system">System</div>
+            <div className="engine-chip chip-scale">Scale</div>
+          </div>
+
+          <div className="engine-steps">
+            {intelligenceEngine.map((step) => (
+              <div key={step.label} className="engine-step-card">
+                <span>{step.label}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="pov" className="section editorial-section">
         <div className="editorial-two-col">
