@@ -290,6 +290,7 @@ export default function App() {
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoActive, setLogoActive] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
 
   const [activeStudioTool, setActiveStudioTool] = useState("Campaign Generator");
   const [campaignIndustry, setCampaignIndustry] = useState("Professional Services");
@@ -390,6 +391,17 @@ export default function App() {
   }, [logoActive]);
 
   useEffect(() => {
+    function handleScroll() {
+      setNavScrolled(window.scrollY > 80);
+    }
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     if (chatOpen) {
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
@@ -411,6 +423,16 @@ export default function App() {
 
   function closeMobileMenu() {
     setMobileMenuOpen(false);
+  }
+
+  function handleLogoClick() {
+    setLogoActive(true);
+    setMobileMenuOpen(false);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   function startDiagnostic() {
@@ -539,12 +561,14 @@ export default function App() {
         <div className="glow glow-left" />
         <div className="glow glow-right" />
 
-        <nav className="nav editorial-nav">
+        <nav className={`nav editorial-nav ${navScrolled ? "nav-scrolled" : ""}`}>
           <button
             type="button"
-            className={`brand interactive-brand ${logoActive ? "active" : ""}`}
-            onClick={() => setLogoActive((active) => !active)}
-            aria-label="Activate BrownHill Creative Intelligence logo"
+            className={`brand interactive-brand ${logoActive ? "active" : ""} ${
+              navScrolled ? "logo-scrolled" : ""
+            }`}
+            onClick={handleLogoClick}
+            aria-label="Go to homepage"
           >
             <span className="brand-logo-shell">
               <img
