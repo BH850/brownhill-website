@@ -5,11 +5,13 @@ import {
   ArrowRight,
   BarChart3,
   Bot,
+  BrainCircuit,
   Building2,
   CheckCircle2,
   ClipboardCheck,
   Compass,
   FileSearch,
+  Gauge,
   Globe2,
   Layers,
   Lightbulb,
@@ -26,6 +28,9 @@ import {
   Target,
   TrendingUp,
   Users,
+  WandSparkles,
+  Workflow,
+  Zap,
 } from "lucide-react";
 
 const corePillars = [
@@ -192,7 +197,9 @@ const practiceAreas = [
 
 const relatedCapabilities = [
   "AI Marketing Systems",
+  "AI Brand Voice Training",
   "Animated Website Experiences",
+  "AI Content Engines",
   "Competitive Analysis",
   "Customer Journey Mapping",
   "Google Business Profile Optimization",
@@ -239,12 +246,12 @@ const process = [
   {
     title: "AI-Assisted Research & Market Intelligence",
     description:
-      "We review search demand, social presence, customer behavior, competitor positioning, local market signals, content gaps, AI-driven insights, and opportunities for differentiation.",
+      "We review search demand, social presence, customer behavior, competitor positioning, local market signals, content gaps, AI-assisted insights, and opportunities for differentiation.",
   },
   {
     title: "Strategy & Positioning Blueprint",
     description:
-      "We define the market position, messaging framework, audience priorities, recommended channels, campaign direction, and growth priorities.",
+      "We define the market position, messaging framework, audience priorities, recommended channels, campaign direction, AI workflow opportunities, and growth priorities.",
   },
   {
     title: "Asset, Campaign & System Buildout",
@@ -447,6 +454,33 @@ const aiBlueprints = {
   },
 };
 
+const aiModules = [
+  {
+    icon: BrainCircuit,
+    title: "AI Brand Brain",
+    description:
+      "A brand intelligence layer that organizes voice, message, audience, objections, offers, content themes, and campaign direction.",
+  },
+  {
+    icon: Workflow,
+    title: "AI Content Engine",
+    description:
+      "A repeatable system for turning strategy into social posts, email ideas, blog topics, landing page copy, video scripts, and ad concepts.",
+  },
+  {
+    icon: Gauge,
+    title: "AI Growth Dashboard",
+    description:
+      "A performance layer that helps leaders understand visibility, lead flow, content output, campaign movement, and optimization priorities.",
+  },
+  {
+    icon: WandSparkles,
+    title: "AI Creative Studio",
+    description:
+      "A creative support system for campaign angles, visual direction, animation concepts, brand moments, and unforgettable digital experiences.",
+  },
+];
+
 const quickPrompts = [
   "How can BrownHill improve my SEO?",
   "Help me clarify my brand message.",
@@ -474,8 +508,6 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
 
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [themeMode, setThemeMode] = useState("auto");
-  const [effectiveTheme, setEffectiveTheme] = useState("dark");
   const [submitted, setSubmitted] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState("");
@@ -483,6 +515,16 @@ export default function App() {
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [activeBlueprint, setActiveBlueprint] = useState("Visibility");
   const [activeAiFeature, setActiveAiFeature] = useState(aiFeatures[0].title);
+  const [scannerGoal, setScannerGoal] = useState("Visibility");
+  const [scannerStage, setScannerStage] = useState("Growing");
+  const [scannerChannel, setScannerChannel] = useState("Website");
+  const [chatHistory, setChatHistory] = useState([
+    {
+      sender: "assistant",
+      text:
+        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, animation, or how BrownHill can help your organization grow.",
+    },
+  ]);
 
   const chatEndRef = useRef(null);
   const typingTimerRef = useRef(null);
@@ -492,13 +534,20 @@ export default function App() {
     aiFeatures.find((feature) => feature.title === activeAiFeature) ||
     aiFeatures[0];
 
-  const [chatHistory, setChatHistory] = useState([
-    {
-      sender: "assistant",
-      text:
-        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, animation, or how BrownHill can help your organization grow.",
-    },
-  ]);
+  const scannerScore =
+    68 +
+    (scannerGoal === "Revenue" ? 14 : scannerGoal === "Brand" ? 10 : 8) +
+    (scannerStage === "Scaling" ? 8 : scannerStage === "Established" ? 6 : 4) +
+    (scannerChannel === "AI Systems" ? 8 : scannerChannel === "Website" ? 6 : 5);
+
+  const scannerRecommendation =
+    scannerGoal === "Revenue"
+      ? "Focus on offer clarity, landing pages, CRM follow-up, ad messaging, and lead-source reporting."
+      : scannerGoal === "Brand"
+      ? "Focus on positioning, brand voice, customer perception, visual consistency, storytelling, and animated digital moments."
+      : "Focus on SEO, local visibility, website structure, content mapping, and Google Business Profile improvements.";
+
+  const generatedPrompt = `Create a ${scannerGoal.toLowerCase()} marketing plan for a ${scannerStage.toLowerCase()} organization using ${scannerChannel.toLowerCase()} as the primary growth channel. Include audience insight, brand messaging, campaign ideas, AI-assisted workflows, lead generation steps, and performance metrics.`;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -507,26 +556,6 @@ export default function App() {
 
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    function updateTheme() {
-      if (themeMode === "auto") {
-        setEffectiveTheme(mediaQuery.matches ? "dark" : "light");
-      } else {
-        setEffectiveTheme(themeMode);
-      }
-    }
-
-    updateTheme();
-
-    mediaQuery.addEventListener("change", updateTheme);
-
-    return () => {
-      mediaQuery.removeEventListener("change", updateTheme);
-    };
-  }, [themeMode]);
 
   useEffect(() => {
     if (chatOpen) {
@@ -649,7 +678,7 @@ export default function App() {
   }
 
   return (
-    <main className={`site theme-${effectiveTheme}`}>
+    <main className="site theme-dark">
       <section className="hero">
         <div className="glow glow-left" />
         <div className="glow glow-right" />
@@ -675,26 +704,6 @@ export default function App() {
             <a href="#process">Method</a>
             <a href="#case-studies">Case Studies</a>
             <a href="#contact">Contact</a>
-
-            <button
-              type="button"
-              className="theme-toggle"
-              onClick={() =>
-                setThemeMode((current) =>
-                  current === "auto"
-                    ? "light"
-                    : current === "light"
-                    ? "dark"
-                    : "auto"
-                )
-              }
-            >
-              {themeMode === "auto"
-                ? `Auto: ${effectiveTheme === "dark" ? "Dark" : "Light"}`
-                : themeMode === "light"
-                ? "Light"
-                : "Dark"}
-            </button>
           </div>
         </nav>
 
@@ -873,11 +882,11 @@ export default function App() {
               act.
             </p>
             <p>
-              But BrownHill is not limited to culture alone. We combine cultural
-              understanding with marketing strategy, brand management, research,
-              analytics, digital visibility, advertising, content, AI, animation,
-              and lead generation to help organizations build stronger market
-              presence and more disciplined growth systems.
+              BrownHill combines cultural understanding with marketing strategy,
+              brand management, research, analytics, digital visibility,
+              advertising, content, AI, animation, and lead generation to help
+              organizations build stronger market presence and more disciplined
+              growth systems.
             </p>
           </div>
 
@@ -1055,6 +1064,89 @@ export default function App() {
           </div>
         </div>
 
+        <div className="ai-module-grid">
+          {aiModules.map((module) => {
+            const Icon = module.icon;
+
+            return (
+              <div key={module.title} className="ai-module-card">
+                <Icon size={30} />
+                <h3>{module.title}</h3>
+                <p>{module.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="ai-scanner">
+          <div>
+            <p className="ai-insight-label">AI Readiness Scanner</p>
+            <h3>Build a smarter marketing starting point.</h3>
+            <p>
+              Select a growth priority, business stage, and primary channel.
+              BrownHill’s scanner creates a simple strategy signal for where the
+              organization should focus first.
+            </p>
+          </div>
+
+          <div className="scanner-controls">
+            <label>
+              Growth Priority
+              <select
+                value={scannerGoal}
+                onChange={(event) => setScannerGoal(event.target.value)}
+              >
+                <option>Visibility</option>
+                <option>Brand</option>
+                <option>Revenue</option>
+              </select>
+            </label>
+
+            <label>
+              Business Stage
+              <select
+                value={scannerStage}
+                onChange={(event) => setScannerStage(event.target.value)}
+              >
+                <option>Growing</option>
+                <option>Established</option>
+                <option>Scaling</option>
+              </select>
+            </label>
+
+            <label>
+              Primary Channel
+              <select
+                value={scannerChannel}
+                onChange={(event) => setScannerChannel(event.target.value)}
+              >
+                <option>Website</option>
+                <option>Social Media</option>
+                <option>Advertising</option>
+                <option>AI Systems</option>
+              </select>
+            </label>
+          </div>
+
+          <div className="scanner-output">
+            <div className="ai-score-ring scanner-score">
+              <span>{scannerScore}</span>
+              <small>Readiness</small>
+            </div>
+
+            <div>
+              <p className="ai-insight-label">Recommendation</p>
+              <h3>{scannerGoal} Priority</h3>
+              <p>{scannerRecommendation}</p>
+
+              <div className="generated-prompt">
+                <p className="ai-insight-label">Generated AI Strategy Prompt</p>
+                <p>{generatedPrompt}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="ai-marquee">
           <div className="ai-marquee-track">
             {[...aiSignals, ...aiSignals, ...aiSignals].map((signal, index) => (
@@ -1120,8 +1212,8 @@ export default function App() {
           <h2>Flexible ways to work with BrownHill.</h2>
           <p>
             Our firm can serve as a strategic advisor, project partner, campaign
-            resource, or ongoing marketing growth firm depending on the client’s
-            stage and needs.
+            resource, AI implementation partner, or ongoing marketing growth firm
+            depending on the client’s stage and needs.
           </p>
         </div>
 
@@ -1229,7 +1321,7 @@ export default function App() {
               <Users size={24} /> Audience Development
             </p>
             <p>
-              <TrendingUp size={24} /> Revenue Growth
+              <Zap size={24} /> AI Growth Systems
             </p>
           </div>
         </div>
