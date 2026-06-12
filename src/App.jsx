@@ -6,12 +6,10 @@ import {
   BarChart3,
   Bot,
   CheckCircle2,
-  FileSearch,
   Globe2,
-  Lightbulb,
   Mail,
   MapPin,
-  Megaphone,
+  Menu,
   MessageSquareText,
   Phone,
   Search,
@@ -20,7 +18,7 @@ import {
   Sparkles,
   Target,
   TrendingUp,
-  Users,
+  X,
 } from "lucide-react";
 
 const heroSlides = [
@@ -236,13 +234,7 @@ const campaignGoals = [
   "Grow Local Awareness",
 ];
 
-const campaignChannels = [
-  "Website",
-  "Social Media",
-  "Email",
-  "Paid Ads",
-  "Local SEO",
-];
+const campaignChannels = ["Website", "Social Media", "Email", "Paid Ads", "Local SEO"];
 
 const voiceTraits = [
   "Professional",
@@ -271,6 +263,7 @@ function getPackageRecommendation(profile) {
 
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [activePath, setActivePath] = useState("Visibility");
   const [scannerStage, setScannerStage] = useState("Growing");
@@ -328,12 +321,12 @@ export default function App() {
     campaignGoal === "Generate Leads"
       ? `Stop losing qualified ${campaignAudience} because your message is unclear.`
       : campaignGoal === "Increase Visibility"
-      ? `Your audience is already searching. The question is whether your brand is showing up.`
+      ? "Your audience is already searching. The question is whether your brand is showing up."
       : campaignGoal === "Improve Brand Trust"
-      ? `Trust is built before the first conversation starts.`
+      ? "Trust is built before the first conversation starts."
       : campaignGoal === "Launch a New Offer"
-      ? `A strong launch needs more than an announcement — it needs a reason to care.`
-      : `Local growth starts when your community knows why you matter.`;
+      ? "A strong launch needs more than an announcement — it needs a reason to care."
+      : "Local growth starts when your community knows why you matter.";
 
   const campaignCTA =
     campaignGoal === "Generate Leads"
@@ -360,7 +353,7 @@ export default function App() {
   const contentIdeas = [
     `Post: 3 signs your ${contentIndustry} needs a stronger marketing system.`,
     `Email: Why your next ${contentOffer} should start with strategy, not guesswork.`,
-    `Video: A 30-second breakdown of the biggest visibility mistake in your industry.`,
+    "Video: A 30-second breakdown of the biggest visibility mistake in your industry.",
     `Blog: How AI can help a ${contentIndustry} create smarter content without sounding generic.`,
     `CTA: Book a ${contentOffer} to identify your next growth opportunity.`,
   ];
@@ -519,6 +512,10 @@ export default function App() {
     }, 700);
   }
 
+  function closeMobileMenu() {
+    setMobileMenuOpen(false);
+  }
+
   return (
     <main className="site theme-dark">
       <section className="hero">
@@ -537,14 +534,37 @@ export default function App() {
             </p>
           </div>
 
-          <div className="nav-links">
-            <a href="#firm">The Firm</a>
-            <a href="#ai-lab">AI Lab</a>
-            <a href="#command-center">AI Tools</a>
-            <a href="#growth">Growth Paths</a>
-            <a href="#packages">Packages</a>
-            <a href="#culture">Culture</a>
-            <a href="#contact">Contact</a>
+          <button
+            type="button"
+            className="mobile-menu-button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-label="Open menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <div className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
+            <a href="#firm" onClick={closeMobileMenu}>
+              The Firm
+            </a>
+            <a href="#ai-lab" onClick={closeMobileMenu}>
+              AI Lab
+            </a>
+            <a href="#command-center" onClick={closeMobileMenu}>
+              AI Tools
+            </a>
+            <a href="#growth" onClick={closeMobileMenu}>
+              Growth Paths
+            </a>
+            <a href="#packages" onClick={closeMobileMenu}>
+              Packages
+            </a>
+            <a href="#culture" onClick={closeMobileMenu}>
+              Culture
+            </a>
+            <a href="#contact" onClick={closeMobileMenu}>
+              Contact
+            </a>
           </div>
         </nav>
 
