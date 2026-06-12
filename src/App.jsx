@@ -583,7 +583,8 @@ export default function App() {
             <a href="#work" onClick={closeMobileMenu}>Work</a>
             <a href="#studio" onClick={closeMobileMenu}>Studio</a>
             <a href="#packages" onClick={closeMobileMenu}>Packages</a>
-            <a href="#culture" onClick={closeMobileMenu}>Culture</a>
+            <a href="#bio" onClick={closeMobileMenu}>Founder</a>
+            <a href="#careers" onClick={closeMobileMenu}>Careers</a>
             <a href="#contact" onClick={closeMobileMenu}>Contact</a>
           </div>
         </nav>
@@ -1065,7 +1066,7 @@ export default function App() {
       <section id="culture" className="section editorial-section dark-panel">
         <div className="editorial-two-col">
           <div>
-            <p className="section-label gold">Culture & Founder</p>
+            <p className="section-label gold">Culture & Firm</p>
             <h2>Built where culture, creativity, and strategy meet.</h2>
           </div>
 
@@ -1076,9 +1077,8 @@ export default function App() {
               storytelling, and measurable growth.
             </p>
             <p>
-              Founded by Michael Hill, the firm was created for brands tired of
-              random marketing and ready for work that connects visibility, trust,
-              creative identity, and revenue.
+              The firm was created for brands tired of random marketing and ready
+              for work that connects visibility, trust, creative identity, and revenue.
             </p>
 
             <div className="section-cta-row">
@@ -1091,6 +1091,74 @@ export default function App() {
                 Start Diagnostic <ArrowRight size={20} />
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bio" className="section editorial-section founder-bio-section">
+        <div className="editorial-two-col">
+          <div>
+            <p className="section-label gold">Founder’s Note</p>
+            <h2>Built by vision. Driven by culture.</h2>
+          </div>
+
+          <div>
+            <p className="large-editorial-copy">
+              Great marketing should make people feel seen, understood, and moved to act.
+            </p>
+
+            <p>
+              Founded by Michael Hill, BrownHill brings together strategy, culture,
+              creativity, media, and AI to help organizations become clearer, more
+              visible, and more trusted.
+            </p>
+
+            <p>
+              The work is rooted in discipline, storytelling, and the belief that
+              brands grow when they understand both the numbers and the people behind them.
+            </p>
+
+            <div className="bio-signature">
+              <span>Michael Hill</span>
+              <p>Founder, BrownHill Marketing & Media</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="careers" className="section editorial-section dark-panel careers-section">
+        <div className="editorial-two-col">
+          <div>
+            <p className="section-label gold">Future Collaborators</p>
+            <h2>We are building a creative network.</h2>
+          </div>
+
+          <div>
+            <p>
+              BrownHill is building a network of strategists, designers, writers,
+              media thinkers, AI builders, content creators, and growth-minded collaborators.
+            </p>
+
+            <p>
+              We are not hiring for full-time roles at this time, but we are always
+              open to connecting with talented people who believe in culture,
+              creativity, strategy, and measurable impact.
+            </p>
+
+            <div className="career-tags">
+              <span>Creative Strategy</span>
+              <span>Social Media</span>
+              <span>Content Production</span>
+              <span>Design</span>
+              <span>SEO</span>
+              <span>Paid Media</span>
+              <span>AI Marketing Systems</span>
+              <span>Brand Management</span>
+            </div>
+
+            <a className="career-link" href="#contact">
+              Connect for future opportunities <ArrowRight size={18} />
+            </a>
           </div>
         </div>
       </section>
