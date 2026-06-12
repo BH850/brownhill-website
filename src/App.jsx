@@ -8,11 +8,11 @@ import {
   CheckCircle2,
   FileSearch,
   Globe2,
-  Layers,
   Lightbulb,
   Mail,
   MapPin,
   Megaphone,
+  MessageSquareText,
   Phone,
   Search,
   Send,
@@ -219,6 +219,42 @@ const diagnosticQuestions = [
   },
 ];
 
+const industries = [
+  "Healthcare",
+  "Professional Services",
+  "Local Service Business",
+  "Nonprofit",
+  "Corporate Brand",
+  "Black-Owned Business",
+];
+
+const campaignGoals = [
+  "Increase Visibility",
+  "Generate Leads",
+  "Improve Brand Trust",
+  "Launch a New Offer",
+  "Grow Local Awareness",
+];
+
+const campaignChannels = [
+  "Website",
+  "Social Media",
+  "Email",
+  "Paid Ads",
+  "Local SEO",
+];
+
+const voiceTraits = [
+  "Professional",
+  "Bold",
+  "Warm",
+  "Premium",
+  "Community-centered",
+  "Culture-rooted",
+  "Clear",
+  "Strategic",
+];
+
 function ButtonLink({ children, variant = "primary", href = "#contact" }) {
   return (
     <a className={`button ${variant}`} href={href}>
@@ -240,6 +276,19 @@ export default function App() {
   const [scannerStage, setScannerStage] = useState("Growing");
   const [scannerChannel, setScannerChannel] = useState("Website");
   const [submitted, setSubmitted] = useState(false);
+
+  const [activeCommandTool, setActiveCommandTool] = useState("Campaign Generator");
+  const [campaignIndustry, setCampaignIndustry] = useState("Professional Services");
+  const [campaignGoal, setCampaignGoal] = useState("Generate Leads");
+  const [campaignChannel, setCampaignChannel] = useState("Social Media");
+  const [campaignAudience, setCampaignAudience] = useState("decision-makers");
+  const [contentOffer, setContentOffer] = useState("strategy consultation");
+  const [contentIndustry, setContentIndustry] = useState("service-based business");
+  const [selectedTraits, setSelectedTraits] = useState([
+    "Professional",
+    "Clear",
+    "Strategic",
+  ]);
 
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState("");
@@ -275,6 +324,53 @@ export default function App() {
 
   const currentQuestion = leadStep > 0 ? diagnosticQuestions[leadStep - 1] : null;
 
+  const campaignHook =
+    campaignGoal === "Generate Leads"
+      ? `Stop losing qualified ${campaignAudience} because your message is unclear.`
+      : campaignGoal === "Increase Visibility"
+      ? `Your audience is already searching. The question is whether your brand is showing up.`
+      : campaignGoal === "Improve Brand Trust"
+      ? `Trust is built before the first conversation starts.`
+      : campaignGoal === "Launch a New Offer"
+      ? `A strong launch needs more than an announcement — it needs a reason to care.`
+      : `Local growth starts when your community knows why you matter.`;
+
+  const campaignCTA =
+    campaignGoal === "Generate Leads"
+      ? "Schedule a strategy consultation."
+      : campaignGoal === "Increase Visibility"
+      ? "Request a visibility audit."
+      : campaignGoal === "Improve Brand Trust"
+      ? "Build your brand blueprint."
+      : campaignGoal === "Launch a New Offer"
+      ? "Plan your launch campaign."
+      : "Grow your local presence.";
+
+  const campaignMetrics =
+    campaignChannel === "Website"
+      ? ["Page visits", "CTA clicks", "Form submissions", "Conversion rate"]
+      : campaignChannel === "Social Media"
+      ? ["Reach", "Saves", "Profile visits", "Inbound messages"]
+      : campaignChannel === "Email"
+      ? ["Open rate", "Click rate", "Replies", "Booked calls"]
+      : campaignChannel === "Paid Ads"
+      ? ["Cost per lead", "CTR", "Landing page conversion", "Lead quality"]
+      : ["Local rankings", "Google actions", "Calls", "Direction requests"];
+
+  const contentIdeas = [
+    `Post: 3 signs your ${contentIndustry} needs a stronger marketing system.`,
+    `Email: Why your next ${contentOffer} should start with strategy, not guesswork.`,
+    `Video: A 30-second breakdown of the biggest visibility mistake in your industry.`,
+    `Blog: How AI can help a ${contentIndustry} create smarter content without sounding generic.`,
+    `CTA: Book a ${contentOffer} to identify your next growth opportunity.`,
+  ];
+
+  const brandVoiceProfile = selectedTraits.length
+    ? `Your brand voice should sound ${selectedTraits
+        .map((trait) => trait.toLowerCase())
+        .join(", ")}. BrownHill would translate this into website copy, social messaging, ad language, email tone, and campaign direction.`
+    : "Select a few traits to build a brand voice profile.";
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
@@ -294,6 +390,14 @@ export default function App() {
       if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
     };
   }, []);
+
+  function toggleTrait(trait) {
+    setSelectedTraits((traits) =>
+      traits.includes(trait)
+        ? traits.filter((item) => item !== trait)
+        : [...traits, trait]
+    );
+  }
 
   function startDiagnostic() {
     if (isTyping) return;
@@ -436,6 +540,7 @@ export default function App() {
           <div className="nav-links">
             <a href="#firm">The Firm</a>
             <a href="#ai-lab">AI Lab</a>
+            <a href="#command-center">AI Tools</a>
             <a href="#growth">Growth Paths</a>
             <a href="#packages">Packages</a>
             <a href="#culture">Culture</a>
@@ -480,8 +585,8 @@ export default function App() {
 
             <div className="button-row">
               <ButtonLink>Request Strategy Consultation</ButtonLink>
-              <ButtonLink variant="secondary" href="#ai-lab">
-                Explore AI Lab
+              <ButtonLink variant="secondary" href="#command-center">
+                Try AI Tools
               </ButtonLink>
             </div>
           </motion.div>
@@ -700,6 +805,181 @@ export default function App() {
               <p>{scannerRecommendation}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="command-center" className="section premium-dark">
+        <div className="centered wide">
+          <p className="section-label gold">BrownHill AI Command Center</p>
+          <h2>AI-driven marketing operations visitors can actually use.</h2>
+          <p>
+            Preview how BrownHill thinks through campaigns, brand voice, content,
+            and growth systems before a client ever books a consultation.
+          </p>
+        </div>
+
+        <div className="command-shell">
+          <div className="command-tabs">
+            {["Campaign Generator", "Brand Voice Builder", "Content Engine"].map(
+              (tool) => (
+                <button
+                  key={tool}
+                  type="button"
+                  className={activeCommandTool === tool ? "active" : ""}
+                  onClick={() => setActiveCommandTool(tool)}
+                >
+                  {tool}
+                </button>
+              )
+            )}
+          </div>
+
+          {activeCommandTool === "Campaign Generator" && (
+            <div className="command-grid">
+              <div className="command-controls">
+                <label>
+                  Industry
+                  <select
+                    value={campaignIndustry}
+                    onChange={(event) => setCampaignIndustry(event.target.value)}
+                  >
+                    {industries.map((industry) => (
+                      <option key={industry}>{industry}</option>
+                    ))}
+                  </select>
+                </label>
+
+                <label>
+                  Campaign Goal
+                  <select
+                    value={campaignGoal}
+                    onChange={(event) => setCampaignGoal(event.target.value)}
+                  >
+                    {campaignGoals.map((goal) => (
+                      <option key={goal}>{goal}</option>
+                    ))}
+                  </select>
+                </label>
+
+                <label>
+                  Primary Channel
+                  <select
+                    value={campaignChannel}
+                    onChange={(event) => setCampaignChannel(event.target.value)}
+                  >
+                    {campaignChannels.map((channel) => (
+                      <option key={channel}>{channel}</option>
+                    ))}
+                  </select>
+                </label>
+
+                <label>
+                  Audience
+                  <input
+                    value={campaignAudience}
+                    onChange={(event) => setCampaignAudience(event.target.value)}
+                    placeholder="decision-makers, families, patients, founders..."
+                  />
+                </label>
+              </div>
+
+              <div className="command-output">
+                <p className="ai-insight-label">Generated Campaign Direction</p>
+                <h3>{campaignIndustry} Campaign</h3>
+                <p>
+                  <strong>Angle:</strong> Use {campaignChannel.toLowerCase()} to
+                  help {campaignAudience} understand why the brand is credible,
+                  relevant, and ready to solve the problem.
+                </p>
+                <p>
+                  <strong>Hook:</strong> {campaignHook}
+                </p>
+                <p>
+                  <strong>CTA:</strong> {campaignCTA}
+                </p>
+
+                <div className="metric-row">
+                  {campaignMetrics.map((metric) => (
+                    <span key={metric}>{metric}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeCommandTool === "Brand Voice Builder" && (
+            <div className="command-grid">
+              <div className="command-controls">
+                <p className="ai-insight-label">Choose Brand Traits</p>
+
+                <div className="trait-grid">
+                  {voiceTraits.map((trait) => (
+                    <button
+                      key={trait}
+                      type="button"
+                      className={selectedTraits.includes(trait) ? "active" : ""}
+                      onClick={() => toggleTrait(trait)}
+                    >
+                      {trait}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="command-output">
+                <p className="ai-insight-label">Generated Brand Voice Profile</p>
+                <h3>BrownHill Voice Recommendation</h3>
+                <p>{brandVoiceProfile}</p>
+
+                <div className="voice-sample">
+                  <p className="ai-insight-label">Sample Website Line</p>
+                  <p>
+                    “We help serious organizations become clearer, more visible,
+                    and more trusted through strategy, culture, AI, and disciplined
+                    growth systems.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeCommandTool === "Content Engine" && (
+            <div className="command-grid">
+              <div className="command-controls">
+                <label>
+                  Business Type
+                  <input
+                    value={contentIndustry}
+                    onChange={(event) => setContentIndustry(event.target.value)}
+                    placeholder="healthcare clinic, law firm, consultant..."
+                  />
+                </label>
+
+                <label>
+                  Offer
+                  <input
+                    value={contentOffer}
+                    onChange={(event) => setContentOffer(event.target.value)}
+                    placeholder="consultation, audit, service package..."
+                  />
+                </label>
+              </div>
+
+              <div className="command-output">
+                <p className="ai-insight-label">Generated Content Engine Preview</p>
+                <h3>Content Ideas for a {contentIndustry}</h3>
+
+                <div className="content-list">
+                  {contentIdeas.map((idea) => (
+                    <div key={idea}>
+                      <MessageSquareText size={18} />
+                      <p>{idea}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
