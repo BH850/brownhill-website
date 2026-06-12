@@ -303,26 +303,84 @@ const caseStudies = [
   },
 ];
 
-const engagementModels = [
+const servicePackages = [
   {
-    title: "Strategic Audit",
+    title: "BrownHill Signal Audit",
+    label: "Start Here",
     description:
-      "A focused review of the client’s marketing, website, SEO, social presence, messaging, AI readiness, and growth opportunities.",
+      "A focused marketing diagnosis for organizations that need clarity before spending more money on marketing.",
+    includes: [
+      "Website and message review",
+      "SEO and visibility scan",
+      "Brand clarity check",
+      "AI readiness snapshot",
+    ],
   },
   {
-    title: "Growth Blueprint",
+    title: "BrownHill Growth Blueprint",
+    label: "Most Strategic",
     description:
-      "A comprehensive strategy engagement that produces a practical roadmap for positioning, visibility, content, advertising, lead generation, AI usage, and performance measurement.",
+      "A full roadmap for positioning, visibility, campaigns, content, lead generation, and performance tracking.",
+    includes: [
+      "Audience and offer strategy",
+      "SEO and content roadmap",
+      "Campaign direction",
+      "Lead generation plan",
+    ],
   },
   {
-    title: "Monthly Advisory & Execution Support",
+    title: "BrownHill AI Growth System",
+    label: "AI-Powered",
     description:
-      "Ongoing support for clients that need consistent marketing direction, campaign planning, optimization, reporting, AI-assisted workflows, and hands-on help improving their growth system.",
+      "A marketing system that uses AI-assisted workflows to support content, campaigns, reporting, and growth execution.",
+    includes: [
+      "AI content workflow",
+      "Campaign prompt system",
+      "Brand voice guide",
+      "Performance dashboard direction",
+    ],
   },
   {
-    title: "Campaign or Launch Project",
+    title: "BrownHill Brand Command Retainer",
+    label: "Ongoing",
     description:
-      "Project-based support for new offers, brand launches, local campaigns, social campaigns, advertising initiatives, website improvements, AI creative systems, or lead-generation pushes.",
+      "Monthly strategic support for brands that need consistent marketing direction, management, optimization, and growth discipline.",
+    includes: [
+      "Monthly strategy calls",
+      "Campaign planning",
+      "Reporting and optimization",
+      "Brand management support",
+    ],
+  },
+];
+
+const growthPaths = [
+  {
+    key: "Visibility",
+    icon: Search,
+    title: "Visibility Path",
+    subtitle: "Get found by the right audience.",
+    description:
+      "Best for organizations that need SEO, local visibility, Google presence, stronger website structure, and clearer service pages.",
+    cta: "Start Visibility Audit",
+  },
+  {
+    key: "Brand",
+    icon: Sparkles,
+    title: "Brand Authority Path",
+    subtitle: "Become easier to trust and remember.",
+    description:
+      "Best for organizations that need stronger positioning, voice, messaging, identity, storytelling, and brand management.",
+    cta: "Build Brand Blueprint",
+  },
+  {
+    key: "Revenue",
+    icon: TrendingUp,
+    title: "Revenue Path",
+    subtitle: "Turn attention into opportunity.",
+    description:
+      "Best for organizations that need lead generation, campaign planning, follow-up systems, landing pages, and sales enablement.",
+    cta: "Create Growth System",
   },
 ];
 
@@ -481,13 +539,75 @@ const aiModules = [
   },
 ];
 
+const cultureIntelCards = [
+  {
+    title: "Culture is not a trend.",
+    description:
+      "Culture shapes trust, language, influence, identity, attention, and how people decide what brands deserve belief.",
+  },
+  {
+    title: "Community is market intelligence.",
+    description:
+      "BrownHill studies the real signals behind audience behavior so brands can communicate with more relevance and respect.",
+  },
+  {
+    title: "Growth still needs discipline.",
+    description:
+      "Cultural understanding matters most when it is connected to strategy, execution, analytics, and measurable outcomes.",
+  },
+];
+
 const quickPrompts = [
+  "Start my marketing diagnostic",
   "How can BrownHill improve my SEO?",
   "Help me clarify my brand message.",
   "What AI tools can improve my marketing?",
   "How do I generate better leads?",
   "How can animation make my website better?",
   "What package should I start with?",
+];
+
+const diagnosticQuestions = [
+  {
+    key: "organization",
+    question: "What type of organization do you run?",
+    options: [
+      "Healthcare or wellness",
+      "Professional services",
+      "Local service business",
+      "Nonprofit or community organization",
+      "Corporate or institutional brand",
+      "Other",
+    ],
+  },
+  {
+    key: "challenge",
+    question: "What is the biggest marketing challenge right now?",
+    options: [
+      "People do not know we exist",
+      "Our message is unclear",
+      "We need more leads",
+      "Our website is weak",
+      "We need better social content",
+      "We need AI support",
+    ],
+  },
+  {
+    key: "focus",
+    question: "Which growth priority matters most?",
+    options: ["Visibility", "Brand", "Revenue"],
+  },
+  {
+    key: "timeline",
+    question: "How soon are you trying to improve your marketing?",
+    options: ["Immediately", "This month", "Next 90 days", "Still exploring"],
+  },
+  {
+    key: "email",
+    question:
+      "Last step — type the best email for BrownHill to follow up, or click Skip for now.",
+    options: ["Skip for now"],
+  },
 ];
 
 function IconCircle({ icon: Icon }) {
@@ -509,20 +629,24 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [leadMagnetSubmitted, setLeadMagnetSubmitted] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [activeBlueprint, setActiveBlueprint] = useState("Visibility");
   const [activeAiFeature, setActiveAiFeature] = useState(aiFeatures[0].title);
+  const [activeGrowthPath, setActiveGrowthPath] = useState("Visibility");
   const [scannerGoal, setScannerGoal] = useState("Visibility");
   const [scannerStage, setScannerStage] = useState("Growing");
   const [scannerChannel, setScannerChannel] = useState("Website");
+  const [leadStep, setLeadStep] = useState(0);
+  const [leadProfile, setLeadProfile] = useState({});
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
       text:
-        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, animation, or how BrownHill can help your organization grow.",
+        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, animation, or start a marketing diagnostic.",
     },
   ]);
 
@@ -533,6 +657,9 @@ export default function App() {
   const selectedFeature =
     aiFeatures.find((feature) => feature.title === activeAiFeature) ||
     aiFeatures[0];
+
+  const selectedGrowthPath =
+    growthPaths.find((path) => path.key === activeGrowthPath) || growthPaths[0];
 
   const scannerScore =
     68 +
@@ -548,6 +675,9 @@ export default function App() {
       : "Focus on SEO, local visibility, website structure, content mapping, and Google Business Profile improvements.";
 
   const generatedPrompt = `Create a ${scannerGoal.toLowerCase()} marketing plan for a ${scannerStage.toLowerCase()} organization using ${scannerChannel.toLowerCase()} as the primary growth channel. Include audience insight, brand messaging, campaign ideas, AI-assisted workflows, lead generation steps, and performance metrics.`;
+
+  const currentDiagnosticQuestion =
+    leadStep > 0 ? diagnosticQuestions[leadStep - 1] : null;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -571,8 +701,95 @@ export default function App() {
     };
   }, []);
 
+  function getPackageRecommendation(profile) {
+    if (profile.focus === "Revenue") {
+      return "BrownHill AI Growth System or BrownHill Brand Command Retainer";
+    }
+
+    if (profile.focus === "Brand") {
+      return "BrownHill Growth Blueprint";
+    }
+
+    return "BrownHill Signal Audit or BrownHill Growth Blueprint";
+  }
+
+  function startDiagnostic() {
+    if (isTyping) return;
+
+    setChatOpen(true);
+    setLeadProfile({});
+    setLeadStep(1);
+
+    setChatHistory((messages) => [
+      ...messages,
+      {
+        sender: "assistant",
+        text: diagnosticQuestions[0].question,
+      },
+    ]);
+  }
+
+  function handleDiagnosticAnswer(answer) {
+    if (!currentDiagnosticQuestion || isTyping) return;
+
+    const currentStep = leadStep;
+    const updatedProfile = {
+      ...leadProfile,
+      [currentDiagnosticQuestion.key]: answer,
+    };
+
+    setChatHistory((messages) => [
+      ...messages,
+      { sender: "user", text: answer },
+    ]);
+
+    setChatMessage("");
+    setIsTyping(true);
+
+    typingTimerRef.current = setTimeout(() => {
+      if (currentStep < diagnosticQuestions.length) {
+        const nextQuestion = diagnosticQuestions[currentStep];
+
+        setLeadProfile(updatedProfile);
+        setLeadStep(currentStep + 1);
+
+        setChatHistory((messages) => [
+          ...messages,
+          {
+            sender: "assistant",
+            text: nextQuestion.question,
+          },
+        ]);
+      } else {
+        const recommendedPackage = getPackageRecommendation(updatedProfile);
+
+        setLeadProfile(updatedProfile);
+        setLeadStep(0);
+
+        setChatHistory((messages) => [
+          ...messages,
+          {
+            sender: "assistant",
+            text: `Based on your answers, I recommend starting with ${recommendedPackage}. BrownHill should review your organization type, marketing challenge, growth priority, and timeline so the next step is strategic instead of random.`,
+          },
+        ]);
+      }
+
+      setIsTyping(false);
+    }, 700);
+  }
+
   function getEdnaResponse(message) {
     const lowerMessage = message.toLowerCase();
+
+    if (
+      lowerMessage.includes("diagnostic") ||
+      lowerMessage.includes("audit me") ||
+      lowerMessage.includes("start")
+    ) {
+      startDiagnostic();
+      return "";
+    }
 
     if (lowerMessage.includes("seo") || lowerMessage.includes("search")) {
       return "SEO starts with visibility and intent. BrownHill would review your website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile so your brand can show up when customers are already looking.";
@@ -624,7 +841,7 @@ export default function App() {
       lowerMessage.includes("cost") ||
       lowerMessage.includes("package")
     ) {
-      return "A smart starting point would be a Strategic Audit or Growth Blueprint. BrownHill can also support monthly advisory, campaign launches, AI marketing systems, and animated website experience upgrades depending on the client’s goals and timeline.";
+      return "A smart starting point would be a BrownHill Signal Audit or Growth Blueprint. BrownHill can also support monthly advisory, campaign launches, AI marketing systems, and animated website experience upgrades depending on the client’s goals and timeline.";
     }
 
     return "Great question. BrownHill helps organizations grow by clarifying the market, message, audience, visibility gaps, and conversion path — then building smarter strategy across SEO, social media, advertising, content, lead generation, AI-assisted insights, animation, and analytics.";
@@ -641,6 +858,20 @@ export default function App() {
 
     if (!userMessage) return;
 
+    if (leadStep > 0) {
+      handleDiagnosticAnswer(userMessage);
+      return;
+    }
+
+    if (
+      userMessage.toLowerCase().includes("start my marketing diagnostic") ||
+      userMessage.toLowerCase().includes("diagnostic")
+    ) {
+      setChatMessage("");
+      startDiagnostic();
+      return;
+    }
+
     setChatHistory((messages) => [
       ...messages,
       { sender: "user", text: userMessage },
@@ -652,10 +883,12 @@ export default function App() {
     typingTimerRef.current = setTimeout(() => {
       const response = getEdnaResponse(userMessage);
 
-      setChatHistory((messages) => [
-        ...messages,
-        { sender: "assistant", text: response },
-      ]);
+      if (response) {
+        setChatHistory((messages) => [
+          ...messages,
+          { sender: "assistant", text: response },
+        ]);
+      }
 
       setIsTyping(false);
     }, 700);
@@ -701,8 +934,8 @@ export default function App() {
             <a href="#culture">Culture</a>
             <a href="#services">Capabilities</a>
             <a href="#ai-lab">AI Lab</a>
-            <a href="#process">Method</a>
-            <a href="#case-studies">Case Studies</a>
+            <a href="#growth-paths">Growth Paths</a>
+            <a href="#packages">Packages</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -852,6 +1085,13 @@ export default function App() {
               message, show up stronger online, and connect brand visibility to
               measurable growth.
             </p>
+
+            <div className="section-cta-row">
+              <ButtonLink href="#growth-paths">Choose Your Growth Path</ButtonLink>
+              <ButtonLink variant="secondary" href="#lead-magnet">
+                Request Intelligence Report
+              </ButtonLink>
+            </div>
           </div>
 
           <div className="stack">
@@ -869,7 +1109,7 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label gold">Culture & Strategy</p>
-            <h2>Rooted in culture. Built for growth.</h2>
+            <h2>Culture is not a trend. It is market intelligence.</h2>
             <p>
               BrownHill is a Black-owned strategic marketing firm built to help
               organizations grow with clarity, culture, AI-assisted insight, and
@@ -884,31 +1124,18 @@ export default function App() {
             <p>
               BrownHill combines cultural understanding with marketing strategy,
               brand management, research, analytics, digital visibility,
-              advertising, content, AI, animation, and lead generation to help
-              organizations build stronger market presence and more disciplined
-              growth systems.
+              advertising, content, AI, animation, and lead generation.
             </p>
           </div>
 
-          <div className="stack">
-            <div className="proof-card cultural-card">
-              <Sparkles size={24} />
-              <p>Black-owned and culture-rooted, without limiting who we serve.</p>
-            </div>
-            <div className="proof-card cultural-card">
-              <Target size={24} />
-              <p>
-                Business-first strategy built around visibility, credibility,
-                trust, and growth.
-              </p>
-            </div>
-            <div className="proof-card cultural-card">
-              <BarChart3 size={24} />
-              <p>
-                Marketing decisions supported by research, analytics, AI
-                signals, and performance discipline.
-              </p>
-            </div>
+          <div className="culture-intel-grid">
+            {cultureIntelCards.map((card) => (
+              <div key={card.title} className="culture-intel-card">
+                <Sparkles size={24} />
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -972,6 +1199,10 @@ export default function App() {
               </div>
             );
           })}
+        </div>
+
+        <div className="centered section-bottom-cta">
+          <ButtonLink href="#packages">View BrownHill Packages</ButtonLink>
         </div>
       </section>
 
@@ -1147,12 +1378,93 @@ export default function App() {
           </div>
         </div>
 
+        <div className="centered section-bottom-cta">
+          <ButtonLink href="#lead-magnet">Request Your Intelligence Report</ButtonLink>
+        </div>
+
         <div className="ai-marquee">
           <div className="ai-marquee-track">
             {[...aiSignals, ...aiSignals, ...aiSignals].map((signal, index) => (
               <span key={`${signal}-${index}`}>{signal}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="growth-paths" className="section dark">
+        <div className="centered wide">
+          <p className="section-label gold">Choose Your Growth Path</p>
+          <h2>Every organization does not need the same marketing plan.</h2>
+          <p>
+            Choose the path that best matches the organization’s current growth
+            need. BrownHill uses the path to recommend the right strategy,
+            campaign structure, and execution priorities.
+          </p>
+        </div>
+
+        <div className="growth-path-grid">
+          {growthPaths.map((path) => {
+            const Icon = path.icon;
+
+            return (
+              <button
+                key={path.key}
+                type="button"
+                className={`growth-path-card ${
+                  activeGrowthPath === path.key ? "active" : ""
+                }`}
+                onClick={() => {
+                  setActiveGrowthPath(path.key);
+                  setActiveBlueprint(path.key);
+                  setScannerGoal(path.key);
+                }}
+              >
+                <Icon size={34} />
+                <h3>{path.title}</h3>
+                <p className="growth-subtitle">{path.subtitle}</p>
+                <p>{path.description}</p>
+                <span>{path.cta}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="growth-path-output">
+          <p className="ai-insight-label">Selected Growth Path</p>
+          <h3>{selectedGrowthPath.title}</h3>
+          <p>{selectedGrowthPath.description}</p>
+          <ButtonLink href="#contact">{selectedGrowthPath.cta}</ButtonLink>
+        </div>
+      </section>
+
+      <section id="packages" className="section cream">
+        <div className="centered wide">
+          <p className="section-label">BrownHill Packages</p>
+          <h2>Clear ways to start building a smarter marketing system.</h2>
+          <p>
+            These packages make it easier for a client to understand where to
+            begin — from diagnosis to blueprint to AI-supported growth execution.
+          </p>
+        </div>
+
+        <div className="package-grid">
+          {servicePackages.map((pack) => (
+            <div key={pack.title} className="package-card">
+              <p className="package-label">{pack.label}</p>
+              <h3>{pack.title}</h3>
+              <p>{pack.description}</p>
+
+              <div className="package-list">
+                {pack.includes.map((item) => (
+                  <span key={item}>
+                    <CheckCircle2 size={16} /> {item}
+                  </span>
+                ))}
+              </div>
+
+              <a href="#contact">Request This Package</a>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -1206,25 +1518,122 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section cream">
-        <div className="centered wide">
-          <p className="section-label">Engagement Models</p>
-          <h2>Flexible ways to work with BrownHill.</h2>
-          <p>
-            Our firm can serve as a strategic advisor, project partner, campaign
-            resource, AI implementation partner, or ongoing marketing growth firm
-            depending on the client’s stage and needs.
-          </p>
-        </div>
+      <section className="section founder-message-section">
+        <div className="founder-panel">
+          <div>
+            <p className="section-label gold">A Message From the Founder</p>
+            <h2>BrownHill was built for brands tired of random marketing.</h2>
+            <p>
+              BrownHill Marketing and Media was founded to help businesses
+              compete with stronger strategy, sharper messaging, AI-assisted
+              intelligence, animated digital presence, and more intentional
+              growth systems.
+            </p>
+            <p>
+              The mission is to help serious operators become more visible, more
+              credible, more informed, and better positioned to win in their
+              market.
+            </p>
 
-        <div className="grid four">
-          {engagementModels.map((model) => (
-            <div key={model.title} className="card">
-              <ClipboardCheck size={42} className="standalone-icon" />
-              <h3>{model.title}</h3>
-              <p>{model.description}</p>
+            <div className="section-cta-row">
+              <ButtonLink href="#contact">Work With Michael</ButtonLink>
+              <ButtonLink variant="secondary" href="#lead-magnet">
+                Get a Marketing Report
+              </ButtonLink>
             </div>
-          ))}
+          </div>
+
+          <div className="founder-list">
+            <p>
+              <Lightbulb size={24} /> Marketing Intelligence
+            </p>
+            <p>
+              <Globe2 size={24} /> Digital Visibility
+            </p>
+            <p>
+              <Users size={24} /> Audience Development
+            </p>
+            <p>
+              <Zap size={24} /> AI Growth Systems
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section video-section">
+        <div className="two-col video-layout">
+          <div>
+            <p className="section-label gold">BrownHill Video</p>
+            <h2>Marketing should not feel random. It should feel strategic.</h2>
+            <p>
+              BrownHill helps organizations move from scattered activity to
+              clear positioning, stronger visibility, smarter campaigns, AI
+              creative systems, animated brand experiences, and measurable
+              growth systems.
+            </p>
+            <p>
+              This video section can feature a short BrownHill brand intro:
+              “Be seen. Be trusted. Be chosen.”
+            </p>
+          </div>
+
+          <div className="video-card">
+            <div className="video-placeholder">
+              <PlayCircle size={64} />
+              <h3>BrownHill Marketing Intro</h3>
+              <p>Marketing should not feel random. It should feel strategic.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="lead-magnet" className="section lead-magnet-section">
+        <div className="two-col">
+          <div>
+            <p className="section-label gold">Free Intelligence Report</p>
+            <h2>Request a BrownHill Marketing Intelligence Report.</h2>
+            <p>
+              Give BrownHill a few details and we can review the brand’s website
+              clarity, SEO visibility, message strength, lead flow, AI readiness,
+              and growth opportunities.
+            </p>
+            <p>
+              This gives potential clients a reason to raise their hand before
+              they are ready for a full consultation.
+            </p>
+          </div>
+
+          <form
+            className="contact-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              setLeadMagnetSubmitted(true);
+            }}
+          >
+            <label>Name</label>
+            <input placeholder="Your name" />
+
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+
+            <label>Website</label>
+            <input placeholder="www.yourwebsite.com" />
+
+            <label>Industry</label>
+            <input placeholder="Healthcare, professional services, nonprofit, etc." />
+
+            <label>Main Marketing Challenge</label>
+            <textarea placeholder="Tell us what you want BrownHill to review..." />
+
+            <button type="submit">Request Intelligence Report</button>
+
+            {leadMagnetSubmitted && (
+              <p className="success">
+                Thank you. BrownHill’s intelligence report request flow is ready
+                to connect to email, CRM, or booking.
+              </p>
+            )}
+          </form>
         </div>
       </section>
 
@@ -1288,70 +1697,9 @@ export default function App() {
             </div>
           ))}
         </div>
-      </section>
 
-      <section className="section white">
-        <div className="founder-panel">
-          <div>
-            <p className="section-label gold">
-              Founder, CEO & Marketing Strategist
-            </p>
-            <h2>Michael Hill</h2>
-            <p>
-              BrownHill Marketing and Media was founded to help businesses
-              compete with stronger strategy, sharper messaging, AI-assisted
-              intelligence, animated digital presence, and more intentional
-              growth systems.
-            </p>
-            <p>
-              The mission is to help serious operators become more visible, more
-              credible, more informed, and better positioned to win in their
-              market.
-            </p>
-          </div>
-
-          <div className="founder-list">
-            <p>
-              <Lightbulb size={24} /> Marketing Intelligence
-            </p>
-            <p>
-              <Globe2 size={24} /> Digital Visibility
-            </p>
-            <p>
-              <Users size={24} /> Audience Development
-            </p>
-            <p>
-              <Zap size={24} /> AI Growth Systems
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section video-section">
-        <div className="two-col video-layout">
-          <div>
-            <p className="section-label gold">BrownHill Video</p>
-            <h2>Marketing should not feel random. It should feel strategic.</h2>
-            <p>
-              BrownHill helps organizations move from scattered activity to
-              clear positioning, stronger visibility, smarter campaigns, AI
-              creative systems, animated brand experiences, and measurable
-              growth systems.
-            </p>
-            <p>
-              This video section can feature a short BrownHill brand intro,
-              founder message, service overview, or client-facing marketing
-              explainer.
-            </p>
-          </div>
-
-          <div className="video-card">
-            <div className="video-placeholder">
-              <PlayCircle size={64} />
-              <h3>BrownHill Marketing Intro</h3>
-              <p>Short strategy video coming soon.</p>
-            </div>
-          </div>
+        <div className="centered section-bottom-cta">
+          <ButtonLink href="#contact">Talk Strategy With BrownHill</ButtonLink>
         </div>
       </section>
 
@@ -1464,6 +1812,20 @@ export default function App() {
               <div ref={chatEndRef} />
             </div>
 
+            {currentDiagnosticQuestion && !isTyping && (
+              <div className="diagnostic-options">
+                {currentDiagnosticQuestion.options.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => handleDiagnosticAnswer(option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div className="edna-quick-prompts">
               {quickPrompts.map((prompt) => (
                 <button
@@ -1481,7 +1843,11 @@ export default function App() {
               <input
                 value={chatMessage}
                 onChange={(event) => setChatMessage(event.target.value)}
-                placeholder="Ask about SEO, branding, ads, AI, or growth..."
+                placeholder={
+                  leadStep > 0
+                    ? "Type your answer..."
+                    : "Ask about SEO, branding, ads, AI, or growth..."
+                }
                 disabled={isTyping}
               />
 
