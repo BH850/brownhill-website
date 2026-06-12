@@ -9410,3 +9410,260 @@ button.button.secondary svg {
 .career-link:hover {
   color: #fff7e6;
 }
+/* REDESIGNED LOGO ANIMATION — PREMIUM AI SIGNAL */
+
+.interactive-brand {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  isolation: isolate;
+}
+
+.brand-logo-shell {
+  position: relative;
+  width: clamp(72px, 7vw, 96px);
+  height: clamp(72px, 7vw, 96px);
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  isolation: isolate;
+}
+
+.interactive-brand .brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 4;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* soft outer AI ring */
+.brand-logo-shell::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 999px;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(251, 191, 36, 0.85),
+      transparent,
+      rgba(255, 247, 230, 0.45),
+      transparent
+    );
+  opacity: 0;
+  transform: scale(0.9) rotate(0deg);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  animation: logoAISpin 3.8s linear infinite;
+  z-index: 1;
+}
+
+/* dark center mask so ring does not cover logo */
+.brand-logo-shell::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(23, 12, 7, 0.08), rgba(23, 12, 7, 0.78));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.interactive-brand:hover .brand-logo,
+.interactive-brand.active .brand-logo {
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 0 10px rgba(251, 191, 36, 0.5))
+    drop-shadow(0 0 26px rgba(251, 191, 36, 0.24));
+}
+
+.interactive-brand:hover .brand-logo-shell::before,
+.interactive-brand.active .brand-logo-shell::before {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+}
+
+.interactive-brand:hover .brand-logo-shell::after,
+.interactive-brand.active .brand-logo-shell::after {
+  opacity: 1;
+}
+
+/* orbiting AI nodes */
+.logo-orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow:
+    0 0 10px rgba(251, 191, 36, 0.95),
+    0 0 22px rgba(251, 191, 36, 0.45);
+  opacity: 0;
+  z-index: 5;
+  transform:
+    rotate(var(--angle))
+    translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+    rotate(calc(var(--angle) * -1))
+    scale(0.65);
+  transition: opacity 0.25s ease;
+}
+
+.interactive-brand:hover .logo-orbit-dot,
+.interactive-brand.active .logo-orbit-dot {
+  opacity: 1;
+  animation: logoNodeOrbit 4.2s linear infinite;
+}
+
+.dot-one {
+  --angle: 0deg;
+  animation-delay: 0s;
+}
+
+.dot-two {
+  --angle: 90deg;
+  animation-delay: -1s;
+}
+
+.dot-three {
+  --angle: 180deg;
+  animation-delay: -2s;
+}
+
+.dot-four {
+  --angle: 270deg;
+  animation-delay: -3s;
+}
+
+/* status text */
+.brand-text-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.interactive-brand .brand-subtitle {
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.logo-ai-status {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(251, 191, 36, 0.18),
+      rgba(251, 191, 36, 0.06)
+    );
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.interactive-brand:hover .brand-subtitle,
+.interactive-brand.active .brand-subtitle {
+  color: #fbbf24;
+}
+
+.interactive-brand:hover .logo-ai-status,
+.interactive-brand.active .logo-ai-status {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* click activation ripple */
+.interactive-brand.active .brand-logo-shell {
+  animation: logoActivationBump 0.75s ease;
+}
+
+@keyframes logoAISpin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes logoNodeOrbit {
+  from {
+    transform:
+      rotate(var(--angle))
+      translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+      rotate(calc(var(--angle) * -1))
+      scale(1);
+  }
+
+  to {
+    transform:
+      rotate(calc(var(--angle) + 360deg))
+      translateX(calc(clamp(72px, 7vw, 96px) / 2 + 12px))
+      rotate(calc((var(--angle) + 360deg) * -1))
+      scale(1);
+  }
+}
+
+@keyframes logoActivationBump {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* MOBILE LOGO CLEANUP */
+
+@media (max-width: 640px) {
+  .interactive-brand {
+    gap: 10px;
+  }
+
+  .brand-logo-shell {
+    width: 72px;
+    height: 72px;
+  }
+
+  .logo-orbit-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .logo-ai-status {
+    font-size: 0.52rem;
+    padding: 5px 7px;
+    letter-spacing: 0.1em;
+  }
+}
