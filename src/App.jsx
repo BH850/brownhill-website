@@ -7,8 +7,10 @@ import {
   Bot,
   CheckCircle2,
   Globe2,
+  Lightbulb,
   Mail,
   MapPin,
+  Megaphone,
   Menu,
   MessageSquareText,
   Phone,
@@ -23,55 +25,91 @@ import {
 
 const heroSlides = [
   {
+    label: "Creative Intelligence",
+    title: "We don’t just market brands. We make them impossible to ignore.",
+    text:
+      "BrownHill blends culture, AI, strategy, storytelling, media, and growth systems to help brands become clearer, sharper, and more memorable.",
+  },
+  {
     label: "AI-Powered Marketing",
-    title: "Marketing intelligence that feels alive.",
+    title: "Culture gives the brand soul. AI gives it speed. Strategy gives it direction.",
     text:
-      "BrownHill blends AI, culture, research, and creative strategy to help brands see the market sharper, move faster, and grow with confidence.",
+      "We help organizations move faster without sounding generic by using AI-assisted research, content, campaign planning, and brand intelligence.",
   },
   {
-    label: "Culture-Rooted Strategy",
-    title: "Built with cultural understanding. Engineered for growth.",
+    label: "Brand Growth Studio",
+    title: "Insight becomes identity. Identity becomes attention. Attention becomes growth.",
     text:
-      "We help organizations sharpen their message, strengthen visibility, and connect with audiences through strategy, insight, and performance discipline.",
+      "BrownHill helps brands strengthen visibility, message, trust, creative direction, lead generation, and market presence.",
   },
-  {
-    label: "Brand Management",
-    title: "Stronger brands are managed, not guessed.",
-    text:
-      "BrownHill helps shape how organizations are seen, understood, remembered, and trusted across every customer touchpoint.",
-  },
+];
+
+const creativeWords = [
+  "BRAND STRATEGY",
+  "SEO",
+  "CULTURE",
+  "AI",
+  "CAMPAIGNS",
+  "CONTENT",
+  "MEDIA",
+  "MOTION",
+  "LEADS",
+  "STORYTELLING",
+  "ANALYTICS",
+  "GROWTH",
 ];
 
 const firmProof = [
-  "We start with the business problem, not random tactics.",
+  "Strategy with rhythm. Creative with reason. Growth with receipts.",
   "We connect SEO, branding, advertising, AI, content, and lead generation.",
-  "We help brands become clearer, more visible, more credible, and easier to choose.",
+  "We help brands become clearer, more visible, more credible, and harder to ignore.",
 ];
 
-const aiFeatures = [
+const studioCapabilities = [
   {
-    icon: Bot,
-    title: "AI Strategy Companion",
+    icon: Megaphone,
+    title: "Campaign Concepts",
     description:
-      "AI-assisted research, campaign prompts, audience insight, and smarter content direction.",
-  },
-  {
-    icon: BarChart3,
-    title: "Market Signal Intelligence",
-    description:
-      "Search demand, lead flow, website clarity, audience behavior, and campaign performance signals.",
+      "Creative angles, hooks, offers, messaging, CTAs, and campaign direction built around audience behavior.",
   },
   {
     icon: Sparkles,
-    title: "Creative Automation",
+    title: "Brand Storytelling",
     description:
-      "Campaign ideas, brand voice, social concepts, landing page copy, and video script direction.",
+      "Positioning, voice, identity, founder messaging, service language, and brand narratives that feel memorable.",
   },
   {
-    icon: Target,
-    title: "Smarter Lead Generation",
+    icon: Bot,
+    title: "AI Content Systems",
     description:
-      "Offer clarity, calls-to-action, lead capture, follow-up messaging, and conversion paths.",
+      "AI-assisted workflows for social posts, email ideas, landing page copy, campaign briefs, and video scripts.",
+  },
+  {
+    icon: BarChart3,
+    title: "Marketing Intelligence",
+    description:
+      "Market signals, search demand, audience insight, lead flow, and performance recommendations.",
+  },
+];
+
+const ideaToInfluence = [
+  {
+    label: "01",
+    title: "The Insight",
+    description:
+      "We identify what the audience needs to understand, believe, feel, or trust before they take action.",
+  },
+  {
+    label: "02",
+    title: "The Big Idea",
+    description:
+      "We shape the creative angle, story, hook, message, visual direction, and campaign energy.",
+  },
+  {
+    label: "03",
+    title: "The Growth Move",
+    description:
+      "We connect the idea to the channel, CTA, landing page, follow-up path, and performance metric.",
   },
 ];
 
@@ -131,21 +169,21 @@ const growthPaths = [
 
 const packages = [
   {
-    title: "BrownHill Signal Audit",
+    title: "The Signal Scan",
     label: "Start Here",
     description:
-      "A focused diagnosis of your marketing, website, SEO, brand message, and AI readiness.",
+      "A focused diagnosis of your marketing, website, SEO, message, lead flow, and AI readiness.",
     items: ["Website review", "SEO scan", "Brand clarity check", "Growth gaps"],
   },
   {
-    title: "BrownHill Growth Blueprint",
+    title: "The Growth Blueprint",
     label: "Most Strategic",
     description:
       "A practical roadmap for positioning, visibility, campaigns, content, and lead generation.",
     items: ["Audience strategy", "SEO roadmap", "Campaign direction", "Lead plan"],
   },
   {
-    title: "BrownHill AI Growth System",
+    title: "The Creative Intelligence System",
     label: "AI-Powered",
     description:
       "An AI-assisted marketing system for content, campaigns, brand voice, and performance improvement.",
@@ -165,9 +203,9 @@ const cultureCards = [
       "BrownHill uses AI to move faster while protecting brand voice, cultural relevance, and strategic clarity.",
   },
   {
-    title: "Growth needs discipline.",
+    title: "Creative needs a conversion path.",
     description:
-      "Creative ideas matter most when they connect to visibility, credibility, lead flow, and measurable results.",
+      "Beautiful work matters most when it connects to visibility, credibility, lead flow, and measurable results.",
   },
 ];
 
@@ -256,9 +294,9 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
 }
 
 function getPackageRecommendation(profile) {
-  if (profile.focus === "Revenue") return "BrownHill AI Growth System";
-  if (profile.focus === "Brand") return "BrownHill Growth Blueprint";
-  return "BrownHill Signal Audit";
+  if (profile.focus === "Revenue") return "The Creative Intelligence System";
+  if (profile.focus === "Brand") return "The Growth Blueprint";
+  return "The Signal Scan";
 }
 
 export default function App() {
@@ -270,7 +308,7 @@ export default function App() {
   const [scannerChannel, setScannerChannel] = useState("Website");
   const [submitted, setSubmitted] = useState(false);
 
-  const [activeCommandTool, setActiveCommandTool] = useState("Campaign Generator");
+  const [activeStudioTool, setActiveStudioTool] = useState("Campaign Generator");
   const [campaignIndustry, setCampaignIndustry] = useState("Professional Services");
   const [campaignGoal, setCampaignGoal] = useState("Generate Leads");
   const [campaignChannel, setCampaignChannel] = useState("Social Media");
@@ -435,7 +473,7 @@ export default function App() {
           ...messages,
           {
             sender: "assistant",
-            text: `Based on your answers, I recommend starting with ${recommendation}. BrownHill should review your organization type, challenge, growth priority, and timeline so the next step is strategic instead of random.`,
+            text: `Based on your answers, I recommend starting with ${recommendation}. BrownHill should review your organization type, challenge, growth priority, and timeline so the next move is strategic, creative, and built for growth.`,
           },
         ]);
       }
@@ -452,26 +490,26 @@ export default function App() {
     }
 
     if (lower.includes("brand") || lower.includes("message")) {
-      return "Branding is more than a logo. BrownHill would help clarify your positioning, voice, promise, customer perception, and the message that makes people trust and remember your organization.";
+      return "Branding is more than a logo. BrownHill would help clarify your positioning, voice, promise, story, customer perception, and the message that makes people trust and remember your organization.";
     }
 
     if (lower.includes("ad") || lower.includes("campaign")) {
-      return "Smart campaigns are built before they are launched. BrownHill would define the audience, offer, message, creative direction, landing page, follow-up path, and performance metrics.";
+      return "Smart campaigns are built before they are launched. BrownHill would define the audience, offer, hook, creative direction, landing page, follow-up path, and performance metrics.";
     }
 
     if (lower.includes("lead") || lower.includes("sales")) {
-      return "Lead generation works best when visibility, messaging, trust, and follow-up are connected. BrownHill helps build systems that attract attention, capture interest, and move prospects toward action.";
+      return "Lead generation works best when visibility, messaging, trust, creative, and follow-up are connected. BrownHill helps build systems that attract attention, capture interest, and move prospects toward action.";
     }
 
     if (lower.includes("ai") || lower.includes("automation")) {
-      return "AI should make marketing sharper, not generic. BrownHill can use AI-assisted research, content planning, campaign concepts, SEO insights, audience mapping, and reporting while keeping the brand voice human.";
+      return "AI should make marketing sharper, not generic. BrownHill uses AI-assisted research, content planning, campaign concepts, SEO insights, audience mapping, and reporting while keeping the brand voice human.";
     }
 
     if (lower.includes("package") || lower.includes("cost") || lower.includes("price")) {
-      return "A smart starting point would be the BrownHill Signal Audit. If you need a full roadmap, the BrownHill Growth Blueprint is stronger. If you need execution systems, the AI Growth System is the better fit.";
+      return "A smart starting point would be The Signal Scan. If you need a full roadmap, The Growth Blueprint is stronger. If you need AI-assisted execution systems, The Creative Intelligence System is the better fit.";
     }
 
-    return "Great question. BrownHill helps organizations grow by clarifying the market, message, audience, visibility gaps, and conversion path — then building smarter strategy across SEO, branding, advertising, content, AI, and lead generation.";
+    return "Great question. BrownHill helps organizations grow by clarifying the market, message, audience, visibility gaps, creative direction, and conversion path — then building smarter strategy across SEO, branding, advertising, content, AI, and lead generation.";
   }
 
   function handleChatSubmit(event, presetMessage = "") {
@@ -518,7 +556,7 @@ export default function App() {
 
   return (
     <main className="site theme-dark">
-      <section className="hero">
+      <section className="hero creative-hero">
         <div className="glow glow-left" />
         <div className="glow glow-right" />
 
@@ -530,7 +568,7 @@ export default function App() {
               className="brand-logo"
             />
             <p className="brand-subtitle">
-              Marketing Intelligence • AI • Media • Growth
+              Creative Intelligence • AI • Media • Growth
             </p>
           </div>
 
@@ -547,11 +585,11 @@ export default function App() {
             <a href="#firm" onClick={closeMobileMenu}>
               The Firm
             </a>
-            <a href="#ai-lab" onClick={closeMobileMenu}>
-              AI Lab
+            <a href="#studio" onClick={closeMobileMenu}>
+              Studio
             </a>
-            <a href="#command-center" onClick={closeMobileMenu}>
-              AI Tools
+            <a href="#influence" onClick={closeMobileMenu}>
+              Ideas
             </a>
             <a href="#growth" onClick={closeMobileMenu}>
               Growth Paths
@@ -575,7 +613,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
           >
             <p className="eyebrow">
-              <Sparkles size={16} /> AI • Culture • Brand Management • SEO • Growth
+              <Sparkles size={16} /> Creative Strategy • AI • Culture • SEO • Campaigns
             </p>
 
             <div className="home-slider">
@@ -604,9 +642,9 @@ export default function App() {
             </div>
 
             <div className="button-row">
-              <ButtonLink>Request Strategy Consultation</ButtonLink>
-              <ButtonLink variant="secondary" href="#command-center">
-                Try AI Tools
+              <ButtonLink>Build My Growth System</ButtonLink>
+              <ButtonLink variant="secondary" href="#studio">
+                Enter Creative Studio
               </ButtonLink>
             </div>
           </motion.div>
@@ -624,7 +662,7 @@ export default function App() {
                 </div>
                 <div>
                   <p>BrownHill Intelligence Engine</p>
-                  <span>AI • Culture • Strategy • Growth</span>
+                  <span>Culture • Creative • AI • Growth</span>
                 </div>
               </div>
 
@@ -638,7 +676,7 @@ export default function App() {
                   animate={{ y: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  SEO
+                  STORY
                 </motion.div>
 
                 <motion.div
@@ -654,7 +692,7 @@ export default function App() {
                   animate={{ x: [-8, 8, -8] }}
                   transition={{ duration: 5.5, repeat: Infinity }}
                 >
-                  Brand
+                  BRAND
                 </motion.div>
 
                 <motion.div
@@ -662,13 +700,13 @@ export default function App() {
                   animate={{ x: [8, -8, 8] }}
                   transition={{ duration: 4.5, repeat: Infinity }}
                 >
-                  Growth
+                  LEADS
                 </motion.div>
 
                 <div className="ai-core">
                   <Sparkles size={38} />
                   <p>BROWNHILL</p>
-                  <span>Market Signal Engine</span>
+                  <span>Creative Signal Engine</span>
                 </div>
               </div>
 
@@ -695,26 +733,34 @@ export default function App() {
         </div>
       </section>
 
+      <div className="creative-marquee">
+        <div className="creative-marquee-track">
+          {[...creativeWords, ...creativeWords, ...creativeWords].map((word, index) => (
+            <span key={`${word}-${index}`}>{word}</span>
+          ))}
+        </div>
+      </div>
+
       <section id="firm" className="section premium-dark">
         <div className="two-col">
           <div>
             <p className="section-label gold">The Firm</p>
-            <h2>Strategy first. AI-powered. Culture-aware. Built for growth.</h2>
+            <h2>Strategy with rhythm. Creative with reason. Growth with receipts.</h2>
             <p>
-              BrownHill helps organizations move beyond scattered marketing and
-              build smarter systems for visibility, brand trust, lead generation,
-              content, advertising, and customer acquisition.
+              BrownHill is a creative marketing and media firm built for brands
+              that want more than scattered posts, random ads, and generic
+              messaging.
             </p>
             <p>
-              We combine research, cultural intelligence, AI-assisted strategy,
-              digital presence, and performance discipline so brands can be seen,
-              trusted, and chosen.
+              We combine cultural intelligence, AI-assisted strategy, brand
+              storytelling, SEO, content, media, and lead-generation systems so
+              organizations can be seen, trusted, and chosen.
             </p>
 
             <div className="section-cta-row">
               <ButtonLink href="#growth">Choose Your Growth Path</ButtonLink>
-              <ButtonLink variant="secondary" href="#contact">
-                Talk Strategy
+              <ButtonLink variant="secondary" href="#studio">
+                Try Creative Intelligence
               </ButtonLink>
             </div>
           </div>
@@ -730,112 +776,36 @@ export default function App() {
         </div>
       </section>
 
-      <section id="ai-lab" className="section ai-lab-section">
+      <section id="studio" className="section creative-studio-section">
         <div className="centered wide">
-          <p className="section-label gold">AI Marketing Lab</p>
-          <h2>Where artificial intelligence becomes practical marketing advantage.</h2>
+          <p className="section-label gold">BrownHill Creative Intelligence Studio</p>
+          <h2>Where ideas, AI, culture, and growth strategy work together.</h2>
           <p>
-            BrownHill uses AI to sharpen strategy, speed up execution, strengthen
-            content, clarify market signals, and build marketing systems that do
-            not sound generic.
+            This is the BrownHill operating system: campaign thinking, brand
+            voice, content direction, market signals, and growth execution in one
+            creative intelligence environment.
           </p>
         </div>
 
-        <div className="ai-feature-grid">
-          {aiFeatures.map((feature, index) => {
-            const Icon = feature.icon;
+        <div className="studio-capability-grid">
+          {studioCapabilities.map((capability, index) => {
+            const Icon = capability.icon;
 
             return (
               <motion.div
-                key={feature.title}
-                className="ai-feature-card"
+                key={capability.title}
+                className="studio-capability-card"
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.55, delay: index * 0.1 }}
               >
-                <div className="ai-card-icon">
-                  <Icon size={30} />
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+                <Icon size={30} />
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
               </motion.div>
             );
           })}
-        </div>
-
-        <div className="ai-scanner compact-scanner">
-          <div>
-            <p className="ai-insight-label">AI Readiness Scanner</p>
-            <h3>Find the smartest starting point.</h3>
-            <p>
-              Choose a growth priority, business stage, and primary channel.
-              BrownHill’s scanner creates a simple strategy signal.
-            </p>
-          </div>
-
-          <div className="scanner-controls">
-            <label>
-              Growth Priority
-              <select
-                value={activePath}
-                onChange={(event) => setActivePath(event.target.value)}
-              >
-                <option>Visibility</option>
-                <option>Brand</option>
-                <option>Revenue</option>
-              </select>
-            </label>
-
-            <label>
-              Business Stage
-              <select
-                value={scannerStage}
-                onChange={(event) => setScannerStage(event.target.value)}
-              >
-                <option>Growing</option>
-                <option>Established</option>
-                <option>Scaling</option>
-              </select>
-            </label>
-
-            <label>
-              Primary Channel
-              <select
-                value={scannerChannel}
-                onChange={(event) => setScannerChannel(event.target.value)}
-              >
-                <option>Website</option>
-                <option>Social Media</option>
-                <option>Advertising</option>
-                <option>AI Systems</option>
-              </select>
-            </label>
-          </div>
-
-          <div className="scanner-output">
-            <div className="ai-score-ring scanner-score">
-              <span>{scannerScore}</span>
-              <small>Readiness</small>
-            </div>
-
-            <div>
-              <p className="ai-insight-label">Recommendation</p>
-              <h3>{activePath} Priority</h3>
-              <p>{scannerRecommendation}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="command-center" className="section premium-dark">
-        <div className="centered wide">
-          <p className="section-label gold">BrownHill AI Command Center</p>
-          <h2>AI-driven marketing operations visitors can actually use.</h2>
-          <p>
-            Preview how BrownHill thinks through campaigns, brand voice, content,
-            and growth systems before a client ever books a consultation.
-          </p>
         </div>
 
         <div className="command-shell">
@@ -845,8 +815,8 @@ export default function App() {
                 <button
                   key={tool}
                   type="button"
-                  className={activeCommandTool === tool ? "active" : ""}
-                  onClick={() => setActiveCommandTool(tool)}
+                  className={activeStudioTool === tool ? "active" : ""}
+                  onClick={() => setActiveStudioTool(tool)}
                 >
                   {tool}
                 </button>
@@ -854,7 +824,7 @@ export default function App() {
             )}
           </div>
 
-          {activeCommandTool === "Campaign Generator" && (
+          {activeStudioTool === "Campaign Generator" && (
             <div className="command-grid">
               <div className="command-controls">
                 <label>
@@ -927,7 +897,7 @@ export default function App() {
             </div>
           )}
 
-          {activeCommandTool === "Brand Voice Builder" && (
+          {activeStudioTool === "Brand Voice Builder" && (
             <div className="command-grid">
               <div className="command-controls">
                 <p className="ai-insight-label">Choose Brand Traits</p>
@@ -956,14 +926,14 @@ export default function App() {
                   <p>
                     “We help serious organizations become clearer, more visible,
                     and more trusted through strategy, culture, AI, and disciplined
-                    growth systems.”
+                    creative growth systems.”
                   </p>
                 </div>
               </div>
             </div>
           )}
 
-          {activeCommandTool === "Content Engine" && (
+          {activeStudioTool === "Content Engine" && (
             <div className="command-grid">
               <div className="command-controls">
                 <label>
@@ -1003,6 +973,27 @@ export default function App() {
         </div>
       </section>
 
+      <section id="influence" className="section premium-dark">
+        <div className="centered wide">
+          <p className="section-label gold">From Idea to Influence</p>
+          <h2>Creative work should do more than look good. It should move people.</h2>
+          <p>
+            BrownHill turns insight into identity, identity into attention, and
+            attention into growth.
+          </p>
+        </div>
+
+        <div className="idea-grid">
+          {ideaToInfluence.map((item) => (
+            <div key={item.title} className="idea-card">
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="growth" className="section premium-dark">
         <div className="centered wide">
           <p className="section-label gold">Choose Your Growth Path</p>
@@ -1010,7 +1001,7 @@ export default function App() {
           <p>
             Select the path that best matches your current challenge. BrownHill
             uses that direction to recommend the right strategy, offer, content,
-            and campaign system.
+            creative angle, and campaign system.
           </p>
         </div>
 
@@ -1043,15 +1034,78 @@ export default function App() {
           <p>{selectedPath.description}</p>
           <ButtonLink href="#contact">{selectedPath.cta}</ButtonLink>
         </div>
+
+        <div className="ai-scanner compact-scanner">
+          <div>
+            <p className="ai-insight-label">Creative Readiness Scanner</p>
+            <h3>Find the smartest starting point.</h3>
+            <p>
+              Choose a growth priority, business stage, and primary channel.
+              BrownHill’s scanner creates a simple strategy signal.
+            </p>
+          </div>
+
+          <div className="scanner-controls">
+            <label>
+              Growth Priority
+              <select
+                value={activePath}
+                onChange={(event) => setActivePath(event.target.value)}
+              >
+                <option>Visibility</option>
+                <option>Brand</option>
+                <option>Revenue</option>
+              </select>
+            </label>
+
+            <label>
+              Business Stage
+              <select
+                value={scannerStage}
+                onChange={(event) => setScannerStage(event.target.value)}
+              >
+                <option>Growing</option>
+                <option>Established</option>
+                <option>Scaling</option>
+              </select>
+            </label>
+
+            <label>
+              Primary Channel
+              <select
+                value={scannerChannel}
+                onChange={(event) => setScannerChannel(event.target.value)}
+              >
+                <option>Website</option>
+                <option>Social Media</option>
+                <option>Advertising</option>
+                <option>AI Systems</option>
+              </select>
+            </label>
+          </div>
+
+          <div className="scanner-output">
+            <div className="ai-score-ring scanner-score">
+              <span>{scannerScore}</span>
+              <small>Readiness</small>
+            </div>
+
+            <div>
+              <p className="ai-insight-label">Recommendation</p>
+              <h3>{activePath} Priority</h3>
+              <p>{scannerRecommendation}</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="packages" className="section premium-dark">
         <div className="centered wide">
           <p className="section-label gold">BrownHill Packages</p>
-          <h2>Clear ways to start building a smarter marketing system.</h2>
+          <h2>Creative intelligence packages built for clarity, momentum, and growth.</h2>
           <p>
-            Simple starting points for organizations that need clarity, strategy,
-            AI support, and growth execution.
+            Simple starting points for organizations that need strategy, creative
+            direction, AI support, stronger messaging, and better lead flow.
           </p>
         </div>
 
@@ -1080,16 +1134,16 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label gold">Culture & Founder</p>
-            <h2>Culture is not a trend. It is market intelligence.</h2>
+            <h2>BrownHill is built where culture, creativity, and strategy meet.</h2>
             <p>
-              BrownHill is a Black-owned strategic marketing firm built for
-              organizations that want to grow with clarity, culture, AI-assisted
-              intelligence, and measurable direction.
+              BrownHill is a Black-owned creative marketing and media firm built
+              for organizations that want to grow with clarity, culture,
+              AI-assisted intelligence, and measurable direction.
             </p>
             <p>
               Founded by Michael Hill, BrownHill was created for brands tired of
               random marketing and ready for strategy that connects visibility,
-              trust, and revenue.
+              trust, creative identity, and revenue.
             </p>
 
             <div className="section-cta-row">
@@ -1120,11 +1174,11 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label gold">Contact BrownHill</p>
-            <h2>Let’s build the marketing system your organization deserves.</h2>
+            <h2>Let’s build the brand system your organization deserves.</h2>
             <p>
               Request a strategy consultation. BrownHill will review your goals,
-              current marketing, digital presence, AI readiness, and best path
-              toward stronger visibility and growth.
+              current marketing, digital presence, AI readiness, creative
+              direction, and best path toward stronger visibility and growth.
             </p>
 
             <div className="contact-list">
@@ -1161,17 +1215,18 @@ export default function App() {
 
             <label>Primary Interest</label>
             <select>
-              <option>BrownHill Signal Audit</option>
-              <option>BrownHill Growth Blueprint</option>
-              <option>BrownHill AI Growth System</option>
+              <option>The Signal Scan</option>
+              <option>The Growth Blueprint</option>
+              <option>The Creative Intelligence System</option>
               <option>SEO / Search Visibility</option>
               <option>Brand Management</option>
+              <option>Campaign Development</option>
               <option>Lead Generation</option>
               <option>Full Growth Strategy</option>
             </select>
 
             <label>What growth challenge should we help solve?</label>
-            <textarea placeholder="Tell us about your marketing goals, current challenges, AI needs, visibility gaps, or lead generation goals..." />
+            <textarea placeholder="Tell us about your marketing goals, creative needs, visibility gaps, AI needs, or lead generation goals..." />
 
             <button type="submit">Request Consultation</button>
 
@@ -1277,9 +1332,9 @@ export default function App() {
       </div>
 
       <footer>
-        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. A
-        strategic marketing intelligence, media, AI, and growth advisory firm.
-        All rights reserved.
+        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. Creative
+        intelligence, media, AI, brand strategy, and growth systems. All rights
+        reserved.
       </footer>
     </main>
   );
