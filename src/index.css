@@ -9352,3 +9352,61 @@ button.button.secondary svg {
     padding: 5px 7px;
   }
 }
+/* FOUNDER BIO + CAREERS SECTION */
+
+.founder-bio-section {
+  position: relative;
+}
+
+.bio-signature {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 247, 230, 0.07);
+  border: 1px solid rgba(251, 191, 36, 0.18);
+}
+
+.bio-signature span {
+  display: block;
+  color: #fbbf24;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.bio-signature p {
+  margin: 4px 0 0;
+  color: rgba(255, 247, 230, 0.72);
+}
+
+.careers-section {
+  position: relative;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 26px;
+}
+
+.career-tags span {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.career-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fbbf24;
+  font-weight: 950;
+}
+
+.career-link:hover {
+  color: #fff7e6;
+}
