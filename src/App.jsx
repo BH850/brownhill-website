@@ -290,6 +290,7 @@ export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoActive, setLogoActive] = useState(false);
 
   const [activeStudioTool, setActiveStudioTool] = useState("Campaign Generator");
   const [campaignIndustry, setCampaignIndustry] = useState("Professional Services");
@@ -378,6 +379,16 @@ export default function App() {
 
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!logoActive) return;
+
+    const timer = setTimeout(() => {
+      setLogoActive(false);
+    }, 2800);
+
+    return () => clearTimeout(timer);
+  }, [logoActive]);
 
   useEffect(() => {
     if (chatOpen) {
@@ -530,16 +541,33 @@ export default function App() {
         <div className="glow glow-right" />
 
         <nav className="nav editorial-nav">
-          <div className="brand">
-            <img
-              src={brownHillLogo}
-              alt="BrownHill Marketing & Media logo"
-              className="brand-logo"
-            />
-            <p className="brand-subtitle">
-              Creative Intelligence • AI • Media • Growth
-            </p>
-          </div>
+          <button
+            type="button"
+            className={`brand interactive-brand ${logoActive ? "active" : ""}`}
+            onClick={() => setLogoActive((active) => !active)}
+            aria-label="Activate BrownHill Creative Intelligence logo"
+          >
+            <span className="brand-logo-shell">
+              <img
+                src={brownHillLogo}
+                alt="BrownHill Marketing & Media logo"
+                className="brand-logo"
+              />
+
+              <span className="logo-orbit-dot dot-one" />
+              <span className="logo-orbit-dot dot-two" />
+              <span className="logo-orbit-dot dot-three" />
+              <span className="logo-orbit-dot dot-four" />
+            </span>
+
+            <span className="brand-text-wrap">
+              <span className="brand-subtitle">
+                Creative Intelligence • AI • Media • Growth
+              </span>
+
+              <span className="logo-ai-status">AI Signal Activated</span>
+            </span>
+          </button>
 
           <button
             type="button"
