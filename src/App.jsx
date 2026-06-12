@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import brownHillLogo from "../brownhill_marketing_and_media_logo.png";
 import {
   ArrowRight,
-  BarChart3,
   Bot,
   CheckCircle2,
   Globe2,
@@ -22,9 +21,9 @@ import {
 const heroSlides = [
   {
     label: "Creative Intelligence",
-    title: "We build brands people notice, trust, and choose.",
+    title: "We build brands that people notice, trust, and choose.",
     text:
-      "A creative marketing and media firm built at the intersection of culture, strategy, AI, storytelling, and growth.",
+      "We are a creative marketing and media firm built at the intersection of culture, strategy, AI, storytelling, and growth.",
   },
   {
     label: "Agency POV",
@@ -36,7 +35,7 @@ const heroSlides = [
     label: "AI + Culture",
     title: "Culture gives the brand soul. AI gives it speed.",
     text:
-      "We use AI to move smarter, not sound generic — sharpening content, campaigns, visibility, and lead generation.",
+      "We use AI to move more intelligently without sounding generic — sharpening content, campaigns, visibility, and lead generation.",
   },
 ];
 
@@ -158,7 +157,7 @@ const ideaToInfluence = [
   {
     label: "The Insight",
     text:
-      "What does the audience need to believe, feel, trust, or understand before they move?",
+      "What does the audience need to understand, believe, feel, or trust before they move?",
   },
   {
     label: "The Big Idea",
@@ -168,7 +167,7 @@ const ideaToInfluence = [
   {
     label: "The Growth Move",
     text:
-      "Where does the attention go next — a page, a call, a form, an offer, a conversation?",
+      "Where should the attention go next — a page, a call, a form, an offer, or a conversation?",
   },
 ];
 
@@ -228,7 +227,7 @@ const voiceTraits = [
 
 const quickPrompts = [
   "Start my marketing diagnostic",
-  "How can you improve my SEO?",
+  "How can my SEO improve?",
   "Help me clarify my brand message.",
   "How do I generate better leads?",
   "What AI tools can improve my marketing?",
@@ -470,7 +469,7 @@ export default function App() {
     const lower = message.toLowerCase();
 
     if (lower.includes("seo") || lower.includes("search")) {
-      return "SEO starts with visibility and intent. A strong review would look at website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile performance.";
+      return "SEO starts with visibility and intent. A strong SEO review looks at website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile performance.";
     }
 
     if (lower.includes("brand") || lower.includes("message")) {
@@ -808,8 +807,7 @@ export default function App() {
           <p className="section-label gold">Featured Capabilities</p>
           <h2>Less service menu. More creative operating system.</h2>
           <p>
-            The site should feel like the work has taste, strategy, and a point of view.
-            These are the core moves.
+            The work has taste, strategy, and a clear point of view. These are the core moves.
           </p>
         </div>
 
@@ -835,13 +833,13 @@ export default function App() {
         <div className="editorial-two-col">
           <div>
             <p className="section-label gold">Creative Intelligence Studio</p>
-            <h2>AI tools that preview how the strategy thinks.</h2>
+            <h2>AI tools that show how strategy takes shape.</h2>
           </div>
 
           <div>
             <p>
-              The studio gives visitors a quick sense of how campaigns, brand voice,
-              and content direction can be shaped before the first consultation.
+              The studio gives prospective clients a quick sense of how campaigns,
+              brand voice, and content direction can be shaped before the first consultation.
             </p>
           </div>
         </div>
@@ -1151,7 +1149,7 @@ export default function App() {
 
             {submitted && (
               <p className="success">
-                Thank you. This demo form is ready to connect to email, CRM, or booking.
+                Thank you. This demo form is ready to connect to an email, CRM, or booking system.
               </p>
             )}
           </form>
