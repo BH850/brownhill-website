@@ -5,22 +5,15 @@ import {
   ArrowRight,
   BarChart3,
   Bot,
-  BrainCircuit,
-  Building2,
   CheckCircle2,
-  ClipboardCheck,
-  Compass,
   FileSearch,
-  Gauge,
   Globe2,
   Layers,
   Lightbulb,
   Mail,
   MapPin,
   Megaphone,
-  MessageSquareText,
   Phone,
-  PlayCircle,
   Search,
   Send,
   ShieldCheck,
@@ -28,394 +21,33 @@ import {
   Target,
   TrendingUp,
   Users,
-  WandSparkles,
-  Workflow,
-  Zap,
 } from "lucide-react";
 
-const corePillars = [
-  {
-    icon: FileSearch,
-    title: "Research & Intelligence",
-    description:
-      "Before tactics are recommended, we perform a comprehensive market analysis for our clients. We look at audience behaviors, competitors, search demand, positioning gaps, customer pain points, local and national visibility, digital presence, and growth opportunities.",
-  },
-  {
-    icon: Compass,
-    title: "Strategy & Positioning",
-    description:
-      "We clarify where the brand should compete, who it should speak to, what offer should be emphasized, and how the message should be framed so the business is easier to understand, trust, and choose.",
-  },
-  {
-    icon: Megaphone,
-    title: "Media, Advertising & Campaigns",
-    description:
-      "We turn strategy into campaign direction across digital, social, local, search, and promotional channels. The goal is to move from random activity to intentional visibility, engagement, and lead generation.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Systems & Performance",
-    description:
-      "BrownHill helps clients build repeatable marketing systems that can be measured, improved, and scaled. We connect visibility, messaging, lead capture, follow-up, analytics, and revenue outcomes.",
-  },
-];
-
-const practiceAreas = [
-  {
-    icon: Search,
-    title: "SEO & Search Engine Visibility",
-    description:
-      "Search engine optimization helps businesses become more discoverable when customers are actively looking for services, products, or solutions. BrownHill supports SEO through keyword research, search intent analysis, technical website review, on-page optimization, local SEO, Google Business Profile improvement, content mapping, competitor search analysis, metadata refinement, internal linking strategy, service-page planning, and visibility audits.",
-    outcomes: [
-      "More qualified search visibility",
-      "Improved local presence",
-      "Better website structure",
-      "Search-focused content direction",
-    ],
-  },
-  {
-    icon: Globe2,
-    title: "SMO & Social Media Optimization",
-    description:
-      "Social Media Optimization strengthens how a brand appears, communicates, and engages across social platforms. BrownHill helps clients optimize profiles, clarify content themes, build posting frameworks, improve brand consistency, develop engagement strategies, create platform-specific messaging, plan social campaigns, and align social presence with business goals.",
-    outcomes: [
-      "Stronger social credibility",
-      "Clearer content direction",
-      "Better platform consistency",
-      "More intentional audience engagement",
-    ],
-  },
-  {
-    icon: Target,
-    title: "Marketing Strategy & Go-To-Market Planning",
-    description:
-      "Marketing strategy is the foundation of every growth effort. BrownHill helps clients define target customers, refine offers, identify market opportunities, develop brand positioning, structure campaign priorities, determine channel strategy, map customer journeys, and create go-to-market plans that guide execution with purpose.",
-    outcomes: [
-      "Clearer market position",
-      "Stronger offer strategy",
-      "Sharper audience targeting",
-      "Practical growth roadmap",
-    ],
-  },
-  {
-    icon: Lightbulb,
-    title: "Marketing Research & Consumer Insights",
-    description:
-      "Research gives marketing direction. BrownHill supports decision-making through customer research, competitor analysis, market scans, industry trend reviews, survey design, audience profiling, pricing perception research, local market opportunity analysis, brand perception review, and insights that help leaders make smarter marketing investments.",
-    outcomes: [
-      "Better customer understanding",
-      "Competitor clarity",
-      "Market opportunity insight",
-      "Evidence-based recommendations",
-    ],
-  },
-  {
-    icon: Megaphone,
-    title: "Advertising Strategy & Campaign Development",
-    description:
-      "Advertising should be planned with a clear audience, message, offer, and conversion goal. BrownHill helps develop ad strategy, campaign concepts, promotional messaging, audience targeting, creative direction, paid media planning, local advertising ideas, launch calendars, campaign briefs, and performance improvement recommendations.",
-    outcomes: [
-      "More focused campaigns",
-      "Stronger ad messaging",
-      "Better audience targeting",
-      "Improved campaign discipline",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Brand Development & Corporate Identity",
-    description:
-      "A brand must look credible and communicate clearly before marketing can fully perform. BrownHill supports brand voice, messaging, positioning statements, service descriptions, visual direction, customer-facing language, company profiles, brand story development, professional bios, brand standards, and corporate presentation materials.",
-    outcomes: [
-      "More professional presence",
-      "Clear brand voice",
-      "Stronger credibility",
-      "Better customer understanding",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Brand Management",
-    description:
-      "Brand management helps organizations shape, strengthen, and protect how they are seen, understood, and remembered. BrownHill supports brand consistency, messaging clarity, reputation strategy, customer perception, service language, visual alignment, campaign standards, and the systems needed to keep the brand strong across every customer touchpoint.",
-    outcomes: [
-      "Stronger brand identity",
-      "Clearer customer perception",
-      "More consistent messaging",
-      "Better market credibility",
-    ],
-  },
-  {
-    icon: MessageSquareText,
-    title: "Content, Media & Communications",
-    description:
-      "Content is how a business educates, builds trust, and stays visible. BrownHill helps with website copy, landing pages, social content plans, blogs, newsletters, email campaigns, promotional copy, thought-leadership concepts, founder messaging, brand announcements, and communication systems that support long-term authority.",
-    outcomes: [
-      "Stronger messaging",
-      "More useful content",
-      "Consistent communication",
-      "Better brand authority",
-    ],
-  },
-  {
-    icon: Layers,
-    title: "Website Strategy & Digital Presence",
-    description:
-      "A website should operate as a credibility engine and conversion asset. BrownHill supports website structure, page planning, service-page copy, conversion flow, calls-to-action, user experience review, trust-building sections, local landing pages, lead capture strategy, and digital presence alignment across web, search, and social.",
-    outcomes: [
-      "Stronger website clarity",
-      "Better conversion flow",
-      "Improved digital credibility",
-      "Cleaner customer journey",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Lead Generation & Revenue Enablement",
-    description:
-      "Visibility only matters when it creates opportunity. BrownHill helps clients design lead-generation systems, referral strategies, outreach campaigns, landing page offers, sales messaging, follow-up flows, appointment-setting language, CRM process recommendations, and customer acquisition frameworks.",
-    outcomes: [
-      "More qualified opportunities",
-      "Better follow-up structure",
-      "Stronger sales messaging",
-      "Clearer acquisition system",
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics, Reporting & Performance Improvement",
-    description:
-      "Marketing must be reviewed, measured, and improved. BrownHill supports KPI development, website analytics review, campaign performance tracking, lead-source analysis, conversion review, monthly reporting, marketing scorecards, ROI interpretation, and optimization recommendations.",
-    outcomes: [
-      "Clearer performance insight",
-      "Better marketing decisions",
-      "Improved accountability",
-      "Data-backed optimization",
-    ],
-  },
-];
-
-const relatedCapabilities = [
-  "AI Marketing Systems",
-  "AI Brand Voice Training",
-  "Animated Website Experiences",
-  "AI Content Engines",
-  "Competitive Analysis",
-  "Customer Journey Mapping",
-  "Google Business Profile Optimization",
-  "Local SEO",
-  "Website Copywriting",
-  "Landing Page Strategy",
-  "Email Marketing",
-  "Sales Funnel Planning",
-  "CRM & Follow-Up Strategy",
-  "Brand Messaging",
-  "Media Planning",
-  "Campaign Briefs",
-  "Audience Segmentation",
-  "Reputation Strategy",
-  "Community Marketing",
-  "Referral Campaigns",
-  "Thought Leadership",
-  "Market Opportunity Reviews",
-  "Performance Dashboards",
-  "Growth Consulting",
-];
-
-const industries = [
-  "Healthcare & Wellness",
-  "Professional Services",
-  "Small & Mid-Sized Businesses",
-  "Community-Centered Organizations",
-  "Black-Owned & Diverse Businesses",
-  "Corporate & Institutional Brands",
-  "Home Services",
-  "Commercial Services",
-  "Real Estate & Property Services",
-  "Fitness & Lifestyle Brands",
-  "Nonprofits & Civic Groups",
-  "Consultants & Coaches",
-];
-
-const process = [
-  {
-    title: "Discovery & Diagnostic Review",
-    description:
-      "We begin by understanding the business model, offer, audience, current marketing activity, competitors, digital presence, sales process, and immediate growth barriers.",
-  },
-  {
-    title: "AI-Assisted Research & Market Intelligence",
-    description:
-      "We review search demand, social presence, customer behavior, competitor positioning, local market signals, content gaps, AI-assisted insights, and opportunities for differentiation.",
-  },
-  {
-    title: "Strategy & Positioning Blueprint",
-    description:
-      "We define the market position, messaging framework, audience priorities, recommended channels, campaign direction, AI workflow opportunities, and growth priorities.",
-  },
-  {
-    title: "Asset, Campaign & System Buildout",
-    description:
-      "We help create or improve the practical assets needed to execute: website copy, landing pages, content plans, ad messaging, SEO updates, social optimization, lead magnets, animation concepts, and follow-up flows.",
-  },
-  {
-    title: "Launch & Execution Support",
-    description:
-      "We help move the plan into market with clear timelines, campaign structure, content direction, advertising support, and accountability around implementation.",
-  },
-  {
-    title: "Measurement, Optimization & Scale",
-    description:
-      "We review performance, identify what is working, refine what is underperforming, and create recommendations to improve conversion, visibility, and revenue impact over time.",
-  },
-];
-
-const caseStudies = [
-  {
-    title: "Local Service Growth System",
-    category: "SEO • Website Strategy • Lead Generation",
-    challenge:
-      "A service-based organization needed stronger visibility, clearer messaging, and a more structured path to generate qualified inquiries.",
-    solution:
-      "BrownHill developed a visibility plan focused on search optimization, service-page clarity, local positioning, and lead-capture improvements.",
-    outcome:
-      "The organization gained a clearer market position, stronger digital presence, and a practical system for turning visibility into customer opportunities.",
-  },
-  {
-    title: "Brand Positioning Reset",
-    category: "Messaging • Research • Strategy",
-    challenge:
-      "An organization had marketing activity in place, but its message was unclear and did not communicate why customers should choose them.",
-    solution:
-      "BrownHill refined the brand language, clarified audience priorities, strengthened the value proposition, and created a more focused messaging framework.",
-    outcome:
-      "The brand became easier to understand, more credible, and better positioned for campaign execution.",
-  },
-  {
-    title: "AI Campaign Readiness Blueprint",
-    category: "Advertising • AI • Content • Analytics",
-    challenge:
-      "A growth-minded business wanted to advertise but needed stronger strategy, creative direction, AI-assisted content systems, and performance tracking before spending money.",
-    solution:
-      "BrownHill built a campaign blueprint covering audience targeting, offer positioning, creative direction, content priorities, AI-assisted production, and performance tracking.",
-    outcome:
-      "The client received a disciplined marketing roadmap designed to reduce wasted spend, improve campaign focus, and move faster with smarter creative support.",
-  },
-];
-
-const servicePackages = [
-  {
-    title: "BrownHill Signal Audit",
-    label: "Start Here",
-    description:
-      "A focused marketing diagnosis for organizations that need clarity before spending more money on marketing.",
-    includes: [
-      "Website and message review",
-      "SEO and visibility scan",
-      "Brand clarity check",
-      "AI readiness snapshot",
-    ],
-  },
-  {
-    title: "BrownHill Growth Blueprint",
-    label: "Most Strategic",
-    description:
-      "A full roadmap for positioning, visibility, campaigns, content, lead generation, and performance tracking.",
-    includes: [
-      "Audience and offer strategy",
-      "SEO and content roadmap",
-      "Campaign direction",
-      "Lead generation plan",
-    ],
-  },
-  {
-    title: "BrownHill AI Growth System",
-    label: "AI-Powered",
-    description:
-      "A marketing system that uses AI-assisted workflows to support content, campaigns, reporting, and growth execution.",
-    includes: [
-      "AI content workflow",
-      "Campaign prompt system",
-      "Brand voice guide",
-      "Performance dashboard direction",
-    ],
-  },
-  {
-    title: "BrownHill Brand Command Retainer",
-    label: "Ongoing",
-    description:
-      "Monthly strategic support for brands that need consistent marketing direction, management, optimization, and growth discipline.",
-    includes: [
-      "Monthly strategy calls",
-      "Campaign planning",
-      "Reporting and optimization",
-      "Brand management support",
-    ],
-  },
-];
-
-const growthPaths = [
-  {
-    key: "Visibility",
-    icon: Search,
-    title: "Visibility Path",
-    subtitle: "Get found by the right audience.",
-    description:
-      "Best for organizations that need SEO, local visibility, Google presence, stronger website structure, and clearer service pages.",
-    cta: "Start Visibility Audit",
-  },
-  {
-    key: "Brand",
-    icon: Sparkles,
-    title: "Brand Authority Path",
-    subtitle: "Become easier to trust and remember.",
-    description:
-      "Best for organizations that need stronger positioning, voice, messaging, identity, storytelling, and brand management.",
-    cta: "Build Brand Blueprint",
-  },
-  {
-    key: "Revenue",
-    icon: TrendingUp,
-    title: "Revenue Path",
-    subtitle: "Turn attention into opportunity.",
-    description:
-      "Best for organizations that need lead generation, campaign planning, follow-up systems, landing pages, and sales enablement.",
-    cta: "Create Growth System",
-  },
-];
-
-const whyBrownHill = [
-  "We do not start with random tactics — we start with the business problem.",
-  "We connect SEO, social, advertising, research, AI, content, and sales enablement into one growth framework.",
-  "We help clients become clearer, more credible, more visible, and more prepared to convert attention into revenue.",
-  "We bring a founder-led mindset: practical, ambitious, disciplined, and focused on building long-term brand equity.",
-];
-
-const homeSlides = [
+const heroSlides = [
   {
     label: "AI-Powered Marketing",
     title: "Marketing intelligence that feels alive.",
     text:
-      "BrownHill blends AI, culture, research, and creative strategy to help brands see the market sharper, move faster, and grow with more confidence.",
-  },
-  {
-    label: "Animated Brand Experiences",
-    title: "Websites should not just be seen. They should be remembered.",
-    text:
-      "We build digital experiences with movement, message, and meaning — turning ordinary websites into brand moments that feel premium, modern, and unforgettable.",
+      "BrownHill blends AI, culture, research, and creative strategy to help brands see the market sharper, move faster, and grow with confidence.",
   },
   {
     label: "Culture-Rooted Strategy",
     title: "Built with cultural understanding. Engineered for growth.",
     text:
-      "BrownHill helps organizations sharpen their message, strengthen their brand presence, and connect with audiences through strategy, insight, and performance discipline.",
+      "We help organizations sharpen their message, strengthen visibility, and connect with audiences through strategy, insight, and performance discipline.",
   },
   {
     label: "Brand Management",
     title: "Stronger brands are managed, not guessed.",
     text:
-      "We help organizations shape how they are seen, understood, remembered, and trusted across websites, campaigns, content, social media, and customer touchpoints.",
+      "BrownHill helps shape how organizations are seen, understood, remembered, and trusted across every customer touchpoint.",
   },
+];
+
+const firmProof = [
+  "We start with the business problem, not random tactics.",
+  "We connect SEO, branding, advertising, AI, content, and lead generation.",
+  "We help brands become clearer, more visible, more credible, and easier to choose.",
 ];
 
 const aiFeatures = [
@@ -423,29 +55,25 @@ const aiFeatures = [
     icon: Bot,
     title: "AI Strategy Companion",
     description:
-      "BrownHill uses AI-assisted strategy tools to help clients identify audience gaps, campaign opportunities, content ideas, search intent, and smarter paths to growth.",
-    tags: ["AI Planning", "Content Ideas", "Growth Prompts"],
+      "AI-assisted research, campaign prompts, audience insight, and smarter content direction.",
   },
   {
     icon: BarChart3,
-    title: "Predictive Marketing Signals",
+    title: "Market Signal Intelligence",
     description:
-      "We help brands turn data into direction by reviewing digital behavior, search demand, content performance, lead sources, and market movement.",
-    tags: ["Analytics", "Market Signals", "Optimization"],
+      "Search demand, lead flow, website clarity, audience behavior, and campaign performance signals.",
   },
   {
     icon: Sparkles,
     title: "Creative Automation",
     description:
-      "From campaign concepts to social themes and brand messaging, BrownHill helps organizations use AI to create faster without losing human taste or cultural intelligence.",
-    tags: ["Creative Direction", "Brand Voice", "Campaign Concepts"],
+      "Campaign ideas, brand voice, social concepts, landing page copy, and video script direction.",
   },
   {
     icon: Target,
     title: "Smarter Lead Generation",
     description:
-      "AI-supported marketing systems help clarify the right audience, right offer, right message, and right follow-up so attention can turn into real opportunities.",
-    tags: ["Lead Flow", "Audience Targeting", "Conversion"],
+      "Offer clarity, calls-to-action, lead capture, follow-up messaging, and conversion paths.",
   },
 ];
 
@@ -458,102 +86,90 @@ const aiSignals = [
   "Performance Data",
 ];
 
-const aiSignalInsights = {
+const signalInsights = {
   "Audience Behavior":
-    "Audience behavior reveals what people are searching for, what they respond to, where they hesitate, and what motivates them to take action.",
+    "Audience behavior reveals what people search for, respond to, hesitate over, and trust.",
   "Search Demand":
-    "Search demand shows what customers already want. BrownHill uses it to shape SEO, website pages, content topics, and campaign priorities.",
+    "Search demand shows what customers already want and helps shape SEO, content, and website strategy.",
   "Brand Voice":
-    "Brand voice controls how your organization sounds across every touchpoint. A strong voice makes your brand easier to trust and remember.",
+    "Brand voice controls how your organization sounds, feels, and earns trust across every touchpoint.",
   "Campaign Ideas":
-    "Campaign ideas become stronger when they connect audience pain points, cultural insight, clear offers, creative direction, and measurable action.",
+    "Strong campaigns connect audience pain points, cultural insight, clear offers, and measurable action.",
   "Lead Flow":
-    "Lead flow connects visibility to revenue. It includes landing pages, forms, calls-to-action, follow-up messaging, and sales handoff.",
+    "Lead flow connects visibility to revenue through landing pages, forms, follow-up, and sales handoff.",
   "Performance Data":
-    "Performance data shows what is working, what is wasting money, and where the next optimization opportunity lives.",
+    "Performance data shows what is working, what is wasting money, and where to optimize next.",
 };
 
-const aiBlueprints = {
-  Visibility: {
-    score: 92,
-    title: "Visibility Growth Blueprint",
-    summary:
-      "Best for organizations that need stronger search presence, better website clarity, and more qualified attention.",
-    steps: [
-      "Audit SEO, website structure, and Google Business Profile.",
-      "Identify audience search intent and service-page gaps.",
-      "Build a content and local visibility roadmap.",
-      "Track rankings, traffic quality, and conversion movement.",
-    ],
-  },
-  Brand: {
-    score: 88,
-    title: "Brand Intelligence Blueprint",
-    summary:
-      "Best for brands that need clearer messaging, stronger identity, and a more memorable digital presence.",
-    steps: [
-      "Clarify audience, positioning, promise, and personality.",
-      "Build a stronger brand voice and message hierarchy.",
-      "Create animated website moments and visual storytelling cues.",
-      "Align social, website, content, and campaign language.",
-    ],
-  },
-  Revenue: {
-    score: 95,
-    title: "Revenue Signal Blueprint",
-    summary:
-      "Best for organizations that need leads, follow-up systems, conversion strategy, and campaign discipline.",
-    steps: [
-      "Define the offer, audience, CTA, and lead capture path.",
-      "Create landing page and campaign messaging.",
-      "Build follow-up scripts, email flows, and CRM recommendations.",
-      "Review lead source, conversion rate, and sales movement.",
-    ],
-  },
-};
-
-const aiModules = [
+const growthPaths = [
   {
-    icon: BrainCircuit,
-    title: "AI Brand Brain",
+    key: "Visibility",
+    icon: Search,
+    title: "Visibility Path",
+    subtitle: "Get found by the right audience.",
     description:
-      "A brand intelligence layer that organizes voice, message, audience, objections, offers, content themes, and campaign direction.",
+      "Best for SEO, local visibility, Google presence, website structure, and service-page clarity.",
+    cta: "Start Visibility Audit",
   },
   {
-    icon: Workflow,
-    title: "AI Content Engine",
+    key: "Brand",
+    icon: Sparkles,
+    title: "Brand Authority Path",
+    subtitle: "Become easier to trust and remember.",
     description:
-      "A repeatable system for turning strategy into social posts, email ideas, blog topics, landing page copy, video scripts, and ad concepts.",
+      "Best for positioning, brand voice, messaging, storytelling, visual consistency, and brand management.",
+    cta: "Build Brand Blueprint",
   },
   {
-    icon: Gauge,
-    title: "AI Growth Dashboard",
+    key: "Revenue",
+    icon: TrendingUp,
+    title: "Revenue Path",
+    subtitle: "Turn attention into opportunity.",
     description:
-      "A performance layer that helps leaders understand visibility, lead flow, content output, campaign movement, and optimization priorities.",
-  },
-  {
-    icon: WandSparkles,
-    title: "AI Creative Studio",
-    description:
-      "A creative support system for campaign angles, visual direction, animation concepts, brand moments, and unforgettable digital experiences.",
+      "Best for lead generation, campaign planning, landing pages, follow-up systems, and sales enablement.",
+    cta: "Create Growth System",
   },
 ];
 
-const cultureIntelCards = [
+const packages = [
   {
-    title: "Culture is not a trend.",
+    title: "BrownHill Signal Audit",
+    label: "Start Here",
     description:
-      "Culture shapes trust, language, influence, identity, attention, and how people decide what brands deserve belief.",
+      "A focused diagnosis of your marketing, website, SEO, brand message, and AI readiness.",
+    items: ["Website review", "SEO scan", "Brand clarity check", "Growth gaps"],
   },
   {
-    title: "Community is market intelligence.",
+    title: "BrownHill Growth Blueprint",
+    label: "Most Strategic",
     description:
-      "BrownHill studies the real signals behind audience behavior so brands can communicate with more relevance and respect.",
+      "A practical roadmap for positioning, visibility, campaigns, content, and lead generation.",
+    items: ["Audience strategy", "SEO roadmap", "Campaign direction", "Lead plan"],
   },
   {
-    title: "Growth still needs discipline.",
+    title: "BrownHill AI Growth System",
+    label: "AI-Powered",
     description:
-      "Cultural understanding matters most when it is connected to strategy, execution, analytics, and measurable outcomes.",
+      "An AI-assisted marketing system for content, campaigns, brand voice, and performance improvement.",
+    items: ["AI workflow", "Prompt system", "Content engine", "Reporting direction"],
+  },
+];
+
+const cultureCards = [
+  {
+    title: "Culture is market intelligence.",
+    description:
+      "Culture shapes trust, language, influence, attention, and how people decide what brands deserve belief.",
+  },
+  {
+    title: "AI needs human taste.",
+    description:
+      "BrownHill uses AI to move faster while protecting brand voice, cultural relevance, and strategic clarity.",
+  },
+  {
+    title: "Growth needs discipline.",
+    description:
+      "Creative ideas matter most when they connect to visibility, credibility, lead flow, and measurable results.",
   },
 ];
 
@@ -561,9 +177,8 @@ const quickPrompts = [
   "Start my marketing diagnostic",
   "How can BrownHill improve my SEO?",
   "Help me clarify my brand message.",
-  "What AI tools can improve my marketing?",
   "How do I generate better leads?",
-  "How can animation make my website better?",
+  "What AI tools can improve my marketing?",
   "What package should I start with?",
 ];
 
@@ -588,7 +203,7 @@ const diagnosticQuestions = [
       "Our message is unclear",
       "We need more leads",
       "Our website is weak",
-      "We need better social content",
+      "We need better content",
       "We need AI support",
     ],
   },
@@ -602,21 +217,7 @@ const diagnosticQuestions = [
     question: "How soon are you trying to improve your marketing?",
     options: ["Immediately", "This month", "Next 90 days", "Still exploring"],
   },
-  {
-    key: "email",
-    question:
-      "Last step — type the best email for BrownHill to follow up, or click Skip for now.",
-    options: ["Skip for now"],
-  },
 ];
-
-function IconCircle({ icon: Icon }) {
-  return (
-    <div className="icon-circle">
-      <Icon size={28} />
-    </div>
-  );
-}
 
 function ButtonLink({ children, variant = "primary", href = "#contact" }) {
   return (
@@ -626,63 +227,58 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
   );
 }
 
+function getPackageRecommendation(profile) {
+  if (profile.focus === "Revenue") return "BrownHill AI Growth System";
+  if (profile.focus === "Brand") return "BrownHill Growth Blueprint";
+  return "BrownHill Signal Audit";
+}
+
 export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSignal, setActiveSignal] = useState("Audience Behavior");
+  const [activePath, setActivePath] = useState("Visibility");
+  const [scannerStage, setScannerStage] = useState("Growing");
+  const [scannerChannel, setScannerChannel] = useState("Website");
   const [submitted, setSubmitted] = useState(false);
-  const [leadMagnetSubmitted, setLeadMagnetSubmitted] = useState(false);
+
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [activeSignal, setActiveSignal] = useState("Audience Behavior");
-  const [activeBlueprint, setActiveBlueprint] = useState("Visibility");
-  const [activeAiFeature, setActiveAiFeature] = useState(aiFeatures[0].title);
-  const [activeGrowthPath, setActiveGrowthPath] = useState("Visibility");
-  const [scannerGoal, setScannerGoal] = useState("Visibility");
-  const [scannerStage, setScannerStage] = useState("Growing");
-  const [scannerChannel, setScannerChannel] = useState("Website");
   const [leadStep, setLeadStep] = useState(0);
   const [leadProfile, setLeadProfile] = useState({});
   const [chatHistory, setChatHistory] = useState([
     {
       sender: "assistant",
       text:
-        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, animation, or start a marketing diagnostic.",
+        "Hi, I’m Edna — your BrownHill AI assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, or start a marketing diagnostic.",
     },
   ]);
 
   const chatEndRef = useRef(null);
   const typingTimerRef = useRef(null);
 
-  const selectedBlueprint = aiBlueprints[activeBlueprint];
-  const selectedFeature =
-    aiFeatures.find((feature) => feature.title === activeAiFeature) ||
-    aiFeatures[0];
-
-  const selectedGrowthPath =
-    growthPaths.find((path) => path.key === activeGrowthPath) || growthPaths[0];
+  const selectedPath =
+    growthPaths.find((path) => path.key === activePath) || growthPaths[0];
 
   const scannerScore =
-    68 +
-    (scannerGoal === "Revenue" ? 14 : scannerGoal === "Brand" ? 10 : 8) +
+    70 +
+    (activePath === "Revenue" ? 15 : activePath === "Brand" ? 10 : 8) +
     (scannerStage === "Scaling" ? 8 : scannerStage === "Established" ? 6 : 4) +
     (scannerChannel === "AI Systems" ? 8 : scannerChannel === "Website" ? 6 : 5);
 
   const scannerRecommendation =
-    scannerGoal === "Revenue"
+    activePath === "Revenue"
       ? "Focus on offer clarity, landing pages, CRM follow-up, ad messaging, and lead-source reporting."
-      : scannerGoal === "Brand"
-      ? "Focus on positioning, brand voice, customer perception, visual consistency, storytelling, and animated digital moments."
+      : activePath === "Brand"
+      ? "Focus on positioning, brand voice, customer perception, storytelling, and animated digital moments."
       : "Focus on SEO, local visibility, website structure, content mapping, and Google Business Profile improvements.";
 
-  const generatedPrompt = `Create a ${scannerGoal.toLowerCase()} marketing plan for a ${scannerStage.toLowerCase()} organization using ${scannerChannel.toLowerCase()} as the primary growth channel. Include audience insight, brand messaging, campaign ideas, AI-assisted workflows, lead generation steps, and performance metrics.`;
-
-  const currentDiagnosticQuestion =
-    leadStep > 0 ? diagnosticQuestions[leadStep - 1] : null;
+  const currentQuestion = leadStep > 0 ? diagnosticQuestions[leadStep - 1] : null;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((current) => (current + 1) % homeSlides.length);
-    }, 5000);
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 5200);
 
     return () => clearInterval(timer);
   }, []);
@@ -691,27 +287,13 @@ export default function App() {
     if (chatOpen) {
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [chatHistory, chatOpen, isTyping]);
+  }, [chatHistory, isTyping, chatOpen]);
 
   useEffect(() => {
     return () => {
-      if (typingTimerRef.current) {
-        clearTimeout(typingTimerRef.current);
-      }
+      if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
     };
   }, []);
-
-  function getPackageRecommendation(profile) {
-    if (profile.focus === "Revenue") {
-      return "BrownHill AI Growth System or BrownHill Brand Command Retainer";
-    }
-
-    if (profile.focus === "Brand") {
-      return "BrownHill Growth Blueprint";
-    }
-
-    return "BrownHill Signal Audit or BrownHill Growth Blueprint";
-  }
 
   function startDiagnostic() {
     if (isTyping) return;
@@ -719,58 +301,44 @@ export default function App() {
     setChatOpen(true);
     setLeadProfile({});
     setLeadStep(1);
-
     setChatHistory((messages) => [
       ...messages,
-      {
-        sender: "assistant",
-        text: diagnosticQuestions[0].question,
-      },
+      { sender: "assistant", text: diagnosticQuestions[0].question },
     ]);
   }
 
   function handleDiagnosticAnswer(answer) {
-    if (!currentDiagnosticQuestion || isTyping) return;
+    if (!currentQuestion || isTyping) return;
 
-    const currentStep = leadStep;
     const updatedProfile = {
       ...leadProfile,
-      [currentDiagnosticQuestion.key]: answer,
+      [currentQuestion.key]: answer,
     };
 
     setChatHistory((messages) => [
       ...messages,
       { sender: "user", text: answer },
     ]);
-
     setChatMessage("");
+    setLeadProfile(updatedProfile);
     setIsTyping(true);
 
     typingTimerRef.current = setTimeout(() => {
-      if (currentStep < diagnosticQuestions.length) {
-        const nextQuestion = diagnosticQuestions[currentStep];
-
-        setLeadProfile(updatedProfile);
-        setLeadStep(currentStep + 1);
-
+      if (leadStep < diagnosticQuestions.length) {
+        setLeadStep((step) => step + 1);
         setChatHistory((messages) => [
           ...messages,
-          {
-            sender: "assistant",
-            text: nextQuestion.question,
-          },
+          { sender: "assistant", text: diagnosticQuestions[leadStep].question },
         ]);
       } else {
-        const recommendedPackage = getPackageRecommendation(updatedProfile);
+        const recommendation = getPackageRecommendation(updatedProfile);
 
-        setLeadProfile(updatedProfile);
         setLeadStep(0);
-
         setChatHistory((messages) => [
           ...messages,
           {
             sender: "assistant",
-            text: `Based on your answers, I recommend starting with ${recommendedPackage}. BrownHill should review your organization type, marketing challenge, growth priority, and timeline so the next step is strategic instead of random.`,
+            text: `Based on your answers, I recommend starting with ${recommendation}. BrownHill should review your organization type, challenge, growth priority, and timeline so the next step is strategic instead of random.`,
           },
         ]);
       }
@@ -780,82 +348,40 @@ export default function App() {
   }
 
   function getEdnaResponse(message) {
-    const lowerMessage = message.toLowerCase();
+    const lower = message.toLowerCase();
 
-    if (
-      lowerMessage.includes("diagnostic") ||
-      lowerMessage.includes("audit me") ||
-      lowerMessage.includes("start")
-    ) {
-      startDiagnostic();
-      return "";
-    }
-
-    if (lowerMessage.includes("seo") || lowerMessage.includes("search")) {
+    if (lower.includes("seo") || lower.includes("search")) {
       return "SEO starts with visibility and intent. BrownHill would review your website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile so your brand can show up when customers are already looking.";
     }
 
-    if (
-      lowerMessage.includes("brand") ||
-      lowerMessage.includes("branding") ||
-      lowerMessage.includes("message")
-    ) {
-      return "Branding is more than a logo. BrownHill would help clarify your positioning, voice, promise, customer perception, visual consistency, and the message that makes people trust and remember your organization.";
+    if (lower.includes("brand") || lower.includes("message")) {
+      return "Branding is more than a logo. BrownHill would help clarify your positioning, voice, promise, customer perception, and the message that makes people trust and remember your organization.";
     }
 
-    if (
-      lowerMessage.includes("ad") ||
-      lowerMessage.includes("advertising") ||
-      lowerMessage.includes("campaign")
-    ) {
-      return "Before spending money on ads, BrownHill would define the audience, offer, message, creative direction, landing page, follow-up path, and performance metrics. Smart campaigns are built before they are launched.";
+    if (lower.includes("ad") || lower.includes("campaign")) {
+      return "Smart campaigns are built before they are launched. BrownHill would define the audience, offer, message, creative direction, landing page, follow-up path, and performance metrics.";
     }
 
-    if (
-      lowerMessage.includes("lead") ||
-      lowerMessage.includes("sales") ||
-      lowerMessage.includes("customer")
-    ) {
+    if (lower.includes("lead") || lower.includes("sales")) {
       return "Lead generation works best when visibility, messaging, trust, and follow-up are connected. BrownHill helps build systems that attract attention, capture interest, and move prospects toward action.";
     }
 
-    if (
-      lowerMessage.includes("animation") ||
-      lowerMessage.includes("animate") ||
-      lowerMessage.includes("motion") ||
-      lowerMessage.includes("website")
-    ) {
-      return "Animation can make your website feel premium, modern, and unforgettable when it supports the message instead of distracting from it. BrownHill can use motion, interactive sections, animated signal cards, and stronger visual storytelling to make your brand feel alive.";
+    if (lower.includes("ai") || lower.includes("automation")) {
+      return "AI should make marketing sharper, not generic. BrownHill can use AI-assisted research, content planning, campaign concepts, SEO insights, audience mapping, and reporting while keeping the brand voice human.";
     }
 
-    if (
-      lowerMessage.includes("ai") ||
-      lowerMessage.includes("automation") ||
-      lowerMessage.includes("tools")
-    ) {
-      return "AI should make marketing sharper, not generic. BrownHill can use AI-assisted research, content planning, campaign concepts, SEO insights, audience mapping, reporting, and creative workflows while keeping the brand voice human and culturally intelligent.";
+    if (lower.includes("package") || lower.includes("cost") || lower.includes("price")) {
+      return "A smart starting point would be the BrownHill Signal Audit. If you need a full roadmap, the BrownHill Growth Blueprint is stronger. If you need execution systems, the AI Growth System is the better fit.";
     }
 
-    if (
-      lowerMessage.includes("price") ||
-      lowerMessage.includes("cost") ||
-      lowerMessage.includes("package")
-    ) {
-      return "A smart starting point would be a BrownHill Signal Audit or Growth Blueprint. BrownHill can also support monthly advisory, campaign launches, AI marketing systems, and animated website experience upgrades depending on the client’s goals and timeline.";
-    }
-
-    return "Great question. BrownHill helps organizations grow by clarifying the market, message, audience, visibility gaps, and conversion path — then building smarter strategy across SEO, social media, advertising, content, lead generation, AI-assisted insights, animation, and analytics.";
+    return "Great question. BrownHill helps organizations grow by clarifying the market, message, audience, visibility gaps, and conversion path — then building smarter strategy across SEO, branding, advertising, content, AI, and lead generation.";
   }
 
   function handleChatSubmit(event, presetMessage = "") {
-    if (event) {
-      event.preventDefault();
-    }
-
+    if (event) event.preventDefault();
     if (isTyping) return;
 
     const userMessage = (presetMessage || chatMessage).trim();
-
     if (!userMessage) return;
 
     if (leadStep > 0) {
@@ -863,12 +389,13 @@ export default function App() {
       return;
     }
 
-    if (
-      userMessage.toLowerCase().includes("start my marketing diagnostic") ||
-      userMessage.toLowerCase().includes("diagnostic")
-    ) {
+    if (userMessage.toLowerCase().includes("diagnostic")) {
       setChatMessage("");
-      startDiagnostic();
+      setChatHistory((messages) => [
+        ...messages,
+        { sender: "user", text: userMessage },
+      ]);
+      setTimeout(startDiagnostic, 150);
       return;
     }
 
@@ -876,38 +403,16 @@ export default function App() {
       ...messages,
       { sender: "user", text: userMessage },
     ]);
-
     setChatMessage("");
     setIsTyping(true);
 
     typingTimerRef.current = setTimeout(() => {
-      const response = getEdnaResponse(userMessage);
-
-      if (response) {
-        setChatHistory((messages) => [
-          ...messages,
-          { sender: "assistant", text: response },
-        ]);
-      }
-
+      setChatHistory((messages) => [
+        ...messages,
+        { sender: "assistant", text: getEdnaResponse(userMessage) },
+      ]);
       setIsTyping(false);
     }, 700);
-  }
-
-  function handleSignalClick(signal) {
-    setActiveSignal(signal);
-
-    if (signal === "Search Demand") {
-      setActiveBlueprint("Visibility");
-    }
-
-    if (signal === "Brand Voice" || signal === "Campaign Ideas") {
-      setActiveBlueprint("Brand");
-    }
-
-    if (signal === "Lead Flow" || signal === "Performance Data") {
-      setActiveBlueprint("Revenue");
-    }
   }
 
   return (
@@ -923,7 +428,6 @@ export default function App() {
               alt="BrownHill Marketing & Media logo"
               className="brand-logo"
             />
-
             <p className="brand-subtitle">
               Marketing Intelligence • AI • Media • Growth
             </p>
@@ -931,11 +435,10 @@ export default function App() {
 
           <div className="nav-links">
             <a href="#firm">The Firm</a>
-            <a href="#culture">Culture</a>
-            <a href="#services">Capabilities</a>
             <a href="#ai-lab">AI Lab</a>
-            <a href="#growth-paths">Growth Paths</a>
+            <a href="#growth">Growth Paths</a>
             <a href="#packages">Packages</a>
+            <a href="#culture">Culture</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -947,8 +450,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
           >
             <p className="eyebrow">
-              <Sparkles size={16} /> AI • Animation • Culture • Brand
-              Management • SEO • Research • Growth Strategy
+              <Sparkles size={16} /> AI • Culture • Brand Management • SEO • Growth
             </p>
 
             <div className="home-slider">
@@ -958,13 +460,13 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45 }}
               >
-                <p className="slide-label">{homeSlides[activeSlide].label}</p>
-                <h1>{homeSlides[activeSlide].title}</h1>
-                <p className="hero-copy">{homeSlides[activeSlide].text}</p>
+                <p className="slide-label">{heroSlides[activeSlide].label}</p>
+                <h1>{heroSlides[activeSlide].title}</h1>
+                <p className="hero-copy">{heroSlides[activeSlide].text}</p>
               </motion.div>
 
               <div className="slider-dots">
-                {homeSlides.map((slide, index) => (
+                {heroSlides.map((slide, index) => (
                   <button
                     key={slide.label}
                     type="button"
@@ -977,7 +479,7 @@ export default function App() {
             </div>
 
             <div className="button-row">
-              <ButtonLink>Request a Strategy Consultation</ButtonLink>
+              <ButtonLink>Request Strategy Consultation</ButtonLink>
               <ButtonLink variant="secondary" href="#ai-lab">
                 Explore AI Lab
               </ButtonLink>
@@ -995,7 +497,6 @@ export default function App() {
                 <div className="ai-orb-small">
                   <Bot size={26} />
                 </div>
-
                 <div>
                   <p>BrownHill Intelligence Engine</p>
                   <span>AI • Culture • Strategy • Growth</span>
@@ -1052,7 +553,7 @@ export default function App() {
                     key={signal}
                     type="button"
                     className={activeSignal === signal ? "active" : ""}
-                    onClick={() => handleSignalClick(signal)}
+                    onClick={() => setActiveSignal(signal)}
                   >
                     {signal}
                   </button>
@@ -1062,173 +563,67 @@ export default function App() {
               <div className="ai-insight-box">
                 <p className="ai-insight-label">Active Signal</p>
                 <h3>{activeSignal}</h3>
-                <p>{aiSignalInsights[activeSignal]}</p>
+                <p>{signalInsights[activeSignal]}</p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section id="firm" className="section cream">
+      <section id="firm" className="section premium-dark">
         <div className="two-col">
           <div>
-            <p className="section-label">The Firm</p>
-            <h2>Marketing strategy built for clarity, visibility, and growth.</h2>
+            <p className="section-label gold">The Firm</p>
+            <h2>Strategy first. AI-powered. Culture-aware. Built for growth.</h2>
             <p>
-              BrownHill helps businesses move beyond scattered marketing
-              activity and build stronger systems for market positioning,
-              audience insight, digital visibility, brand management, AI-powered
-              marketing systems, and customer acquisition.
+              BrownHill helps organizations move beyond scattered marketing and
+              build smarter systems for visibility, brand trust, lead generation,
+              content, advertising, and customer acquisition.
             </p>
             <p>
-              We help organizations understand their market, sharpen their
-              message, show up stronger online, and connect brand visibility to
-              measurable growth.
+              We combine research, cultural intelligence, AI-assisted strategy,
+              digital presence, and performance discipline so brands can be seen,
+              trusted, and chosen.
             </p>
 
             <div className="section-cta-row">
-              <ButtonLink href="#growth-paths">Choose Your Growth Path</ButtonLink>
-              <ButtonLink variant="secondary" href="#lead-magnet">
-                Request Intelligence Report
+              <ButtonLink href="#growth">Choose Your Growth Path</ButtonLink>
+              <ButtonLink variant="secondary" href="#contact">
+                Talk Strategy
               </ButtonLink>
             </div>
           </div>
 
           <div className="stack">
-            {whyBrownHill.map((advantage) => (
-              <div key={advantage} className="proof-card">
+            {firmProof.map((item) => (
+              <div key={item} className="proof-card dark-card">
                 <ShieldCheck size={24} />
-                <p>{advantage}</p>
+                <p>{item}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="culture" className="section dark">
-        <div className="two-col">
-          <div>
-            <p className="section-label gold">Culture & Strategy</p>
-            <h2>Culture is not a trend. It is market intelligence.</h2>
-            <p>
-              BrownHill is a Black-owned strategic marketing firm built to help
-              organizations grow with clarity, culture, AI-assisted insight, and
-              measurable direction.
-            </p>
-            <p>
-              We believe culture shapes how people see, trust, and choose
-              brands. Our perspective helps us understand community, identity,
-              influence, language, and the emotional signals that move people to
-              act.
-            </p>
-            <p>
-              BrownHill combines cultural understanding with marketing strategy,
-              brand management, research, analytics, digital visibility,
-              advertising, content, AI, animation, and lead generation.
-            </p>
-          </div>
-
-          <div className="culture-intel-grid">
-            {cultureIntelCards.map((card) => (
-              <div key={card.title} className="culture-intel-card">
-                <Sparkles size={24} />
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section white">
-        <div className="centered">
-          <p className="section-label">Core Framework</p>
-          <h2>Four pillars guide how BrownHill builds marketing systems.</h2>
-          <p>
-            The firm does not treat marketing as disconnected tasks. Each
-            engagement is built around insight, strategy, execution, and
-            measurable improvement.
-          </p>
-        </div>
-
-        <div className="grid four">
-          {corePillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div key={pillar.title} className="card">
-                <IconCircle icon={Icon} />
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="services" className="section cream">
-        <div className="centered wide">
-          <p className="section-label">Capabilities</p>
-          <h2>
-            Full-scope marketing services built to increase visibility,
-            credibility, and growth.
-          </h2>
-          <p>
-            BrownHill helps businesses strengthen their market presence through
-            strategy, SEO, social media optimization, brand development, brand
-            management, research, advertising, content, analytics, AI-assisted
-            systems, animated website experiences, and lead generation.
-          </p>
-        </div>
-
-        <div className="grid two">
-          {practiceAreas.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div key={service.title} className="card service-card">
-                <IconCircle icon={Icon} />
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-
-                <div className="outcomes">
-                  {service.outcomes.map((outcome) => (
-                    <span key={outcome}>
-                      <CheckCircle2 size={16} /> {outcome}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="centered section-bottom-cta">
-          <ButtonLink href="#packages">View BrownHill Packages</ButtonLink>
         </div>
       </section>
 
       <section id="ai-lab" className="section ai-lab-section">
         <div className="centered wide">
           <p className="section-label gold">AI Marketing Lab</p>
-          <h2>Where strategy, artificial intelligence, and brand experience meet.</h2>
+          <h2>Where artificial intelligence becomes practical marketing advantage.</h2>
           <p>
-            BrownHill helps organizations use AI without sounding generic. The
-            goal is not to replace creativity — it is to sharpen strategy, speed
-            up execution, improve visibility, and build marketing systems that
-            feel smarter, faster, and more memorable.
+            BrownHill uses AI to sharpen strategy, speed up execution, strengthen
+            content, clarify market signals, and build marketing systems that do
+            not sound generic.
           </p>
         </div>
 
         <div className="ai-feature-grid">
           {aiFeatures.map((feature, index) => {
             const Icon = feature.icon;
-            const isActive = activeAiFeature === feature.title;
 
             return (
-              <motion.button
+              <motion.div
                 key={feature.title}
-                type="button"
-                className={`ai-feature-card ${isActive ? "active" : ""}`}
-                onClick={() => setActiveAiFeature(feature.title)}
+                className="ai-feature-card"
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
@@ -1237,86 +632,20 @@ export default function App() {
                 <div className="ai-card-icon">
                   <Icon size={30} />
                 </div>
-
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-
-                <div className="ai-feature-tags">
-                  {feature.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </motion.button>
+              </motion.div>
             );
           })}
         </div>
 
-        <div className="ai-console">
-          <div>
-            <p className="ai-insight-label">Selected AI Capability</p>
-            <h3>{selectedFeature.title}</h3>
-            <p>{selectedFeature.description}</p>
-          </div>
-
-          <div className="ai-console-panel">
-            <div className="ai-score-ring">
-              <span>{selectedBlueprint.score}</span>
-              <small>Signal Score</small>
-            </div>
-
-            <div>
-              <p className="ai-insight-label">Strategy Console</p>
-
-              <div className="blueprint-tabs">
-                {Object.keys(aiBlueprints).map((blueprint) => (
-                  <button
-                    key={blueprint}
-                    type="button"
-                    className={activeBlueprint === blueprint ? "active" : ""}
-                    onClick={() => setActiveBlueprint(blueprint)}
-                  >
-                    {blueprint}
-                  </button>
-                ))}
-              </div>
-
-              <h3>{selectedBlueprint.title}</h3>
-              <p>{selectedBlueprint.summary}</p>
-
-              <div className="blueprint-steps">
-                {selectedBlueprint.steps.map((step, index) => (
-                  <div key={step}>
-                    <span>{index + 1}</span>
-                    <p>{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="ai-module-grid">
-          {aiModules.map((module) => {
-            const Icon = module.icon;
-
-            return (
-              <div key={module.title} className="ai-module-card">
-                <Icon size={30} />
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="ai-scanner">
+        <div className="ai-scanner compact-scanner">
           <div>
             <p className="ai-insight-label">AI Readiness Scanner</p>
-            <h3>Build a smarter marketing starting point.</h3>
+            <h3>Find the smartest starting point.</h3>
             <p>
-              Select a growth priority, business stage, and primary channel.
-              BrownHill’s scanner creates a simple strategy signal for where the
-              organization should focus first.
+              Choose a growth priority, business stage, and primary channel.
+              BrownHill’s scanner creates a simple strategy signal.
             </p>
           </div>
 
@@ -1324,8 +653,8 @@ export default function App() {
             <label>
               Growth Priority
               <select
-                value={scannerGoal}
-                onChange={(event) => setScannerGoal(event.target.value)}
+                value={activePath}
+                onChange={(event) => setActivePath(event.target.value)}
               >
                 <option>Visibility</option>
                 <option>Brand</option>
@@ -1367,38 +696,21 @@ export default function App() {
 
             <div>
               <p className="ai-insight-label">Recommendation</p>
-              <h3>{scannerGoal} Priority</h3>
+              <h3>{activePath} Priority</h3>
               <p>{scannerRecommendation}</p>
-
-              <div className="generated-prompt">
-                <p className="ai-insight-label">Generated AI Strategy Prompt</p>
-                <p>{generatedPrompt}</p>
-              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="centered section-bottom-cta">
-          <ButtonLink href="#lead-magnet">Request Your Intelligence Report</ButtonLink>
-        </div>
-
-        <div className="ai-marquee">
-          <div className="ai-marquee-track">
-            {[...aiSignals, ...aiSignals, ...aiSignals].map((signal, index) => (
-              <span key={`${signal}-${index}`}>{signal}</span>
-            ))}
           </div>
         </div>
       </section>
 
-      <section id="growth-paths" className="section dark">
+      <section id="growth" className="section premium-dark">
         <div className="centered wide">
           <p className="section-label gold">Choose Your Growth Path</p>
           <h2>Every organization does not need the same marketing plan.</h2>
           <p>
-            Choose the path that best matches the organization’s current growth
-            need. BrownHill uses the path to recommend the right strategy,
-            campaign structure, and execution priorities.
+            Select the path that best matches your current challenge. BrownHill
+            uses that direction to recommend the right strategy, offer, content,
+            and campaign system.
           </p>
         </div>
 
@@ -1411,13 +723,9 @@ export default function App() {
                 key={path.key}
                 type="button"
                 className={`growth-path-card ${
-                  activeGrowthPath === path.key ? "active" : ""
+                  activePath === path.key ? "active" : ""
                 }`}
-                onClick={() => {
-                  setActiveGrowthPath(path.key);
-                  setActiveBlueprint(path.key);
-                  setScannerGoal(path.key);
-                }}
+                onClick={() => setActivePath(path.key)}
               >
                 <Icon size={34} />
                 <h3>{path.title}</h3>
@@ -1430,32 +738,32 @@ export default function App() {
         </div>
 
         <div className="growth-path-output">
-          <p className="ai-insight-label">Selected Growth Path</p>
-          <h3>{selectedGrowthPath.title}</h3>
-          <p>{selectedGrowthPath.description}</p>
-          <ButtonLink href="#contact">{selectedGrowthPath.cta}</ButtonLink>
+          <p className="ai-insight-label">Selected Path</p>
+          <h3>{selectedPath.title}</h3>
+          <p>{selectedPath.description}</p>
+          <ButtonLink href="#contact">{selectedPath.cta}</ButtonLink>
         </div>
       </section>
 
-      <section id="packages" className="section cream">
+      <section id="packages" className="section premium-dark">
         <div className="centered wide">
-          <p className="section-label">BrownHill Packages</p>
+          <p className="section-label gold">BrownHill Packages</p>
           <h2>Clear ways to start building a smarter marketing system.</h2>
           <p>
-            These packages make it easier for a client to understand where to
-            begin — from diagnosis to blueprint to AI-supported growth execution.
+            Simple starting points for organizations that need clarity, strategy,
+            AI support, and growth execution.
           </p>
         </div>
 
-        <div className="package-grid">
-          {servicePackages.map((pack) => (
+        <div className="package-grid compact-packages">
+          {packages.map((pack) => (
             <div key={pack.title} className="package-card">
               <p className="package-label">{pack.label}</p>
               <h3>{pack.title}</h3>
               <p>{pack.description}</p>
 
               <div className="package-list">
-                {pack.includes.map((item) => (
+                {pack.items.map((item) => (
                   <span key={item}>
                     <CheckCircle2 size={16} /> {item}
                   </span>
@@ -1468,251 +776,55 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section dark">
+      <section id="culture" className="section premium-dark">
         <div className="two-col">
           <div>
-            <p className="section-label gold">Related Capabilities</p>
-            <h2>
-              Everything connected to marketing growth lives in the BrownHill
-              ecosystem.
-            </h2>
+            <p className="section-label gold">Culture & Founder</p>
+            <h2>Culture is not a trend. It is market intelligence.</h2>
             <p>
-              Some clients need a complete strategy. Others need a focused
-              improvement in one area. BrownHill can support individual
-              marketing needs while keeping the larger growth picture in view.
-            </p>
-          </div>
-
-          <div className="tag-grid">
-            {relatedCapabilities.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="process" className="section white">
-        <div className="two-col">
-          <div>
-            <p className="section-label">The BrownHill Method</p>
-            <h2>A deeper process for smarter marketing decisions and better execution.</h2>
-            <p>
-              Our firm’s process is designed to reduce guesswork. The firm
-              studies the business, identifies growth gaps, builds strategy,
-              supports execution, and improves performance through ongoing
-              learning.
-            </p>
-          </div>
-
-          <div className="stack">
-            {process.map((step, index) => (
-              <div key={step.title} className="step-card">
-                <div className="step-number">{index + 1}</div>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section founder-message-section">
-        <div className="founder-panel">
-          <div>
-            <p className="section-label gold">A Message From the Founder</p>
-            <h2>BrownHill was built for brands tired of random marketing.</h2>
-            <p>
-              BrownHill Marketing and Media was founded to help businesses
-              compete with stronger strategy, sharper messaging, AI-assisted
-              intelligence, animated digital presence, and more intentional
-              growth systems.
+              BrownHill is a Black-owned strategic marketing firm built for
+              organizations that want to grow with clarity, culture, AI-assisted
+              intelligence, and measurable direction.
             </p>
             <p>
-              The mission is to help serious operators become more visible, more
-              credible, more informed, and better positioned to win in their
-              market.
+              Founded by Michael Hill, BrownHill was created for brands tired of
+              random marketing and ready for strategy that connects visibility,
+              trust, and revenue.
             </p>
 
             <div className="section-cta-row">
-              <ButtonLink href="#contact">Work With Michael</ButtonLink>
-              <ButtonLink variant="secondary" href="#lead-magnet">
-                Get a Marketing Report
-              </ButtonLink>
+              <ButtonLink href="#contact">Work With BrownHill</ButtonLink>
+              <button
+                type="button"
+                className="button secondary"
+                onClick={startDiagnostic}
+              >
+                Start Diagnostic <ArrowRight size={20} />
+              </button>
             </div>
           </div>
 
-          <div className="founder-list">
-            <p>
-              <Lightbulb size={24} /> Marketing Intelligence
-            </p>
-            <p>
-              <Globe2 size={24} /> Digital Visibility
-            </p>
-            <p>
-              <Users size={24} /> Audience Development
-            </p>
-            <p>
-              <Zap size={24} /> AI Growth Systems
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section video-section">
-        <div className="two-col video-layout">
-          <div>
-            <p className="section-label gold">BrownHill Video</p>
-            <h2>Marketing should not feel random. It should feel strategic.</h2>
-            <p>
-              BrownHill helps organizations move from scattered activity to
-              clear positioning, stronger visibility, smarter campaigns, AI
-              creative systems, animated brand experiences, and measurable
-              growth systems.
-            </p>
-            <p>
-              This video section can feature a short BrownHill brand intro:
-              “Be seen. Be trusted. Be chosen.”
-            </p>
-          </div>
-
-          <div className="video-card">
-            <div className="video-placeholder">
-              <PlayCircle size={64} />
-              <h3>BrownHill Marketing Intro</h3>
-              <p>Marketing should not feel random. It should feel strategic.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="lead-magnet" className="section lead-magnet-section">
-        <div className="two-col">
-          <div>
-            <p className="section-label gold">Free Intelligence Report</p>
-            <h2>Request a BrownHill Marketing Intelligence Report.</h2>
-            <p>
-              Give BrownHill a few details and we can review the brand’s website
-              clarity, SEO visibility, message strength, lead flow, AI readiness,
-              and growth opportunities.
-            </p>
-            <p>
-              This gives potential clients a reason to raise their hand before
-              they are ready for a full consultation.
-            </p>
-          </div>
-
-          <form
-            className="contact-form"
-            onSubmit={(event) => {
-              event.preventDefault();
-              setLeadMagnetSubmitted(true);
-            }}
-          >
-            <label>Name</label>
-            <input placeholder="Your name" />
-
-            <label>Email</label>
-            <input type="email" placeholder="you@example.com" />
-
-            <label>Website</label>
-            <input placeholder="www.yourwebsite.com" />
-
-            <label>Industry</label>
-            <input placeholder="Healthcare, professional services, nonprofit, etc." />
-
-            <label>Main Marketing Challenge</label>
-            <textarea placeholder="Tell us what you want BrownHill to review..." />
-
-            <button type="submit">Request Intelligence Report</button>
-
-            {leadMagnetSubmitted && (
-              <p className="success">
-                Thank you. BrownHill’s intelligence report request flow is ready
-                to connect to email, CRM, or booking.
-              </p>
-            )}
-          </form>
-        </div>
-      </section>
-
-      <section className="section dark">
-        <div className="two-col">
-          <div>
-            <p className="section-label gold">Industries We Serve</p>
-            <h2>
-              BrownHill works with organizations that need stronger visibility,
-              clearer messaging, better brand management, and more disciplined
-              marketing systems.
-            </h2>
-            <p>
-              We serve healthcare and wellness brands, professional service
-              firms, small and mid-sized businesses, community-centered
-              organizations, Black-owned and diverse businesses, and corporate or
-              institutional brands that want to grow with more strategy,
-              credibility, and market clarity.
-            </p>
-          </div>
-
-          <div className="tag-grid">
-            {industries.map((industry) => (
-              <span key={industry}>{industry}</span>
+          <div className="culture-intel-grid">
+            {cultureCards.map((card) => (
+              <div key={card.title} className="culture-intel-card">
+                <Sparkles size={24} />
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="case-studies" className="section case-study-section">
-        <div className="centered wide">
-          <p className="section-label">Case Study Frameworks</p>
-          <h2>How BrownHill turns marketing problems into growth systems.</h2>
-          <p>
-            These examples show the type of strategic work we build for
-            organizations that need stronger visibility, clearer messaging, AI
-            support, and a more disciplined path to customer acquisition.
-          </p>
-        </div>
-
-        <div className="grid three">
-          {caseStudies.map((study) => (
-            <div key={study.title} className="case-card">
-              <p className="case-category">{study.category}</p>
-              <h3>{study.title}</h3>
-
-              <div>
-                <span>Challenge</span>
-                <p>{study.challenge}</p>
-              </div>
-
-              <div>
-                <span>Solution</span>
-                <p>{study.solution}</p>
-              </div>
-
-              <div>
-                <span>Outcome</span>
-                <p>{study.outcome}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="centered section-bottom-cta">
-          <ButtonLink href="#contact">Talk Strategy With BrownHill</ButtonLink>
         </div>
       </section>
 
       <section id="contact" className="section contact">
         <div className="two-col">
           <div>
-            <p className="section-label gold">Contact the Firm</p>
+            <p className="section-label gold">Contact BrownHill</p>
             <h2>Let’s build the marketing system your organization deserves.</h2>
             <p>
-              Use the form to request a strategy consultation. BrownHill will
-              review your goals, current marketing, digital presence, research
-              needs, advertising opportunities, AI readiness, animation ideas,
-              and best path toward stronger visibility and growth.
+              Request a strategy consultation. BrownHill will review your goals,
+              current marketing, digital presence, AI readiness, and best path
+              toward stronger visibility and growth.
             </p>
 
             <div className="contact-list">
@@ -1747,23 +859,19 @@ export default function App() {
             <label>Organization / Business</label>
             <input placeholder="Company or organization name" />
 
-            <label>Primary Area of Interest</label>
+            <label>Primary Interest</label>
             <select>
+              <option>BrownHill Signal Audit</option>
+              <option>BrownHill Growth Blueprint</option>
+              <option>BrownHill AI Growth System</option>
               <option>SEO / Search Visibility</option>
-              <option>SMO / Social Media Optimization</option>
-              <option>Marketing Strategy</option>
               <option>Brand Management</option>
-              <option>AI Marketing Systems</option>
-              <option>Animated Website Experience</option>
-              <option>Marketing Research</option>
-              <option>Advertising / Campaign Development</option>
-              <option>Brand Development</option>
               <option>Lead Generation</option>
               <option>Full Growth Strategy</option>
             </select>
 
             <label>What growth challenge should we help solve?</label>
-            <textarea placeholder="Tell us about your marketing goals, current challenges, target audience, advertising needs, research needs, AI needs, animation ideas, or growth opportunities..." />
+            <textarea placeholder="Tell us about your marketing goals, current challenges, AI needs, visibility gaps, or lead generation goals..." />
 
             <button type="submit">Request Consultation</button>
 
@@ -1812,9 +920,9 @@ export default function App() {
               <div ref={chatEndRef} />
             </div>
 
-            {currentDiagnosticQuestion && !isTyping && (
+            {currentQuestion && !isTyping && (
               <div className="diagnostic-options">
-                {currentDiagnosticQuestion.options.map((option) => (
+                {currentQuestion.options.map((option) => (
                   <button
                     key={option}
                     type="button"
@@ -1846,7 +954,7 @@ export default function App() {
                 placeholder={
                   leadStep > 0
                     ? "Type your answer..."
-                    : "Ask about SEO, branding, ads, AI, or growth..."
+                    : "Ask about SEO, branding, AI, or growth..."
                 }
                 disabled={isTyping}
               />
@@ -1870,8 +978,8 @@ export default function App() {
 
       <footer>
         © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. A
-        strategic marketing intelligence, media, advertising, AI, animation, and
-        growth advisory firm. All rights reserved.
+        strategic marketing intelligence, media, AI, and growth advisory firm.
+        All rights reserved.
       </footer>
     </main>
   );
