@@ -326,10 +326,22 @@ const whyBrownHill = [
 
 const homeSlides = [
   {
-    label: "Culture-Rooted Strategy",
-    title: "Marketing built with clarity, culture, and growth in mind.",
+    label: "AI-Powered Marketing",
+    title: "Marketing intelligence that feels alive.",
     text:
-      "BrownHill helps organizations sharpen their message, strengthen their brand presence, and connect with the audiences they are built to serve.",
+      "BrownHill blends AI, culture, research, and creative strategy to help brands see the market sharper, move faster, and grow with more confidence.",
+  },
+  {
+    label: "Animated Brand Experiences",
+    title: "Websites should not just be seen. They should be remembered.",
+    text:
+      "We build digital experiences with movement, message, and meaning — turning ordinary websites into brand moments that feel premium, modern, and unforgettable.",
+  },
+  {
+    label: "Culture-Rooted Strategy",
+    title: "Built with cultural understanding. Engineered for growth.",
+    text:
+      "BrownHill helps organizations sharpen their message, strengthen their brand presence, and connect with audiences through strategy, insight, and performance discipline.",
   },
   {
     label: "Brand Management",
@@ -337,14 +349,53 @@ const homeSlides = [
     text:
       "We help organizations shape how they are seen, understood, remembered, and trusted across websites, campaigns, content, social media, and customer touchpoints.",
   },
+];
+const aiFeatures = [
   {
-    label: "Marketing Intelligence",
-    title: "Better insight creates better marketing decisions.",
-    text:
-      "BrownHill combines research, audience understanding, competitive analysis, analytics, and strategy to help organizations grow with more discipline.",
+    icon: Bot,
+    title: "AI Strategy Companion",
+    description:
+      "BrownHill uses AI-assisted strategy tools to help clients identify audience gaps, campaign opportunities, content ideas, search intent, and smarter paths to growth.",
+    tags: ["AI Planning", "Content Ideas", "Growth Prompts"],
+  },
+  {
+    icon: BarChart3,
+    title: "Predictive Marketing Signals",
+    description:
+      "We help brands turn data into direction by reviewing digital behavior, search demand, content performance, lead sources, and market movement.",
+    tags: ["Analytics", "Market Signals", "Optimization"],
+  },
+  {
+    icon: Sparkles,
+    title: "Creative Automation",
+    description:
+      "From campaign concepts to social themes and brand messaging, BrownHill helps organizations use AI to create faster without losing human taste or cultural intelligence.",
+    tags: ["Creative Direction", "Brand Voice", "Campaign Concepts"],
+  },
+  {
+    icon: Target,
+    title: "Smarter Lead Generation",
+    description:
+      "AI-supported marketing systems help clarify the right audience, right offer, right message, and right follow-up so attention can turn into real opportunities.",
+    tags: ["Lead Flow", "Audience Targeting", "Conversion"],
   },
 ];
 
+const aiSignals = [
+  "Audience Behavior",
+  "Search Demand",
+  "Brand Voice",
+  "Campaign Ideas",
+  "Lead Flow",
+  "Performance Data",
+];
+
+const quickPrompts = [
+  "How can BrownHill improve my SEO?",
+  "Help me clarify my brand message.",
+  "What AI tools can improve my marketing?",
+  "How do I generate better leads?",
+];
 function IconCircle({ icon: Icon }) {
   return (
     <div className="icon-circle">
@@ -411,14 +462,68 @@ useEffect(() => {
     const response =
       "Great question. BrownHill helps organizations grow by first clarifying the market, message, audience, and visibility gaps — then building a smarter strategy across SEO, social media, advertising, content, lead generation, and analytics.";
 
-    setChatHistory((messages) => [
-      ...messages,
-      { sender: "user", text: userMessage },
-      { sender: "assistant", text: response },
-    ]);
+   function getEdnaResponse(message) {
+  const lowerMessage = message.toLowerCase();
 
-    setChatMessage("");
+  if (lowerMessage.includes("seo") || lowerMessage.includes("search")) {
+    return "SEO starts with visibility and intent. BrownHill would review your website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile so your brand can show up when customers are already looking.";
   }
+
+  if (
+    lowerMessage.includes("brand") ||
+    lowerMessage.includes("branding") ||
+    lowerMessage.includes("message")
+  ) {
+    return "Branding is more than a logo. BrownHill would help clarify your positioning, voice, promise, customer perception, visual consistency, and the message that makes people trust and remember your organization.";
+  }
+
+  if (
+    lowerMessage.includes("ad") ||
+    lowerMessage.includes("advertising") ||
+    lowerMessage.includes("campaign")
+  ) {
+    return "Before spending money on ads, BrownHill would define the audience, offer, message, creative direction, landing page, follow-up path, and performance metrics. Smart campaigns are built before they are launched.";
+  }
+
+  if (
+    lowerMessage.includes("lead") ||
+    lowerMessage.includes("sales") ||
+    lowerMessage.includes("customer")
+  ) {
+    return "Lead generation works best when visibility, messaging, trust, and follow-up are connected. BrownHill helps build systems that attract attention, capture interest, and move prospects toward action.";
+  }
+
+  if (
+    lowerMessage.includes("ai") ||
+    lowerMessage.includes("automation") ||
+    lowerMessage.includes("animate") ||
+    lowerMessage.includes("animation")
+  ) {
+    return "AI and animation can make your brand feel modern, intelligent, and memorable. BrownHill can use AI-assisted strategy, animated web experiences, smarter content systems, and interactive brand tools to help your organization stand out.";
+  }
+
+  return "Great question. BrownHill helps organizations grow by first clarifying the market, message, audience, and visibility gaps — then building a smarter strategy across SEO, social media, advertising, content, lead generation, AI-assisted insights, and analytics.";
+}
+
+function handleChatSubmit(event, presetMessage = "") {
+  if (event) {
+    event.preventDefault();
+  }
+
+  const userMessage = presetMessage || chatMessage.trim();
+
+  if (!userMessage.trim()) return;
+
+  const response = getEdnaResponse(userMessage);
+
+  setChatHistory((messages) => [
+    ...messages,
+    { sender: "user", text: userMessage },
+    { sender: "assistant", text: response },
+  ]);
+
+  setChatMessage("");
+}
 
   return (
     <main className={`site theme-${effectiveTheme}`}>
@@ -442,8 +547,9 @@ useEffect(() => {
           <div className="nav-links">
             <a href="#firm">The Firm</a>
             <a href="#culture">Culture</a>
-            <a href="#services">Capabilities</a>
-            <a href="#process">Method</a>
+<a href="#services">Capabilities</a>
+<a href="#ai-lab">AI Lab</a>
+<a href="#process">Method</a>
             <a href="#case-studies">Case Studies</a>
             <a href="#contact">Contact</a>
 
@@ -515,7 +621,74 @@ useEffect(() => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="hero-card-wrap"
           >
-            <div className="hero-card">
+           <div className="hero-card ai-command-card">
+  <div className="ai-card-top">
+    <div className="ai-orb-small">
+      <Bot size={26} />
+    </div>
+
+    <div>
+      <p>BrownHill Intelligence Engine</p>
+      <span>AI • Culture • Strategy • Growth</span>
+    </div>
+  </div>
+
+  <div className="ai-orbit">
+    <div className="orbit-ring ring-one" />
+    <div className="orbit-ring ring-two" />
+    <div className="orbit-ring ring-three" />
+
+    <motion.div
+      className="orbit-chip chip-one"
+      animate={{ y: [-8, 8, -8] }}
+      transition={{ duration: 4, repeat: Infinity }}
+    >
+      SEO
+    </motion.div>
+
+    <motion.div
+      className="orbit-chip chip-two"
+      animate={{ y: [8, -8, 8] }}
+      transition={{ duration: 5, repeat: Infinity }}
+    >
+      AI
+    </motion.div>
+
+    <motion.div
+      className="orbit-chip chip-three"
+      animate={{ x: [-8, 8, -8] }}
+      transition={{ duration: 5.5, repeat: Infinity }}
+    >
+      Brand
+    </motion.div>
+
+    <motion.div
+      className="orbit-chip chip-four"
+      animate={{ x: [8, -8, 8] }}
+      transition={{ duration: 4.5, repeat: Infinity }}
+    >
+      Growth
+    </motion.div>
+
+    <div className="ai-core">
+      <Sparkles size={38} />
+      <p>BROWNHILL</p>
+      <span>Market Signal Engine</span>
+    </div>
+  </div>
+
+  <div className="signal-list">
+    {aiSignals.map((signal) => (
+      <span key={signal}>{signal}</span>
+    ))}
+  </div>
+
+  <p className="hero-card-copy">
+    We combine cultural intelligence, AI-assisted insight, animated digital
+    experiences, creative strategy, and performance discipline to help brands
+    become impossible to ignore.
+  </p>
+</div>
               <div className="logo-panel">
                 <div className="logo-circle">
                   <p>BROWNHILL</p>
@@ -981,7 +1154,21 @@ useEffect(() => {
                 </div>
               ))}
             </div>
+</div>
 
+<div className="edna-quick-prompts">
+  {quickPrompts.map((prompt) => (
+    <button
+      key={prompt}
+      type="button"
+      onClick={() => handleChatSubmit(null, prompt)}
+    >
+      {prompt}
+    </button>
+  ))}
+</div>
+
+<form className="ai-chat-form" onSubmit={handleChatSubmit}>
             <form className="ai-chat-form" onSubmit={handleChatSubmit}>
               <input
                 value={chatMessage}
