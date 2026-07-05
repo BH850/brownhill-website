@@ -8,208 +8,197 @@ import {
   Globe2,
   Mail,
   MapPin,
-  Megaphone,
   Menu,
   MessageSquareText,
   Phone,
+  Search,
   Send,
   Sparkles,
+  Target,
   TrendingUp,
   X,
 } from "lucide-react";
 
 const heroSlides = [
   {
-    label: "Creative Intelligence",
-    title: "We build brands that people notice, trust, and choose.",
+    label: "Clarity",
+    title: "Marketing that makes your brand clearer, more visible, and easier to choose.",
     text:
-      "We are a creative marketing and media firm built at the intersection of culture, strategy, AI, storytelling, and growth.",
+      "BrownHill Marketing & Media helps service-based businesses and organizations sharpen their message, improve visibility, create better content, and build smarter lead-generation systems.",
   },
   {
-    label: "Agency POV",
-    title: "Strategy with rhythm. Creative with reason. Growth with receipts.",
+    label: "Visibility",
+    title: "Your audience cannot choose you if they cannot understand you.",
     text:
-      "The work starts with audience insight, moves through brand clarity, and turns into campaigns people can feel — and act on.",
+      "We connect brand strategy, SEO, content, media, AI, and campaign direction so your business shows up with purpose.",
   },
   {
-    label: "AI + Culture",
-    title: "Culture gives the brand soul. AI gives it speed.",
+    label: "Conversion",
+    title: "Attention should lead somewhere useful.",
     text:
-      "We use AI to move more intelligently without sounding generic — sharpening content, campaigns, visibility, and lead generation.",
+      "From your website to your content to your calls-to-action, we help your marketing move people toward calls, forms, bookings, consultations, and sales conversations.",
   },
 ];
 
 const marqueeWords = [
   "BRAND STRATEGY",
   "SEO",
-  "CULTURE",
-  "AI",
-  "CAMPAIGNS",
   "CONTENT",
-  "MEDIA",
-  "MOTION",
+  "AI",
   "LEADS",
-  "STORYTELLING",
-  "ANALYTICS",
+  "MESSAGING",
+  "MEDIA",
+  "VISIBILITY",
+  "CAMPAIGNS",
+  "CONVERSION",
+  "BRAND MANAGEMENT",
   "GROWTH",
+];
+
+const outcomes = [
+  {
+    icon: Target,
+    title: "Clarity",
+    text:
+      "We sharpen your message, offer, audience, and brand voice so people quickly understand what you do and why it matters.",
+  },
+  {
+    icon: Search,
+    title: "Visibility",
+    text:
+      "We improve how your brand shows up through SEO, content, social media, campaigns, and digital presence.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Conversion",
+    text:
+      "We connect attention to action through landing pages, calls-to-action, lead flow, follow-up strategy, and better marketing systems.",
+  },
+];
+
+const whoWeHelp = [
+  "Healthcare & Wellness",
+  "Professional Services",
+  "Local Service Businesses",
+  "Nonprofits & Community Organizations",
+  "Corporate & Institutional Brands",
+  "Black-Owned Businesses",
+];
+
+const growthSystem = [
+  {
+    label: "Diagnose",
+    title: "Review what is working and what is unclear.",
+    text:
+      "We look at your brand, website, SEO, content, audience, competitors, and lead flow to find the real growth gaps.",
+  },
+  {
+    label: "Clarify",
+    title: "Sharpen the message and offer.",
+    text:
+      "We refine your positioning, voice, service language, audience focus, and brand story so your marketing becomes easier to understand.",
+  },
+  {
+    label: "Build",
+    title: "Create the assets and systems.",
+    text:
+      "We build content direction, service pages, campaign ideas, SEO structure, lead pathways, and AI-assisted workflows.",
+  },
+  {
+    label: "Grow",
+    title: "Improve what works.",
+    text:
+      "We use performance insights and smarter systems to strengthen visibility, content, conversion, and long-term brand growth.",
+  },
+];
+
+const services = [
+  {
+    label: "01",
+    title: "Brand Strategy",
+    text:
+      "Messaging, positioning, brand voice, offer clarity, audience definition, and brand management.",
+  },
+  {
+    label: "02",
+    title: "Content & Media",
+    text:
+      "Social media content, campaign ideas, video scripts, creative direction, storytelling, and content planning.",
+  },
+  {
+    label: "03",
+    title: "SEO & Visibility",
+    text:
+      "Website structure, search strategy, local SEO, service pages, content planning, and audience intent.",
+  },
+  {
+    label: "04",
+    title: "AI Marketing Systems",
+    text:
+      "AI-assisted workflows for content, campaigns, customer research, reporting, productivity, and brand voice consistency.",
+  },
+  {
+    label: "05",
+    title: "Lead Generation",
+    text:
+      "Landing pages, calls-to-action, lead flow, follow-up strategy, conversion improvement, and growth pathways.",
+  },
 ];
 
 const aiSignals = [
   "Audience Behavior",
   "Search Demand",
-  "Brand Voice",
-  "Campaign Ideas",
+  "Brand Message",
+  "Content Gaps",
   "Lead Flow",
   "Performance Data",
 ];
 
 const signalInsights = {
   "Audience Behavior":
-    "Audience behavior reveals what people search for, respond to, hesitate over, and trust.",
+    "Audience behavior shows what people search for, respond to, hesitate over, and trust.",
   "Search Demand":
-    "Search demand shows what customers already want and helps shape SEO, content, and website strategy.",
-  "Brand Voice":
-    "Brand voice controls how your organization sounds, feels, and earns trust across every touchpoint.",
-  "Campaign Ideas":
-    "Strong campaigns connect audience pain points, cultural insight, clear offers, and measurable action.",
+    "Search demand reveals what customers already want and helps shape SEO, content, and website strategy.",
+  "Brand Message":
+    "A clear brand message helps people understand what you do, who you serve, and why they should choose you.",
+  "Content Gaps":
+    "Content gaps show what your audience needs to hear before they trust, click, call, or book.",
   "Lead Flow":
-    "Lead flow connects visibility to revenue through landing pages, forms, follow-up, and sales handoff.",
+    "Lead flow connects visibility to action through landing pages, forms, follow-up, and sales handoff.",
   "Performance Data":
-    "Performance data shows what is working, what is wasting money, and where to optimize next.",
+    "Performance data shows what is working, what is wasting time, and where your marketing should improve next.",
 };
-
-const povCards = [
-  {
-    icon: Sparkles,
-    title: "Insight into identity",
-    text:
-      "We find the audience truth, sharpen the message, and shape a brand people can understand quickly.",
-  },
-  {
-    icon: Megaphone,
-    title: "Identity into attention",
-    text:
-      "We turn brand clarity into campaigns, content, media direction, and creative moments that earn attention.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Attention into growth",
-    text:
-      "We connect the creative work to CTAs, landing pages, lead flow, follow-up, and measurable performance.",
-  },
-];
-
-const intelligenceEngine = [
-  {
-    label: "Signal",
-    title: "Read the market",
-    text:
-      "We look at search demand, audience behavior, brand perception, content gaps, and lead-flow signals.",
-  },
-  {
-    label: "Story",
-    title: "Shape the message",
-    text:
-      "We turn the signal into positioning, campaign angles, creative direction, and brand voice.",
-  },
-  {
-    label: "System",
-    title: "Build the path",
-    text:
-      "We connect the message to content, SEO, landing pages, calls-to-action, and follow-up.",
-  },
-  {
-    label: "Scale",
-    title: "Improve the growth loop",
-    text:
-      "We use performance data and AI-assisted workflows to refine what works and remove what does not.",
-  },
-];
-
-const featuredCapabilities = [
-  {
-    label: "01",
-    title: "Brand Strategy",
-    text:
-      "Positioning, voice, identity, audience clarity, service messaging, and brand management.",
-  },
-  {
-    label: "02",
-    title: "Campaign Development",
-    text:
-      "Creative angles, hooks, offers, media direction, launch ideas, and performance-ready messaging.",
-  },
-  {
-    label: "03",
-    title: "SEO + Visibility",
-    text:
-      "Website structure, search strategy, local visibility, content planning, and audience intent.",
-  },
-  {
-    label: "04",
-    title: "AI Content Systems",
-    text:
-      "AI-assisted workflows for social content, email ideas, landing pages, video scripts, and reporting.",
-  },
-];
-
-const ideaToInfluence = [
-  {
-    label: "The Insight",
-    text:
-      "What does the audience need to understand, believe, feel, or trust before they move?",
-  },
-  {
-    label: "The Big Idea",
-    text:
-      "What creative angle makes the message memorable, useful, and worth paying attention to?",
-  },
-  {
-    label: "The Growth Move",
-    text:
-      "Where should the attention go next — a page, a call, a form, an offer, or a conversation?",
-  },
-];
 
 const packages = [
   {
-    title: "The Signal Scan",
+    title: "Marketing Diagnostic",
     label: "Start Here",
     description:
-      "A focused diagnosis of your website, SEO, brand message, content, lead flow, and AI readiness.",
-    items: ["Website review", "SEO scan", "Brand clarity check", "Growth gaps"],
+      "A focused review of your website, message, SEO, content, brand clarity, lead flow, and AI readiness.",
+    items: ["Website review", "SEO scan", "Message audit", "Growth gaps"],
   },
   {
-    title: "The Growth Blueprint",
+    title: "Growth Blueprint",
     label: "Most Strategic",
     description:
-      "A practical roadmap for positioning, visibility, campaigns, content, and lead generation.",
-    items: ["Audience strategy", "SEO roadmap", "Campaign direction", "Lead plan"],
+      "A practical roadmap for brand clarity, visibility, content, campaigns, and lead-generation improvement.",
+    items: ["Audience strategy", "Messaging plan", "SEO roadmap", "Lead pathway"],
   },
   {
-    title: "The Creative Intelligence System",
-    label: "AI-Powered",
+    title: "Marketing System Buildout",
+    label: "Most Complete",
     description:
-      "An AI-assisted marketing system for content, campaigns, brand voice, and performance improvement.",
-    items: ["AI workflow", "Prompt system", "Content engine", "Reporting direction"],
+      "A deeper buildout for businesses ready to improve their marketing structure, content engine, AI workflow, and conversion path.",
+    items: ["Content system", "AI workflow", "Campaign direction", "Conversion plan"],
   },
-];
-
-const industries = [
-  "Healthcare",
-  "Professional Services",
-  "Local Service Business",
-  "Nonprofit",
-  "Corporate Brand",
-  "Black-Owned Business",
 ];
 
 const campaignGoals = [
+  "Improve Brand Clarity",
   "Increase Visibility",
   "Generate Leads",
-  "Improve Brand Trust",
   "Launch a New Offer",
-  "Grow Local Awareness",
+  "Strengthen Local Presence",
 ];
 
 const campaignChannels = ["Website", "Social Media", "Email", "Paid Ads", "Local SEO"];
@@ -251,18 +240,18 @@ const diagnosticQuestions = [
     key: "challenge",
     question: "What is the biggest marketing challenge right now?",
     options: [
-      "People do not know we exist",
-      "Our message is unclear",
-      "We need more leads",
+      "People do not understand what we do",
+      "We need more visibility",
+      "We need better leads",
       "Our website is weak",
-      "We need better content",
+      "Our content is inconsistent",
       "We need AI support",
     ],
   },
   {
     key: "focus",
     question: "Which growth priority matters most?",
-    options: ["Visibility", "Brand", "Revenue"],
+    options: ["Clarity", "Visibility", "Conversion"],
   },
   {
     key: "timeline",
@@ -280,9 +269,9 @@ function ButtonLink({ children, variant = "primary", href = "#contact" }) {
 }
 
 function getPackageRecommendation(profile) {
-  if (profile.focus === "Revenue") return "The Creative Intelligence System";
-  if (profile.focus === "Brand") return "The Growth Blueprint";
-  return "The Signal Scan";
+  if (profile.focus === "Conversion") return "Marketing System Buildout";
+  if (profile.focus === "Visibility") return "Growth Blueprint";
+  return "Marketing Diagnostic";
 }
 
 export default function App() {
@@ -292,12 +281,11 @@ export default function App() {
   const [logoActive, setLogoActive] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
 
-  const [activeStudioTool, setActiveStudioTool] = useState("Campaign Generator");
-  const [campaignIndustry, setCampaignIndustry] = useState("Professional Services");
+  const [activeStudioTool, setActiveStudioTool] = useState("Campaign Builder");
   const [campaignGoal, setCampaignGoal] = useState("Generate Leads");
   const [campaignChannel, setCampaignChannel] = useState("Social Media");
-  const [campaignAudience, setCampaignAudience] = useState("decision-makers");
-  const [contentOffer, setContentOffer] = useState("strategy consultation");
+  const [campaignAudience, setCampaignAudience] = useState("service-based business owners");
+  const [contentOffer, setContentOffer] = useState("marketing diagnostic");
   const [contentIndustry, setContentIndustry] = useState("service-based business");
   const [selectedTraits, setSelectedTraits] = useState([
     "Professional",
@@ -316,7 +304,7 @@ export default function App() {
     {
       sender: "assistant",
       text:
-        "Hi, I’m Edna — your AI marketing assistant. Ask me about SEO, branding, advertising, lead generation, AI marketing, or start a quick diagnostic.",
+        "Hi, I’m Edna — your AI marketing assistant. Ask me about messaging, SEO, content, lead generation, AI marketing, or start a quick diagnostic.",
     },
   ]);
 
@@ -327,25 +315,25 @@ export default function App() {
 
   const campaignHook =
     campaignGoal === "Generate Leads"
-      ? `Stop losing qualified ${campaignAudience} because your message is unclear.`
+      ? `Your marketing should help qualified ${campaignAudience} understand the next step clearly.`
       : campaignGoal === "Increase Visibility"
-      ? "Your audience is already searching. The question is whether your brand is showing up."
-      : campaignGoal === "Improve Brand Trust"
-      ? "Trust is built before the first conversation starts."
+      ? "Your audience may already be searching. The question is whether your brand is showing up clearly."
+      : campaignGoal === "Improve Brand Clarity"
+      ? "Confused people do not convert. A clearer message makes the brand easier to trust."
       : campaignGoal === "Launch a New Offer"
-      ? "A strong launch needs more than an announcement — it needs a reason to care."
-      : "Local growth starts when your community knows why you matter.";
+      ? "A strong launch needs more than an announcement — it needs a reason to care and a clear path to act."
+      : "Local growth starts when your community understands who you are, what you offer, and why it matters.";
 
   const campaignCTA =
     campaignGoal === "Generate Leads"
-      ? "Schedule a strategy consultation."
+      ? "Start with a marketing diagnostic."
       : campaignGoal === "Increase Visibility"
-      ? "Request a visibility audit."
-      : campaignGoal === "Improve Brand Trust"
-      ? "Build your brand blueprint."
+      ? "Request a visibility review."
+      : campaignGoal === "Improve Brand Clarity"
+      ? "Clarify your brand message."
       : campaignGoal === "Launch a New Offer"
-      ? "Plan your launch campaign."
-      : "Grow your local presence.";
+      ? "Plan your launch strategy."
+      : "Strengthen your local presence.";
 
   const campaignMetrics =
     campaignChannel === "Website"
@@ -359,7 +347,7 @@ export default function App() {
       : ["Local rankings", "Google actions", "Calls", "Direction requests"];
 
   const contentIdeas = [
-    `Post: 3 signs your ${contentIndustry} needs a stronger marketing system.`,
+    `Post: 3 signs your ${contentIndustry} needs a clearer marketing message.`,
     `Email: Why your next ${contentOffer} should start with strategy, not guesswork.`,
     "Video: A 30-second breakdown of the biggest visibility mistake in your industry.",
     `Blog: How AI can help a ${contentIndustry} create smarter content without sounding generic.`,
@@ -369,7 +357,7 @@ export default function App() {
   const brandVoiceProfile = selectedTraits.length
     ? `Your brand voice should sound ${selectedTraits
         .map((trait) => trait.toLowerCase())
-        .join(", ")}. This tone can guide website copy, social messaging, ad language, email tone, and campaign direction.`
+        .join(", ")}. This tone can guide website copy, social messaging, ad language, email tone, campaign direction, and sales follow-up.`
     : "Select a few traits to build a brand voice profile.";
 
   useEffect(() => {
@@ -478,7 +466,7 @@ export default function App() {
           ...messages,
           {
             sender: "assistant",
-            text: `Based on your answers, I recommend starting with ${recommendation}. The next move should be strategic, creative, and built around your actual growth priority.`,
+            text: `Based on your answers, I recommend starting with ${recommendation}. Your next move should focus on ${updatedProfile.focus?.toLowerCase() || "clarity"}, then connect that work to visibility and lead flow.`,
           },
         ]);
       }
@@ -494,27 +482,27 @@ export default function App() {
       return "SEO starts with visibility and intent. A strong SEO review looks at website structure, keyword opportunities, local search presence, service pages, competitors, and Google Business Profile performance.";
     }
 
-    if (lower.includes("brand") || lower.includes("message")) {
-      return "Branding is more than a logo. The real work is clarifying positioning, voice, story, customer perception, and the message that makes people trust and remember the organization.";
+    if (lower.includes("brand") || lower.includes("message") || lower.includes("clarity")) {
+      return "Brand clarity means people can quickly understand what you do, who you help, why it matters, and what step to take next. That clarity should show up across your website, content, campaigns, and follow-up.";
     }
 
     if (lower.includes("ad") || lower.includes("campaign")) {
       return "Smart campaigns are built before they are launched. The audience, offer, hook, creative direction, landing page, follow-up path, and performance metrics all need to work together.";
     }
 
-    if (lower.includes("lead") || lower.includes("sales")) {
+    if (lower.includes("lead") || lower.includes("sales") || lower.includes("conversion")) {
       return "Lead generation works best when visibility, messaging, trust, creative, and follow-up are connected. Attention should move toward action.";
     }
 
     if (lower.includes("ai") || lower.includes("automation")) {
-      return "AI should make marketing sharper, not generic. It can support research, content planning, campaign concepts, SEO insights, audience mapping, and reporting while keeping the brand voice human.";
+      return "AI should make marketing sharper, not generic. It can support research, content planning, campaign concepts, SEO insights, audience mapping, reporting, and brand voice consistency.";
     }
 
     if (lower.includes("package") || lower.includes("cost") || lower.includes("price")) {
-      return "A smart starting point would be The Signal Scan. If you need a full roadmap, The Growth Blueprint is stronger. If you need AI-assisted execution systems, The Creative Intelligence System is the better fit.";
+      return "A smart starting point would be the Marketing Diagnostic. If you need a full roadmap, the Growth Blueprint is stronger. If you need deeper marketing structure and implementation planning, the Marketing System Buildout is the better fit.";
     }
 
-    return "Great question. The work usually starts by clarifying the market, message, audience, visibility gaps, creative direction, and conversion path — then building smarter strategy across SEO, branding, advertising, content, AI, and lead generation.";
+    return "Great question. The work usually starts by clarifying your message, audience, offer, visibility gaps, content direction, and conversion path — then building a smarter marketing system around those priorities.";
   }
 
   function handleChatSubmit(event, presetMessage = "") {
@@ -585,7 +573,7 @@ export default function App() {
 
             <span className="brand-text-wrap">
               <span className="brand-subtitle">
-                Creative Intelligence • AI • Media • Growth
+                Clarity • Visibility • Conversion
               </span>
 
               <span className="logo-ai-status">AI Signal Activated</span>
@@ -602,10 +590,11 @@ export default function App() {
           </button>
 
           <div className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
-            <a href="#engine" onClick={closeMobileMenu}>Engine</a>
-            <a href="#pov" onClick={closeMobileMenu}>POV</a>
-            <a href="#work" onClick={closeMobileMenu}>Work</a>
-            <a href="#studio" onClick={closeMobileMenu}>Studio</a>
+            <a href="#what-we-do" onClick={closeMobileMenu}>What We Do</a>
+            <a href="#who-we-help" onClick={closeMobileMenu}>Who We Help</a>
+            <a href="#growth-system" onClick={closeMobileMenu}>System</a>
+            <a href="#services" onClick={closeMobileMenu}>Services</a>
+            <a href="#ai" onClick={closeMobileMenu}>AI</a>
             <a href="#packages" onClick={closeMobileMenu}>Packages</a>
             <a href="#bio" onClick={closeMobileMenu}>Founder</a>
             <a href="#careers" onClick={closeMobileMenu}>Careers</a>
@@ -613,7 +602,7 @@ export default function App() {
           </div>
         </nav>
 
-        <div className="hero-engine-grid">
+        <div className="hero-engine-grid clearer-hero-grid">
           <div className="hero-engine-copy">
             <motion.div
               key={activeSlide}
@@ -629,14 +618,25 @@ export default function App() {
             </motion.div>
 
             <div className="hero-actions hero-actions-left">
-              <ButtonLink>Start a Strategy Conversation</ButtonLink>
               <button
                 type="button"
-                className="button secondary diagnostic-cta"
+                className="button diagnostic-cta"
                 onClick={startDiagnostic}
               >
-                Start Diagnostic <ArrowRight size={20} />
+                Start a Marketing Diagnostic <ArrowRight size={20} />
               </button>
+
+              <ButtonLink variant="secondary" href="#services">
+                View Services
+              </ButtonLink>
+            </div>
+
+            <div className="hero-proof-row">
+              <span>Brand Strategy</span>
+              <span>SEO</span>
+              <span>Content</span>
+              <span>AI Systems</span>
+              <span>Lead Flow</span>
             </div>
 
             <div className="slider-dots editorial-dots hero-dots-left">
@@ -664,8 +664,8 @@ export default function App() {
                   <Bot size={26} />
                 </div>
                 <div>
-                  <p>Creative Intelligence Engine</p>
-                  <span>Culture • Creative • AI • Growth</span>
+                  <p>BrownHill Growth System</p>
+                  <span>Diagnose • Clarify • Build • Grow</span>
                 </div>
               </div>
 
@@ -679,7 +679,7 @@ export default function App() {
                   animate={{ y: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  STORY
+                  CLARITY
                 </motion.div>
 
                 <motion.div
@@ -687,7 +687,7 @@ export default function App() {
                   animate={{ y: [8, -8, 8] }}
                   transition={{ duration: 5, repeat: Infinity }}
                 >
-                  AI
+                  SEO
                 </motion.div>
 
                 <motion.div
@@ -695,7 +695,7 @@ export default function App() {
                   animate={{ x: [-8, 8, -8] }}
                   transition={{ duration: 5.5, repeat: Infinity }}
                 >
-                  BRAND
+                  CONTENT
                 </motion.div>
 
                 <motion.div
@@ -708,8 +708,8 @@ export default function App() {
 
                 <div className="ai-core">
                   <Sparkles size={38} />
-                  <p>BROWNHILL</p>
-                  <span>Creative Signal Engine</span>
+                  <p>GROWTH</p>
+                  <span>Marketing Intelligence System</span>
                 </div>
               </div>
 
@@ -744,134 +744,132 @@ export default function App() {
         </div>
       </div>
 
-      <section id="engine" className="section editorial-section intelligence-engine-section">
+      <section id="what-we-do" className="section editorial-section clear-direction-section">
         <div className="editorial-two-col">
           <div>
-            <p className="section-label gold">Creative Intelligence Engine</p>
-            <h2>The work has a system behind it.</h2>
+            <p className="section-label gold">What We Do</p>
+            <h2>We turn unclear marketing into a clearer growth system.</h2>
           </div>
 
           <div>
             <p className="large-editorial-copy">
-              Creativity gets attention. Intelligence gives it direction.
+              Your brand should be easy to understand, easy to find, and easy to act on.
             </p>
             <p>
-              The engine is how we turn culture, AI, search behavior, audience
-              insight, and performance data into marketing that feels sharp and
-              moves with purpose.
+              BrownHill helps service-based businesses and organizations improve the
+              way they communicate, show up online, create content, use AI, and guide
+              potential customers toward the next step.
             </p>
           </div>
         </div>
 
-        <div className="engine-wrap">
-          <div className="engine-visual">
-            <div className="engine-orbit orbit-one" />
-            <div className="engine-orbit orbit-two" />
-            <div className="engine-orbit orbit-three" />
-
-            <div className="engine-core">
-              <Sparkles size={42} />
-              <p>BROWNHILL</p>
-              <span>Creative Signal Engine</span>
-            </div>
-
-            <div className="engine-chip chip-signal">Signal</div>
-            <div className="engine-chip chip-story">Story</div>
-            <div className="engine-chip chip-system">System</div>
-            <div className="engine-chip chip-scale">Scale</div>
-          </div>
-
-          <div className="engine-steps">
-            {intelligenceEngine.map((step) => (
-              <div key={step.label} className="engine-step-card">
-                <span>{step.label}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pov" className="section editorial-section">
-        <div className="editorial-two-col">
-          <div>
-            <p className="section-label gold">Agency Point of View</p>
-            <h2>We do not believe in random marketing.</h2>
-          </div>
-
-          <div>
-            <p className="large-editorial-copy">
-              A brand grows when the message is clear, the creative has a reason,
-              the audience feels seen, and every touchpoint leads somewhere useful.
-            </p>
-            <p>
-              The work connects culture, strategy, AI-assisted execution, search
-              visibility, media, and storytelling into one sharper growth system.
-            </p>
-          </div>
-        </div>
-
-        <div className="pov-grid">
-          {povCards.map((card) => {
-            const Icon = card.icon;
+        <div className="outcome-grid">
+          {outcomes.map((outcome) => {
+            const Icon = outcome.icon;
 
             return (
-              <div key={card.title} className="pov-card">
-                <Icon size={28} />
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
+              <div key={outcome.title} className="outcome-card">
+                <Icon size={30} />
+                <h3>{outcome.title}</h3>
+                <p>{outcome.text}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      <section id="work" className="section editorial-section dark-panel">
+      <section id="who-we-help" className="section editorial-section dark-panel who-help-section">
+        <div className="editorial-two-col">
+          <div>
+            <p className="section-label gold">Who We Help</p>
+            <h2>Built for organizations with something real to offer.</h2>
+          </div>
+
+          <div>
+            <p>
+              We work best with businesses and organizations that have potential,
+              but need stronger messaging, better visibility, cleaner content, and a
+              smarter path from attention to action.
+            </p>
+
+            <div className="who-help-tags">
+              {whoWeHelp.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="growth-system" className="section editorial-section growth-system-section">
         <div className="centered wide">
-          <p className="section-label gold">Featured Capabilities</p>
-          <h2>Less service menu. More creative operating system.</h2>
+          <p className="section-label gold">The BrownHill Growth System</p>
+          <h2>Diagnose. Clarify. Build. Grow.</h2>
           <p>
-            The work has taste, strategy, and a clear point of view. These are the core moves.
+            The work is creative, but the process is practical. Every move points
+            back to clarity, visibility, and conversion.
           </p>
         </div>
 
-        <div className="featured-work-grid">
-          {featuredCapabilities.map((item) => (
+        <div className="growth-system-grid">
+          {growthSystem.map((step, index) => (
+            <div key={step.label} className="growth-system-card">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p className="system-label">{step.label}</p>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="section editorial-section dark-panel">
+        <div className="centered wide">
+          <p className="section-label gold">Services</p>
+          <h2>Clear services tied to real business outcomes.</h2>
+          <p>
+            No vague agency menu. These are the core areas that help your brand
+            become clearer, more visible, and easier to choose.
+          </p>
+        </div>
+
+        <div className="services-grid clear-services-grid">
+          {services.map((service) => (
             <motion.div
-              key={item.title}
-              className="featured-work-card"
+              key={service.title}
+              className="service-direction-card"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.45 }}
             >
-              <span>{item.label}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <span>{service.label}</span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section id="studio" className="section editorial-section">
+      <section id="ai" className="section editorial-section ai-direction-section">
         <div className="editorial-two-col">
           <div>
-            <p className="section-label gold">Creative Intelligence Studio</p>
-            <h2>AI tools that show how strategy takes shape.</h2>
+            <p className="section-label gold">AI + Marketing Intelligence</p>
+            <h2>AI should make your marketing sharper, not generic.</h2>
           </div>
 
           <div>
             <p>
-              The studio gives prospective clients a quick sense of how campaigns,
-              brand voice, and content direction can be shaped before the first consultation.
+              We use AI to support research, content planning, SEO insight, campaign
+              ideas, reporting, customer understanding, and brand voice consistency.
+              The goal is speed with better thinking — not more noise.
             </p>
           </div>
         </div>
 
         <div className="command-shell editorial-command">
           <div className="command-tabs">
-            {["Campaign Generator", "Brand Voice Builder", "Content Engine"].map(
+            {["Campaign Builder", "Brand Voice Builder", "Content Engine"].map(
               (tool) => (
                 <button
                   key={tool}
@@ -885,23 +883,11 @@ export default function App() {
             )}
           </div>
 
-          {activeStudioTool === "Campaign Generator" && (
+          {activeStudioTool === "Campaign Builder" && (
             <div className="command-grid">
               <div className="command-controls">
                 <label>
-                  Industry
-                  <select
-                    value={campaignIndustry}
-                    onChange={(event) => setCampaignIndustry(event.target.value)}
-                  >
-                    {industries.map((industry) => (
-                      <option key={industry}>{industry}</option>
-                    ))}
-                  </select>
-                </label>
-
-                <label>
-                  Campaign Goal
+                  Goal
                   <select
                     value={campaignGoal}
                     onChange={(event) => setCampaignGoal(event.target.value)}
@@ -929,18 +915,18 @@ export default function App() {
                   <input
                     value={campaignAudience}
                     onChange={(event) => setCampaignAudience(event.target.value)}
-                    placeholder="decision-makers, families, patients, founders..."
+                    placeholder="business owners, patients, families, executives..."
                   />
                 </label>
               </div>
 
               <div className="command-output">
                 <p className="ai-insight-label">Generated Campaign Direction</p>
-                <h3>{campaignIndustry} Campaign</h3>
+                <h3>{campaignGoal}</h3>
                 <p>
-                  <strong>Angle:</strong> Use {campaignChannel.toLowerCase()} to
-                  help {campaignAudience} understand why the brand is credible,
-                  relevant, and ready to solve the problem.
+                  <strong>Angle:</strong> Use {campaignChannel.toLowerCase()} to help{" "}
+                  {campaignAudience} understand the problem, trust the brand, and
+                  take a clear next step.
                 </p>
                 <p>
                   <strong>Hook:</strong> {campaignHook}
@@ -985,9 +971,9 @@ export default function App() {
                 <div className="voice-sample">
                   <p className="ai-insight-label">Sample Website Line</p>
                   <p>
-                    “We help serious organizations become clearer, more visible,
-                    and more trusted through strategy, culture, AI, and disciplined
-                    creative growth systems.”
+                    “We help service-based brands become clearer, more visible,
+                    and easier to choose through strategy, content, SEO, AI, and
+                    smarter lead-generation systems.”
                   </p>
                 </div>
               </div>
@@ -1011,7 +997,7 @@ export default function App() {
                   <input
                     value={contentOffer}
                     onChange={(event) => setContentOffer(event.target.value)}
-                    placeholder="consultation, audit, service package..."
+                    placeholder="diagnostic, consultation, service package..."
                   />
                 </label>
               </div>
@@ -1034,34 +1020,17 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section editorial-section dark-panel">
-        <div className="centered wide">
-          <p className="section-label gold">From Idea to Influence</p>
-          <h2>Creative work should do more than look good. It should move people.</h2>
-        </div>
-
-        <div className="influence-grid">
-          {ideaToInfluence.map((item, index) => (
-            <div key={item.label} className="influence-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item.label}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="packages" className="section editorial-section">
+      <section id="packages" className="section editorial-section dark-panel">
         <div className="editorial-two-col">
           <div>
             <p className="section-label gold">Ways to Start</p>
-            <h2>Simple offers. Clear direction. No bloated service menu.</h2>
+            <h2>Start with the level of help your marketing actually needs.</h2>
           </div>
 
           <div>
             <p>
-              Start with the right level of strategy, then build toward creative,
-              media, content, AI systems, and lead generation.
+              Start with a diagnostic, move into a strategy roadmap, or build a
+              fuller marketing system around content, AI, visibility, and lead flow.
             </p>
           </div>
         </div>
@@ -1084,38 +1053,6 @@ export default function App() {
               <a href="#contact">Request This Package</a>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section id="culture" className="section editorial-section dark-panel">
-        <div className="editorial-two-col">
-          <div>
-            <p className="section-label gold">Culture & Firm</p>
-            <h2>Built where culture, creativity, and strategy meet.</h2>
-          </div>
-
-          <div>
-            <p>
-              BrownHill is a Black-owned creative marketing and media firm built
-              for organizations that want clarity, cultural intelligence, stronger
-              storytelling, and measurable growth.
-            </p>
-            <p>
-              The firm was created for brands tired of random marketing and ready
-              for work that connects visibility, trust, creative identity, and revenue.
-            </p>
-
-            <div className="section-cta-row">
-              <ButtonLink href="#contact">Work With Us</ButtonLink>
-              <button
-                type="button"
-                className="button secondary diagnostic-cta"
-                onClick={startDiagnostic}
-              >
-                Start Diagnostic <ArrowRight size={20} />
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1191,11 +1128,10 @@ export default function App() {
         <div className="two-col">
           <div>
             <p className="section-label gold">Start the Conversation</p>
-            <h2>Let’s build the brand system your organization deserves.</h2>
+            <h2>Let’s make your marketing clearer, more visible, and easier to act on.</h2>
             <p>
-              Request a strategy consultation. We’ll review your goals, current
-              marketing, digital presence, creative direction, AI readiness, and
-              best path toward stronger visibility and growth.
+              Request a marketing diagnostic. We’ll review your goals, message,
+              website, content, SEO, AI readiness, and lead-generation path.
             </p>
 
             <div className="contact-list">
@@ -1224,20 +1160,20 @@ export default function App() {
 
             <label>Primary Interest</label>
             <select>
-              <option>The Signal Scan</option>
-              <option>The Growth Blueprint</option>
-              <option>The Creative Intelligence System</option>
+              <option>Marketing Diagnostic</option>
+              <option>Growth Blueprint</option>
+              <option>Marketing System Buildout</option>
+              <option>Brand Strategy</option>
               <option>SEO / Search Visibility</option>
-              <option>Brand Management</option>
-              <option>Campaign Development</option>
+              <option>Content & Media</option>
+              <option>AI Marketing Systems</option>
               <option>Lead Generation</option>
-              <option>Full Growth Strategy</option>
             </select>
 
             <label>What growth challenge should we help solve?</label>
-            <textarea placeholder="Tell us about your marketing goals, creative needs, visibility gaps, AI needs, or lead generation goals..." />
+            <textarea placeholder="Tell us where your marketing feels unclear, inconsistent, invisible, or disconnected from leads..." />
 
-            <button type="submit">Request Consultation</button>
+            <button type="submit">Request Diagnostic</button>
 
             {submitted && (
               <p className="success">
@@ -1254,7 +1190,7 @@ export default function App() {
             <div className="ai-chat-header">
               <div>
                 <p>Edna, your AI assistant</p>
-                <span>Marketing guidance for growth-minded organizations</span>
+                <span>Marketing guidance for clarity, visibility, and conversion</span>
               </div>
 
               <button type="button" onClick={() => setChatOpen(false)}>
@@ -1317,7 +1253,7 @@ export default function App() {
                 placeholder={
                   leadStep > 0
                     ? "Type your answer..."
-                    : "Ask about SEO, branding, AI, or growth..."
+                    : "Ask about messaging, SEO, AI, or leads..."
                 }
                 disabled={isTyping}
               />
@@ -1340,9 +1276,9 @@ export default function App() {
       </div>
 
       <footer>
-        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. Creative
-        intelligence, media, AI, brand strategy, and growth systems. All rights
-        reserved.
+        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. Brand
+        strategy, content, SEO, AI marketing systems, media, and lead generation.
+        All rights reserved.
       </footer>
     </main>
   );
