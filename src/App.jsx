@@ -38,6 +38,7 @@ const cms = {
   },
 
   navigation: [
+    { label: "Diagnostic", path: "/marketing-diagnostic" },
     { label: "Services", path: "/services" },
     { label: "Industries", path: "/industries" },
     { label: "Growth System", path: "/growth-system" },
@@ -730,6 +731,14 @@ export default function App() {
     }
   }
 
+  function scrollToDiagnosticForm() {
+    const form = document.getElementById("diagnostic-form");
+
+    if (form) {
+      form.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   function startDiagnostic() {
     if (isTyping) return;
 
@@ -888,13 +897,9 @@ export default function App() {
               </motion.div>
 
               <div className="hero-actions hero-actions-left">
-                <button
-                  type="button"
-                  className="button diagnostic-cta"
-                  onClick={startDiagnostic}
-                >
-                  Start a Marketing Diagnostic <ArrowRight size={20} />
-                </button>
+                <ButtonLink path="/marketing-diagnostic">
+                  Start a Marketing Diagnostic
+                </ButtonLink>
 
                 <ButtonLink variant="secondary" path="/services">
                   View Services
@@ -1148,7 +1153,7 @@ export default function App() {
                   ))}
                 </div>
 
-                <a href={href("/contact")}>Request This Package</a>
+                <a href={href("/marketing-diagnostic")}>Request This Package</a>
               </div>
             ))}
           </div>
@@ -1174,6 +1179,250 @@ export default function App() {
         {renderFounderSection()}
         {renderCareersSection()}
         {renderContactSection()}
+      </>
+    );
+  }
+
+  function renderDiagnosticLandingPage() {
+    const reviewItems = [
+      "Brand message clarity",
+      "Website structure",
+      "SEO visibility",
+      "Content consistency",
+      "AI readiness",
+      "Lead-generation path",
+    ];
+
+    const deliverables = [
+      "A clear breakdown of what is confusing your audience",
+      "Visibility gaps that may be limiting your reach",
+      "Messaging opportunities to make your offer easier to understand",
+      "Content and SEO recommendations",
+      "Lead-flow improvements",
+      "Recommended next steps for growth",
+    ];
+
+    const fitItems = [
+      "Your website is not converting visitors into inquiries",
+      "People struggle to understand what you offer",
+      "Your content feels inconsistent or random",
+      "You are not showing up clearly in search",
+      "You want to use AI but need structure",
+      "You need a smarter path from attention to leads",
+    ];
+
+    return (
+      <>
+        <section className="landing-hero diagnostic-landing-page">
+          <div className="landing-glow landing-glow-left" />
+          <div className="landing-glow landing-glow-right" />
+
+          <div className="landing-hero-grid">
+            <div className="landing-hero-copy">
+              <p className="eyebrow">
+                <Sparkles size={16} /> Marketing Diagnostic
+              </p>
+
+              <h1>Find out why your marketing is not turning attention into action.</h1>
+
+              <p>
+                The BrownHill Marketing Diagnostic reviews your brand message,
+                website, SEO, content, AI readiness, and lead-generation path so
+                you can see what is unclear, what is missing, and what needs to
+                improve next.
+              </p>
+
+              <div className="hero-actions hero-actions-left">
+                <button
+                  type="button"
+                  className="button diagnostic-cta"
+                  onClick={scrollToDiagnosticForm}
+                >
+                  Request Your Diagnostic <ArrowRight size={20} />
+                </button>
+
+                <button
+                  type="button"
+                  className="button secondary"
+                  onClick={startDiagnostic}
+                >
+                  Ask Edna First <Bot size={20} />
+                </button>
+              </div>
+
+              <div className="landing-proof-row">
+                <span>Brand Clarity</span>
+                <span>SEO</span>
+                <span>Content</span>
+                <span>AI Readiness</span>
+                <span>Lead Flow</span>
+              </div>
+            </div>
+
+            <div className="landing-score-card">
+              <p className="section-label gold">Diagnostic Focus</p>
+              <h2>Clarity → Visibility → Conversion</h2>
+
+              <div className="landing-score-list">
+                {reviewItems.map((item) => (
+                  <span key={item}>
+                    <CheckCircle2 size={17} /> {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section editorial-section landing-problem-section">
+          <div className="editorial-two-col">
+            <div>
+              <p className="section-label gold">The Problem</p>
+              <h2>Your marketing may not be broken. It may be unclear.</h2>
+            </div>
+
+            <div>
+              <p className="large-editorial-copy">
+                Confused people do not convert.
+              </p>
+
+              <p>
+                Many service-based brands have real value, but their website,
+                message, content, SEO, and lead path are not working together.
+                The result is scattered marketing, weak visibility, and missed
+                opportunities.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section editorial-section dark-panel">
+          <div className="centered wide">
+            <p className="section-label gold">What We Review</p>
+            <h2>A focused look at the marketing pieces that affect growth.</h2>
+            <p>
+              The diagnostic looks at the parts of your marketing that influence
+              trust, visibility, action, and lead generation.
+            </p>
+          </div>
+
+          <div className="landing-review-grid">
+            {reviewItems.map((item, index) => (
+              <div key={item} className="landing-review-card">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item}</h3>
+                <p>
+                  We review how this area supports or weakens your ability to be
+                  understood, found, trusted, and chosen.
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section editorial-section">
+          <div className="editorial-two-col">
+            <div>
+              <p className="section-label gold">What You Get</p>
+              <h2>Clear direction before you spend more money on marketing.</h2>
+            </div>
+
+            <div>
+              <p>
+                The goal is not to overwhelm you with jargon. The goal is to show
+                you what needs to be fixed, what should be prioritized, and how to
+                move forward with better strategy.
+              </p>
+
+              <div className="landing-check-list">
+                {deliverables.map((item) => (
+                  <span key={item}>
+                    <CheckCircle2 size={17} /> {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section editorial-section dark-panel">
+          <div className="centered wide">
+            <p className="section-label gold">Who This Is For</p>
+            <h2>This is for brands with potential but no clear marketing system.</h2>
+          </div>
+
+          <div className="landing-fit-grid">
+            {fitItems.map((item) => (
+              <div key={item} className="landing-fit-card">
+                <CheckCircle2 size={18} />
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="diagnostic-form" className="section contact editorial-contact landing-form-section">
+          <div className="two-col">
+            <div>
+              <p className="section-label gold">Request Your Diagnostic</p>
+              <h2>Let’s find the gaps in your marketing system.</h2>
+              <p>
+                Complete the form and BrownHill will review your goals, current
+                marketing, message, website, content, SEO, AI readiness, and lead
+                path.
+              </p>
+
+              <div className="contact-list">
+                <p><Phone size={20} /> {cms.site.phone}</p>
+                <p><Mail size={20} /> {cms.site.email}</p>
+                <p><Globe2 size={20} /> {cms.site.website}</p>
+                <p><MapPin size={20} /> {cms.site.location}</p>
+              </div>
+            </div>
+
+            <form
+              className="contact-form landing-diagnostic-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                setSubmitted(true);
+              }}
+            >
+              <label>Name</label>
+              <input placeholder="Your name" />
+
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" />
+
+              <label>Business / Organization</label>
+              <input placeholder="Company or organization name" />
+
+              <label>Main Challenge</label>
+              <select>
+                <option>My message is unclear</option>
+                <option>I need more visibility</option>
+                <option>I need better leads</option>
+                <option>My website is not converting</option>
+                <option>My content is inconsistent</option>
+                <option>I need help using AI for marketing</option>
+              </select>
+
+              <label>Website or Social Link</label>
+              <input placeholder="Paste your website or social page" />
+
+              <label>What do you want your marketing to improve?</label>
+              <textarea placeholder="Tell us what feels unclear, inconsistent, invisible, or disconnected from leads..." />
+
+              <button type="submit">Request My Marketing Diagnostic</button>
+
+              {submitted && (
+                <p className="success">
+                  Thank you. This demo form is ready to connect to an email, CRM,
+                  or booking system.
+                </p>
+              )}
+            </form>
+          </div>
+        </section>
       </>
     );
   }
@@ -1512,7 +1761,7 @@ export default function App() {
               )}
 
               <div className="section-cta-row cms-detail-cta">
-                <ButtonLink path="/contact">Request Diagnostic</ButtonLink>
+                <ButtonLink path="/marketing-diagnostic">Request Diagnostic</ButtonLink>
                 <ButtonLink variant="secondary" path="/services">
                   View Services
                 </ButtonLink>
@@ -1755,6 +2004,7 @@ export default function App() {
   function renderCurrentPage() {
     if (currentPath === "/") return renderHomePage();
 
+    if (currentPath === "/marketing-diagnostic") return renderDiagnosticLandingPage();
     if (currentPath === "/services") return renderHubPage("services");
     if (currentPath === "/industries") return renderHubPage("industries");
     if (currentPath === "/growth-system") return renderHubPage("growth-system");
