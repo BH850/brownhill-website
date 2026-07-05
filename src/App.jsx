@@ -19,131 +19,436 @@ import {
   X,
 } from "lucide-react";
 
-const heroSlides = [
-  {
-    label: "Clarity",
-    title: "Marketing that makes your brand clearer, more visible, and easier to choose.",
-    text:
-      "BrownHill Marketing & Media helps service-based businesses and organizations sharpen their message, improve visibility, create better content, and build smarter lead-generation systems.",
-  },
-  {
-    label: "Visibility",
-    title: "Your audience cannot choose you if they cannot understand you.",
-    text:
-      "We connect brand strategy, SEO, content, media, AI, and campaign direction so your business shows up with purpose.",
-  },
-  {
-    label: "Conversion",
-    title: "Attention should lead somewhere useful.",
-    text:
-      "From your website to your content to your calls-to-action, we help your marketing move people toward calls, forms, bookings, consultations, and sales conversations.",
-  },
-];
+/*
+  LOCAL CMS STRUCTURE
+  This content is structured like a CMS so it can later connect to Sanity,
+  Contentful, Strapi, Payload, or another headless CMS.
+*/
 
-const marqueeWords = [
-  "BRAND STRATEGY",
-  "SEO",
-  "CONTENT",
-  "AI",
-  "LEADS",
-  "MESSAGING",
-  "MEDIA",
-  "VISIBILITY",
-  "CAMPAIGNS",
-  "CONVERSION",
-  "BRAND MANAGEMENT",
-  "GROWTH",
-];
+const cms = {
+  site: {
+    name: "BrownHill Marketing & Media",
+    tagline: "Clarity • Visibility • Conversion",
+    positioning:
+      "A culture-rooted marketing and media firm helping service-based brands turn unclear marketing into clear messaging, stronger visibility, and better lead-generation systems.",
+    phone: "850-221-3089",
+    email: "info@emailaddress.com",
+    website: "www.websiteaddress.com",
+    location: "Houston, TX",
+  },
 
-const outcomes = [
-  {
-    icon: Target,
-    title: "Clarity",
-    text:
-      "We sharpen your message, offer, audience, and brand voice so people quickly understand what you do and why it matters.",
-  },
-  {
-    icon: Search,
-    title: "Visibility",
-    text:
-      "We improve how your brand shows up through SEO, content, social media, campaigns, and digital presence.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Conversion",
-    text:
-      "We connect attention to action through landing pages, calls-to-action, lead flow, follow-up strategy, and better marketing systems.",
-  },
-];
+  navigation: [
+    { label: "Services", path: "/services" },
+    { label: "Industries", path: "/industries" },
+    { label: "Growth System", path: "/growth-system" },
+    { label: "Resources", path: "/resources" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
+  ],
 
-const whoWeHelp = [
-  "Healthcare & Wellness",
-  "Professional Services",
-  "Local Service Businesses",
-  "Nonprofits & Community Organizations",
-  "Corporate & Institutional Brands",
-  "Black-Owned Businesses",
-];
+  heroSlides: [
+    {
+      label: "Clarity",
+      title:
+        "Marketing that makes your brand clearer, more visible, and easier to choose.",
+      text:
+        "BrownHill Marketing & Media helps service-based businesses and organizations sharpen their message, improve visibility, create better content, and build smarter lead-generation systems.",
+    },
+    {
+      label: "Visibility",
+      title: "Your audience cannot choose you if they cannot understand you.",
+      text:
+        "We connect brand strategy, SEO, content, media, AI, and campaign direction so your business shows up with purpose.",
+    },
+    {
+      label: "Conversion",
+      title: "Attention should lead somewhere useful.",
+      text:
+        "From your website to your content to your calls-to-action, we help your marketing move people toward calls, forms, bookings, consultations, and sales conversations.",
+    },
+  ],
 
-const growthSystem = [
-  {
-    label: "Diagnose",
-    title: "Review what is working and what is unclear.",
-    text:
-      "We look at your brand, website, SEO, content, audience, competitors, and lead flow to find the real growth gaps.",
-  },
-  {
-    label: "Clarify",
-    title: "Sharpen the message and offer.",
-    text:
-      "We refine your positioning, voice, service language, audience focus, and brand story so your marketing becomes easier to understand.",
-  },
-  {
-    label: "Build",
-    title: "Create the assets and systems.",
-    text:
-      "We build content direction, service pages, campaign ideas, SEO structure, lead pathways, and AI-assisted workflows.",
-  },
-  {
-    label: "Grow",
-    title: "Improve what works.",
-    text:
-      "We use performance insights and smarter systems to strengthen visibility, content, conversion, and long-term brand growth.",
-  },
-];
+  marqueeWords: [
+    "BRAND STRATEGY",
+    "SEO",
+    "CONTENT",
+    "AI",
+    "LEADS",
+    "MESSAGING",
+    "MEDIA",
+    "VISIBILITY",
+    "CAMPAIGNS",
+    "CONVERSION",
+    "BRAND MANAGEMENT",
+    "GROWTH",
+  ],
 
-const services = [
-  {
-    label: "01",
-    title: "Brand Strategy",
-    text:
-      "Messaging, positioning, brand voice, offer clarity, audience definition, and brand management.",
-  },
-  {
-    label: "02",
-    title: "Content & Media",
-    text:
-      "Social media content, campaign ideas, video scripts, creative direction, storytelling, and content planning.",
-  },
-  {
-    label: "03",
-    title: "SEO & Visibility",
-    text:
-      "Website structure, search strategy, local SEO, service pages, content planning, and audience intent.",
-  },
-  {
-    label: "04",
-    title: "AI Marketing Systems",
-    text:
-      "AI-assisted workflows for content, campaigns, customer research, reporting, productivity, and brand voice consistency.",
-  },
-  {
-    label: "05",
-    title: "Lead Generation",
-    text:
-      "Landing pages, calls-to-action, lead flow, follow-up strategy, conversion improvement, and growth pathways.",
-  },
-];
+  outcomes: [
+    {
+      icon: Target,
+      title: "Clarity",
+      text:
+        "We sharpen your message, offer, audience, and brand voice so people quickly understand what you do and why it matters.",
+    },
+    {
+      icon: Search,
+      title: "Visibility",
+      text:
+        "We improve how your brand shows up through SEO, content, social media, campaigns, and digital presence.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Conversion",
+      text:
+        "We connect attention to action through landing pages, calls-to-action, lead flow, follow-up strategy, and better marketing systems.",
+    },
+  ],
+
+  services: [
+    {
+      slug: "brand-strategy",
+      label: "01",
+      title: "Brand Strategy",
+      summary:
+        "Messaging, positioning, brand voice, offer clarity, audience definition, and brand management.",
+      promise:
+        "We help your organization become easier to understand, easier to trust, and easier to choose.",
+      deliverables: [
+        "Brand positioning",
+        "Audience definition",
+        "Offer clarity",
+        "Messaging framework",
+        "Brand voice direction",
+        "Brand management guidance",
+      ],
+      relatedIndustries: ["healthcare-wellness", "professional-services"],
+      relatedResources: ["marketing-clarity", "brand-messaging"],
+    },
+    {
+      slug: "content-media",
+      label: "02",
+      title: "Content & Media",
+      summary:
+        "Social media content, campaign ideas, video scripts, creative direction, storytelling, and content planning.",
+      promise:
+        "We turn your brand message into content people can understand, remember, and act on.",
+      deliverables: [
+        "Content strategy",
+        "Social media direction",
+        "Campaign concepts",
+        "Video script ideas",
+        "Creative messaging",
+        "Content calendar planning",
+      ],
+      relatedIndustries: ["local-service-businesses", "nonprofits"],
+      relatedResources: ["content-planning", "campaign-strategy"],
+    },
+    {
+      slug: "seo-visibility",
+      label: "03",
+      title: "SEO & Visibility",
+      summary:
+        "Website structure, search strategy, local SEO, service pages, content planning, and audience intent.",
+      promise:
+        "We help your brand show up more clearly when people are searching for what you offer.",
+      deliverables: [
+        "SEO review",
+        "Keyword direction",
+        "Local visibility strategy",
+        "Service page structure",
+        "Content topic planning",
+        "Google Business Profile guidance",
+      ],
+      relatedIndustries: ["healthcare-wellness", "local-service-businesses"],
+      relatedResources: ["seo-basics", "local-seo"],
+    },
+    {
+      slug: "ai-marketing-systems",
+      label: "04",
+      title: "AI Marketing Systems",
+      summary:
+        "AI-assisted workflows for content, campaigns, customer research, reporting, productivity, and brand voice consistency.",
+      promise:
+        "We use AI to help your marketing move faster without becoming generic or disconnected from your brand.",
+      deliverables: [
+        "AI content workflow",
+        "Prompt system",
+        "Campaign idea workflow",
+        "Brand voice prompts",
+        "Research prompts",
+        "Reporting support",
+      ],
+      relatedIndustries: ["professional-services", "corporate-institutional-brands"],
+      relatedResources: ["ai-marketing", "brand-voice-ai"],
+    },
+    {
+      slug: "lead-generation",
+      label: "05",
+      title: "Lead Generation",
+      summary:
+        "Landing pages, calls-to-action, lead flow, follow-up strategy, conversion improvement, and growth pathways.",
+      promise:
+        "We connect attention to action so your marketing has a clearer path toward calls, forms, bookings, and sales conversations.",
+      deliverables: [
+        "Lead flow review",
+        "CTA strategy",
+        "Landing page direction",
+        "Follow-up path",
+        "Conversion improvement",
+        "Sales conversation alignment",
+      ],
+      relatedIndustries: ["professional-services", "local-service-businesses"],
+      relatedResources: ["lead-generation", "conversion-paths"],
+    },
+  ],
+
+  industries: [
+    {
+      slug: "healthcare-wellness",
+      title: "Healthcare & Wellness",
+      summary:
+        "Marketing for clinics, wellness providers, healthcare service brands, and patient-focused organizations that need trust, clarity, and visibility.",
+      needs: [
+        "Clear service messaging",
+        "Local SEO",
+        "Patient trust-building content",
+        "Lead and appointment pathways",
+      ],
+      relatedServices: ["brand-strategy", "seo-visibility", "lead-generation"],
+    },
+    {
+      slug: "professional-services",
+      title: "Professional Services",
+      summary:
+        "Marketing for consultants, advisors, agencies, real estate professionals, legal-adjacent services, and service experts who need stronger positioning.",
+      needs: [
+        "Sharper positioning",
+        "Thought leadership content",
+        "Lead-generation systems",
+        "Offer clarity",
+      ],
+      relatedServices: ["brand-strategy", "ai-marketing-systems", "lead-generation"],
+    },
+    {
+      slug: "local-service-businesses",
+      title: "Local Service Businesses",
+      summary:
+        "Marketing for service businesses that need to show up locally, explain their value quickly, and convert attention into calls or bookings.",
+      needs: [
+        "Local search visibility",
+        "Better service pages",
+        "Review-driven trust",
+        "Clear calls-to-action",
+      ],
+      relatedServices: ["seo-visibility", "content-media", "lead-generation"],
+    },
+    {
+      slug: "nonprofits",
+      title: "Nonprofits & Community Organizations",
+      summary:
+        "Marketing for mission-driven organizations that need storytelling, visibility, donor trust, volunteer engagement, and community clarity.",
+      needs: [
+        "Mission storytelling",
+        "Community campaigns",
+        "Donor messaging",
+        "Content planning",
+      ],
+      relatedServices: ["content-media", "brand-strategy", "ai-marketing-systems"],
+    },
+    {
+      slug: "corporate-institutional-brands",
+      title: "Corporate & Institutional Brands",
+      summary:
+        "Marketing support for organizations that need cleaner messaging, campaign strategy, brand management, and smarter content systems.",
+      needs: [
+        "Brand management",
+        "Campaign direction",
+        "AI-assisted content workflows",
+        "Internal and external messaging",
+      ],
+      relatedServices: ["brand-strategy", "content-media", "ai-marketing-systems"],
+    },
+    {
+      slug: "black-owned-businesses",
+      title: "Black-Owned Businesses",
+      summary:
+        "Culture-rooted marketing support for Black-owned businesses that want to grow with clarity, creativity, visibility, and strategy.",
+      needs: [
+        "Culture-rooted brand positioning",
+        "Content strategy",
+        "Local and digital visibility",
+        "Lead-generation pathways",
+      ],
+      relatedServices: ["brand-strategy", "content-media", "seo-visibility"],
+    },
+  ],
+
+  growthSystem: [
+    {
+      slug: "diagnose",
+      label: "Diagnose",
+      title: "Review what is working and what is unclear.",
+      summary:
+        "We look at your brand, website, SEO, content, audience, competitors, and lead flow to find the real growth gaps.",
+      steps: [
+        "Review website and service pages",
+        "Evaluate brand message",
+        "Audit SEO and visibility",
+        "Identify content gaps",
+        "Map the lead flow",
+      ],
+    },
+    {
+      slug: "clarify",
+      label: "Clarify",
+      title: "Sharpen the message and offer.",
+      summary:
+        "We refine your positioning, voice, service language, audience focus, and brand story so your marketing becomes easier to understand.",
+      steps: [
+        "Define the audience",
+        "Clarify the offer",
+        "Build the message framework",
+        "Sharpen brand voice",
+        "Create clear calls-to-action",
+      ],
+    },
+    {
+      slug: "build",
+      label: "Build",
+      title: "Create the assets and systems.",
+      summary:
+        "We build content direction, service pages, campaign ideas, SEO structure, lead pathways, and AI-assisted workflows.",
+      steps: [
+        "Structure service pages",
+        "Plan content topics",
+        "Build campaign direction",
+        "Create AI workflow support",
+        "Improve lead pathways",
+      ],
+    },
+    {
+      slug: "grow",
+      label: "Grow",
+      title: "Improve what works.",
+      summary:
+        "We use performance insights and smarter systems to strengthen visibility, content, conversion, and long-term brand growth.",
+      steps: [
+        "Track performance signals",
+        "Improve content direction",
+        "Refine calls-to-action",
+        "Strengthen visibility",
+        "Use AI to move faster with focus",
+      ],
+    },
+  ],
+
+  resources: [
+    {
+      slug: "marketing-clarity",
+      category: "Marketing Clarity",
+      title: "Why unclear marketing costs service businesses leads",
+      summary:
+        "A guide to understanding how unclear messaging weakens trust, slows decisions, and creates missed opportunities.",
+      relatedServices: ["brand-strategy", "lead-generation"],
+    },
+    {
+      slug: "brand-messaging",
+      category: "Marketing Clarity",
+      title: "How to make your brand message easier to understand",
+      summary:
+        "A practical breakdown of audience clarity, offer clarity, and simple messaging that helps people take action.",
+      relatedServices: ["brand-strategy"],
+    },
+    {
+      slug: "seo-basics",
+      category: "SEO",
+      title: "SEO basics for service-based brands",
+      summary:
+        "A simple explanation of how service pages, keywords, local search, and content help people find your business.",
+      relatedServices: ["seo-visibility"],
+    },
+    {
+      slug: "local-seo",
+      category: "SEO",
+      title: "Local SEO signals that help people find you",
+      summary:
+        "A resource on local rankings, Google Business Profile activity, reviews, service pages, and location trust.",
+      relatedServices: ["seo-visibility", "lead-generation"],
+    },
+    {
+      slug: "ai-marketing",
+      category: "AI Marketing",
+      title: "How AI can support marketing without making it generic",
+      summary:
+        "A guide to using AI for research, content planning, campaign ideas, SEO insights, and reporting while keeping brand voice human.",
+      relatedServices: ["ai-marketing-systems", "content-media"],
+    },
+    {
+      slug: "brand-voice-ai",
+      category: "AI Marketing",
+      title: "Using AI to protect brand voice consistency",
+      summary:
+        "How prompts, examples, tone rules, and message frameworks can help AI content stay aligned with your brand.",
+      relatedServices: ["ai-marketing-systems", "brand-strategy"],
+    },
+    {
+      slug: "lead-generation",
+      category: "Lead Generation",
+      title: "What makes a lead-generation pathway work",
+      summary:
+        "A breakdown of attention, trust, calls-to-action, landing pages, forms, follow-up, and conversion improvement.",
+      relatedServices: ["lead-generation"],
+    },
+    {
+      slug: "conversion-paths",
+      category: "Lead Generation",
+      title: "How to connect content to calls, forms, and bookings",
+      summary:
+        "A resource on turning content and visibility into practical next steps that support sales conversations.",
+      relatedServices: ["content-media", "lead-generation"],
+    },
+    {
+      slug: "content-planning",
+      category: "Content",
+      title: "A smarter way to plan content for service businesses",
+      summary:
+        "How to plan content around audience questions, service education, trust, proof, and conversion.",
+      relatedServices: ["content-media", "seo-visibility"],
+    },
+    {
+      slug: "campaign-strategy",
+      category: "Campaigns",
+      title: "What a campaign needs before it launches",
+      summary:
+        "A simple campaign planning guide covering audience, offer, hook, creative direction, landing pages, and metrics.",
+      relatedServices: ["content-media", "lead-generation"],
+    },
+  ],
+
+  packages: [
+    {
+      title: "Marketing Diagnostic",
+      label: "Start Here",
+      description:
+        "A focused review of your website, message, SEO, content, brand clarity, lead flow, and AI readiness.",
+      items: ["Website review", "SEO scan", "Message audit", "Growth gaps"],
+    },
+    {
+      title: "Growth Blueprint",
+      label: "Most Strategic",
+      description:
+        "A practical roadmap for brand clarity, visibility, content, campaigns, and lead-generation improvement.",
+      items: ["Audience strategy", "Messaging plan", "SEO roadmap", "Lead pathway"],
+    },
+    {
+      title: "Marketing System Buildout",
+      label: "Most Complete",
+      description:
+        "A deeper buildout for businesses ready to improve their marketing structure, content engine, AI workflow, and conversion path.",
+      items: ["Content system", "AI workflow", "Campaign direction", "Conversion plan"],
+    },
+  ],
+};
 
 const aiSignals = [
   "Audience Behavior",
@@ -168,30 +473,6 @@ const signalInsights = {
   "Performance Data":
     "Performance data shows what is working, what is wasting time, and where your marketing should improve next.",
 };
-
-const packages = [
-  {
-    title: "Marketing Diagnostic",
-    label: "Start Here",
-    description:
-      "A focused review of your website, message, SEO, content, brand clarity, lead flow, and AI readiness.",
-    items: ["Website review", "SEO scan", "Message audit", "Growth gaps"],
-  },
-  {
-    title: "Growth Blueprint",
-    label: "Most Strategic",
-    description:
-      "A practical roadmap for brand clarity, visibility, content, campaigns, and lead-generation improvement.",
-    items: ["Audience strategy", "Messaging plan", "SEO roadmap", "Lead pathway"],
-  },
-  {
-    title: "Marketing System Buildout",
-    label: "Most Complete",
-    description:
-      "A deeper buildout for businesses ready to improve their marketing structure, content engine, AI workflow, and conversion path.",
-    items: ["Content system", "AI workflow", "Campaign direction", "Conversion plan"],
-  },
-];
 
 const campaignGoals = [
   "Improve Brand Clarity",
@@ -260,9 +541,22 @@ const diagnosticQuestions = [
   },
 ];
 
-function ButtonLink({ children, variant = "primary", href = "#contact" }) {
+function getPathFromHash() {
+  const hash = window.location.hash.replace("#", "");
+  return hash || "/";
+}
+
+function href(path) {
+  return `#${path}`;
+}
+
+function findBySlug(collection, slug) {
+  return collection.find((item) => item.slug === slug);
+}
+
+function ButtonLink({ children, variant = "primary", path = "/contact" }) {
   return (
-    <a className={`button ${variant}`} href={href}>
+    <a className={`button ${variant}`} href={href(path)}>
       {children} <ArrowRight size={20} />
     </a>
   );
@@ -275,6 +569,7 @@ function getPackageRecommendation(profile) {
 }
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(getPathFromHash());
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSignal, setActiveSignal] = useState("Audience Behavior");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -362,7 +657,7 @@ export default function App() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
+      setActiveSlide((current) => (current + 1) % cms.heroSlides.length);
     }, 5200);
 
     return () => clearInterval(timer);
@@ -377,6 +672,18 @@ export default function App() {
 
     return () => clearTimeout(timer);
   }, [logoActive]);
+
+  useEffect(() => {
+    function handleRouteChange() {
+      setCurrentPath(getPathFromHash());
+      setMobileMenuOpen(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.addEventListener("hashchange", handleRouteChange);
+
+    return () => window.removeEventListener("hashchange", handleRouteChange);
+  }, []);
 
   useEffect(() => {
     function handleScroll() {
@@ -409,18 +716,18 @@ export default function App() {
     );
   }
 
-  function closeMobileMenu() {
-    setMobileMenuOpen(false);
-  }
-
   function handleLogoClick() {
     setLogoActive(true);
     setMobileMenuOpen(false);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (currentPath === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      window.location.hash = "/";
+    }
   }
 
   function startDiagnostic() {
@@ -543,315 +850,337 @@ export default function App() {
     }, 700);
   }
 
-  return (
-    <main className="site theme-dark editorial-site">
-      <section className="editorial-hero hero-with-engine">
-        <div className="glow glow-left" />
-        <div className="glow glow-right" />
+  function renderSiloCard(item, path, typeLabel) {
+    return (
+      <a key={item.slug} className="silo-card" href={href(path)}>
+        <p>{typeLabel}</p>
+        <h3>{item.title}</h3>
+        <span>{item.summary}</span>
+        <strong>
+          View Page <ArrowRight size={16} />
+        </strong>
+      </a>
+    );
+  }
 
-        <nav className={`nav editorial-nav ${navScrolled ? "nav-scrolled" : ""}`}>
-          <button
-            type="button"
-            className={`brand interactive-brand ${logoActive ? "active" : ""} ${
-              navScrolled ? "logo-scrolled" : ""
-            }`}
-            onClick={handleLogoClick}
-            aria-label="Go to homepage"
-          >
-            <span className="brand-logo-shell">
-              <img
-                src={brownHillLogo}
-                alt="BrownHill Marketing & Media logo"
-                className="brand-logo"
-              />
+  function renderHomePage() {
+    const slide = cms.heroSlides[activeSlide];
 
-              <span className="logo-orbit-dot dot-one" />
-              <span className="logo-orbit-dot dot-two" />
-              <span className="logo-orbit-dot dot-three" />
-              <span className="logo-orbit-dot dot-four" />
-            </span>
+    return (
+      <>
+        <section className="editorial-hero hero-with-engine cms-home-hero">
+          <div className="glow glow-left" />
+          <div className="glow glow-right" />
 
-            <span className="brand-text-wrap">
-              <span className="brand-subtitle">
-                Clarity • Visibility • Conversion
-              </span>
-
-              <span className="logo-ai-status">AI Signal Activated</span>
-            </span>
-          </button>
-
-          <button
-            type="button"
-            className="mobile-menu-button"
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-label="Open menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          <div className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
-            <a href="#what-we-do" onClick={closeMobileMenu}>What We Do</a>
-            <a href="#who-we-help" onClick={closeMobileMenu}>Who We Help</a>
-            <a href="#growth-system" onClick={closeMobileMenu}>System</a>
-            <a href="#services" onClick={closeMobileMenu}>Services</a>
-            <a href="#ai" onClick={closeMobileMenu}>AI</a>
-            <a href="#packages" onClick={closeMobileMenu}>Packages</a>
-            <a href="#bio" onClick={closeMobileMenu}>Founder</a>
-            <a href="#careers" onClick={closeMobileMenu}>Careers</a>
-            <a href="#contact" onClick={closeMobileMenu}>Contact</a>
-          </div>
-        </nav>
-
-        <div className="hero-engine-grid clearer-hero-grid">
-          <div className="hero-engine-copy">
-            <motion.div
-              key={activeSlide}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-            >
-              <p className="eyebrow">
-                <Sparkles size={16} /> {heroSlides[activeSlide].label}
-              </p>
-              <h1>{heroSlides[activeSlide].title}</h1>
-              <p className="hero-copy">{heroSlides[activeSlide].text}</p>
-            </motion.div>
-
-            <div className="hero-actions hero-actions-left">
-              <button
-                type="button"
-                className="button diagnostic-cta"
-                onClick={startDiagnostic}
+          <div className="hero-engine-grid clearer-hero-grid">
+            <div className="hero-engine-copy">
+              <motion.div
+                key={activeSlide}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55 }}
               >
-                Start a Marketing Diagnostic <ArrowRight size={20} />
-              </button>
+                <p className="eyebrow">
+                  <Sparkles size={16} /> {slide.label}
+                </p>
+                <h1>{slide.title}</h1>
+                <p className="hero-copy">{slide.text}</p>
+              </motion.div>
 
-              <ButtonLink variant="secondary" href="#services">
-                View Services
-              </ButtonLink>
-            </div>
-
-            <div className="hero-proof-row">
-              <span>Brand Strategy</span>
-              <span>SEO</span>
-              <span>Content</span>
-              <span>AI Systems</span>
-              <span>Lead Flow</span>
-            </div>
-
-            <div className="slider-dots editorial-dots hero-dots-left">
-              {heroSlides.map((slide, index) => (
+              <div className="hero-actions hero-actions-left">
                 <button
-                  key={slide.label}
                   type="button"
-                  className={index === activeSlide ? "active" : ""}
-                  onClick={() => setActiveSlide(index)}
-                  aria-label={`Show ${slide.label}`}
-                />
-              ))}
-            </div>
-          </div>
+                  className="button diagnostic-cta"
+                  onClick={startDiagnostic}
+                >
+                  Start a Marketing Diagnostic <ArrowRight size={20} />
+                </button>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="hero-engine-card-wrap"
-          >
-            <div className="hero-engine-card">
-              <div className="ai-card-top">
-                <div className="ai-orb-small">
-                  <Bot size={26} />
-                </div>
-                <div>
-                  <p>BrownHill Growth System</p>
-                  <span>Diagnose • Clarify • Build • Grow</span>
-                </div>
+                <ButtonLink variant="secondary" path="/services">
+                  View Services
+                </ButtonLink>
               </div>
 
-              <div className="ai-orbit">
-                <div className="orbit-ring ring-one" />
-                <div className="orbit-ring ring-two" />
-                <div className="orbit-ring ring-three" />
-
-                <motion.div
-                  className="orbit-chip chip-one"
-                  animate={{ y: [-8, 8, -8] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
-                  CLARITY
-                </motion.div>
-
-                <motion.div
-                  className="orbit-chip chip-two"
-                  animate={{ y: [8, -8, 8] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                >
-                  SEO
-                </motion.div>
-
-                <motion.div
-                  className="orbit-chip chip-three"
-                  animate={{ x: [-8, 8, -8] }}
-                  transition={{ duration: 5.5, repeat: Infinity }}
-                >
-                  CONTENT
-                </motion.div>
-
-                <motion.div
-                  className="orbit-chip chip-four"
-                  animate={{ x: [8, -8, 8] }}
-                  transition={{ duration: 4.5, repeat: Infinity }}
-                >
-                  LEADS
-                </motion.div>
-
-                <div className="ai-core">
-                  <Sparkles size={38} />
-                  <p>GROWTH</p>
-                  <span>Marketing Intelligence System</span>
-                </div>
+              <div className="hero-proof-row">
+                <span>Brand Strategy</span>
+                <span>SEO</span>
+                <span>Content</span>
+                <span>AI Systems</span>
+                <span>Lead Flow</span>
               </div>
 
-              <div className="signal-list">
-                {aiSignals.map((signal) => (
+              <div className="slider-dots editorial-dots hero-dots-left">
+                {cms.heroSlides.map((heroSlide, index) => (
                   <button
-                    key={signal}
+                    key={heroSlide.label}
                     type="button"
-                    className={activeSignal === signal ? "active" : ""}
-                    onClick={() => setActiveSignal(signal)}
-                  >
-                    {signal}
-                  </button>
+                    className={index === activeSlide ? "active" : ""}
+                    onClick={() => setActiveSlide(index)}
+                    aria-label={`Show ${heroSlide.label}`}
+                  />
                 ))}
               </div>
-
-              <div className="ai-insight-box">
-                <p className="ai-insight-label">Active Signal</p>
-                <h3>{activeSignal}</h3>
-                <p>{signalInsights[activeSignal]}</p>
-              </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      <div className="creative-marquee">
-        <div className="creative-marquee-track">
-          {[...marqueeWords, ...marqueeWords, ...marqueeWords].map((word, index) => (
-            <span key={`${word}-${index}`}>{word}</span>
-          ))}
-        </div>
-      </div>
-
-      <section id="what-we-do" className="section editorial-section clear-direction-section">
-        <div className="editorial-two-col">
-          <div>
-            <p className="section-label gold">What We Do</p>
-            <h2>We turn unclear marketing into a clearer growth system.</h2>
-          </div>
-
-          <div>
-            <p className="large-editorial-copy">
-              Your brand should be easy to understand, easy to find, and easy to act on.
-            </p>
-            <p>
-              BrownHill helps service-based businesses and organizations improve the
-              way they communicate, show up online, create content, use AI, and guide
-              potential customers toward the next step.
-            </p>
-          </div>
-        </div>
-
-        <div className="outcome-grid">
-          {outcomes.map((outcome) => {
-            const Icon = outcome.icon;
-
-            return (
-              <div key={outcome.title} className="outcome-card">
-                <Icon size={30} />
-                <h3>{outcome.title}</h3>
-                <p>{outcome.text}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="who-we-help" className="section editorial-section dark-panel who-help-section">
-        <div className="editorial-two-col">
-          <div>
-            <p className="section-label gold">Who We Help</p>
-            <h2>Built for organizations with something real to offer.</h2>
-          </div>
-
-          <div>
-            <p>
-              We work best with businesses and organizations that have potential,
-              but need stronger messaging, better visibility, cleaner content, and a
-              smarter path from attention to action.
-            </p>
-
-            <div className="who-help-tags">
-              {whoWeHelp.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="growth-system" className="section editorial-section growth-system-section">
-        <div className="centered wide">
-          <p className="section-label gold">The BrownHill Growth System</p>
-          <h2>Diagnose. Clarify. Build. Grow.</h2>
-          <p>
-            The work is creative, but the process is practical. Every move points
-            back to clarity, visibility, and conversion.
-          </p>
-        </div>
-
-        <div className="growth-system-grid">
-          {growthSystem.map((step, index) => (
-            <div key={step.label} className="growth-system-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p className="system-label">{step.label}</p>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="services" className="section editorial-section dark-panel">
-        <div className="centered wide">
-          <p className="section-label gold">Services</p>
-          <h2>Clear services tied to real business outcomes.</h2>
-          <p>
-            No vague agency menu. These are the core areas that help your brand
-            become clearer, more visible, and easier to choose.
-          </p>
-        </div>
-
-        <div className="services-grid clear-services-grid">
-          {services.map((service) => (
             <motion.div
-              key={service.title}
-              className="service-direction-card"
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.45 }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="hero-engine-card-wrap"
             >
-              <span>{service.label}</span>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+              <div className="hero-engine-card">
+                <div className="ai-card-top">
+                  <div className="ai-orb-small">
+                    <Bot size={26} />
+                  </div>
+                  <div>
+                    <p>BrownHill Growth System</p>
+                    <span>Diagnose • Clarify • Build • Grow</span>
+                  </div>
+                </div>
 
-      <section id="ai" className="section editorial-section ai-direction-section">
+                <div className="ai-orbit">
+                  <div className="orbit-ring ring-one" />
+                  <div className="orbit-ring ring-two" />
+                  <div className="orbit-ring ring-three" />
+
+                  <motion.div
+                    className="orbit-chip chip-one"
+                    animate={{ y: [-8, 8, -8] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  >
+                    CLARITY
+                  </motion.div>
+
+                  <motion.div
+                    className="orbit-chip chip-two"
+                    animate={{ y: [8, -8, 8] }}
+                    transition={{ duration: 5, repeat: Infinity }}
+                  >
+                    SEO
+                  </motion.div>
+
+                  <motion.div
+                    className="orbit-chip chip-three"
+                    animate={{ x: [-8, 8, -8] }}
+                    transition={{ duration: 5.5, repeat: Infinity }}
+                  >
+                    CONTENT
+                  </motion.div>
+
+                  <motion.div
+                    className="orbit-chip chip-four"
+                    animate={{ x: [8, -8, 8] }}
+                    transition={{ duration: 4.5, repeat: Infinity }}
+                  >
+                    LEADS
+                  </motion.div>
+
+                  <div className="ai-core">
+                    <Sparkles size={38} />
+                    <p>GROWTH</p>
+                    <span>Marketing Intelligence System</span>
+                  </div>
+                </div>
+
+                <div className="signal-list">
+                  {aiSignals.map((signal) => (
+                    <button
+                      key={signal}
+                      type="button"
+                      className={activeSignal === signal ? "active" : ""}
+                      onClick={() => setActiveSignal(signal)}
+                    >
+                      {signal}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="ai-insight-box">
+                  <p className="ai-insight-label">Active Signal</p>
+                  <h3>{activeSignal}</h3>
+                  <p>{signalInsights[activeSignal]}</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="creative-marquee">
+          <div className="creative-marquee-track">
+            {[...cms.marqueeWords, ...cms.marqueeWords, ...cms.marqueeWords].map(
+              (word, index) => (
+                <span key={`${word}-${index}`}>{word}</span>
+              )
+            )}
+          </div>
+        </div>
+
+        <section className="section editorial-section clear-direction-section">
+          <div className="editorial-two-col">
+            <div>
+              <p className="section-label gold">What We Do</p>
+              <h2>We turn unclear marketing into a clearer growth system.</h2>
+            </div>
+
+            <div>
+              <p className="large-editorial-copy">
+                Your brand should be easy to understand, easy to find, and easy to act on.
+              </p>
+              <p>
+                BrownHill helps service-based businesses and organizations improve the
+                way they communicate, show up online, create content, use AI, and guide
+                potential customers toward the next step.
+              </p>
+            </div>
+          </div>
+
+          <div className="outcome-grid">
+            {cms.outcomes.map((outcome) => {
+              const Icon = outcome.icon;
+
+              return (
+                <div key={outcome.title} className="outcome-card">
+                  <Icon size={30} />
+                  <h3>{outcome.title}</h3>
+                  <p>{outcome.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="section editorial-section dark-panel">
+          <div className="centered wide">
+            <p className="section-label gold">Services Silo</p>
+            <h2>Clear services tied to real business outcomes.</h2>
+            <p>
+              Each service has its own page so visitors and search engines can clearly
+              understand what BrownHill offers.
+            </p>
+          </div>
+
+          <div className="cms-silo-grid">
+            {cms.services.map((service) =>
+              renderSiloCard(service, `/services/${service.slug}`, "Service")
+            )}
+          </div>
+        </section>
+
+        <section className="section editorial-section">
+          <div className="editorial-two-col">
+            <div>
+              <p className="section-label gold">Industry Silo</p>
+              <h2>Built for organizations with something real to offer.</h2>
+            </div>
+
+            <div>
+              <p>
+                We work best with businesses and organizations that have potential,
+                but need stronger messaging, better visibility, cleaner content, and a
+                smarter path from attention to action.
+              </p>
+            </div>
+          </div>
+
+          <div className="cms-silo-grid">
+            {cms.industries.map((industry) =>
+              renderSiloCard(industry, `/industries/${industry.slug}`, "Industry")
+            )}
+          </div>
+        </section>
+
+        <section className="section editorial-section dark-panel">
+          <div className="centered wide">
+            <p className="section-label gold">The BrownHill Growth System</p>
+            <h2>Diagnose. Clarify. Build. Grow.</h2>
+            <p>
+              The process is now its own silo, turning your method into a clear,
+              proprietary framework.
+            </p>
+          </div>
+
+          <div className="growth-system-grid">
+            {cms.growthSystem.map((step, index) => (
+              <a
+                key={step.slug}
+                className="growth-system-card"
+                href={href(`/growth-system/${step.slug}`)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p className="system-label">{step.label}</p>
+                <h3>{step.title}</h3>
+                <p>{step.summary}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {renderAiSection()}
+
+        <section className="section editorial-section dark-panel">
+          <div className="editorial-two-col">
+            <div>
+              <p className="section-label gold">Ways to Start</p>
+              <h2>Start with the level of help your marketing actually needs.</h2>
+            </div>
+
+            <div>
+              <p>
+                Start with a diagnostic, move into a strategy roadmap, or build a
+                fuller marketing system around content, AI, visibility, and lead flow.
+              </p>
+            </div>
+          </div>
+
+          <div className="package-grid editorial-package-grid">
+            {cms.packages.map((pack) => (
+              <div key={pack.title} className="package-card">
+                <p className="package-label">{pack.label}</p>
+                <h3>{pack.title}</h3>
+                <p>{pack.description}</p>
+
+                <div className="package-list">
+                  {pack.items.map((item) => (
+                    <span key={item}>
+                      <CheckCircle2 size={16} /> {item}
+                    </span>
+                  ))}
+                </div>
+
+                <a href={href("/contact")}>Request This Package</a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section editorial-section">
+          <div className="centered wide">
+            <p className="section-label gold">Resource Silo</p>
+            <h2>Content that builds authority around your services.</h2>
+            <p>
+              Resources become the future blog and education engine, organized by
+              clarity, SEO, AI marketing, content, campaigns, and lead generation.
+            </p>
+          </div>
+
+          <div className="cms-silo-grid">
+            {cms.resources.slice(0, 6).map((resource) =>
+              renderSiloCard(resource, `/resources/${resource.slug}`, resource.category)
+            )}
+          </div>
+        </section>
+
+        {renderFounderSection()}
+        {renderCareersSection()}
+        {renderContactSection()}
+      </>
+    );
+  }
+
+  function renderAiSection() {
+    return (
+      <section className="section editorial-section ai-direction-section">
         <div className="editorial-two-col">
           <div>
             <p className="section-label gold">AI + Marketing Intelligence</p>
@@ -1019,44 +1348,240 @@ export default function App() {
           )}
         </div>
       </section>
+    );
+  }
 
-      <section id="packages" className="section editorial-section dark-panel">
-        <div className="editorial-two-col">
-          <div>
-            <p className="section-label gold">Ways to Start</p>
-            <h2>Start with the level of help your marketing actually needs.</h2>
-          </div>
+  function renderHubPage(type) {
+    const isServices = type === "services";
+    const isIndustries = type === "industries";
+    const isGrowth = type === "growth-system";
 
-          <div>
-            <p>
-              Start with a diagnostic, move into a strategy roadmap, or build a
-              fuller marketing system around content, AI, visibility, and lead flow.
-            </p>
-          </div>
+    const title = isServices
+      ? "Services"
+      : isIndustries
+      ? "Industries"
+      : isGrowth
+      ? "The BrownHill Growth System"
+      : "Resources";
+
+    const subtitle = isServices
+      ? "Clear marketing services organized around clarity, visibility, and conversion."
+      : isIndustries
+      ? "Industry-focused pages that show who BrownHill helps and how."
+      : isGrowth
+      ? "A proprietary process for diagnosing, clarifying, building, and growing better marketing."
+      : "CMS-ready resources organized into content silos for future SEO growth.";
+
+    const collection = isServices
+      ? cms.services
+      : isIndustries
+      ? cms.industries
+      : isGrowth
+      ? cms.growthSystem
+      : cms.resources;
+
+    return (
+      <section className="section editorial-section cms-page">
+        <div className="cms-page-hero">
+          <p className="section-label gold">CMS Silo</p>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
         </div>
 
-        <div className="package-grid editorial-package-grid">
-          {packages.map((pack) => (
-            <div key={pack.title} className="package-card">
-              <p className="package-label">{pack.label}</p>
-              <h3>{pack.title}</h3>
-              <p>{pack.description}</p>
+        <div className="cms-silo-grid">
+          {collection.map((item) => {
+            const cardPath =
+              type === "services"
+                ? `/services/${item.slug}`
+                : type === "industries"
+                ? `/industries/${item.slug}`
+                : type === "growth-system"
+                ? `/growth-system/${item.slug}`
+                : `/resources/${item.slug}`;
 
-              <div className="package-list">
-                {pack.items.map((item) => (
-                  <span key={item}>
-                    <CheckCircle2 size={16} /> {item}
-                  </span>
-                ))}
-              </div>
-
-              <a href="#contact">Request This Package</a>
-            </div>
-          ))}
+            return renderSiloCard(
+              item,
+              cardPath,
+              isServices
+                ? "Service"
+                : isIndustries
+                ? "Industry"
+                : isGrowth
+                ? "Growth Step"
+                : item.category
+            );
+          })}
         </div>
       </section>
+    );
+  }
 
-      <section id="bio" className="section editorial-section founder-bio-section">
+  function renderDetailPage(type, slug) {
+    const collection =
+      type === "services"
+        ? cms.services
+        : type === "industries"
+        ? cms.industries
+        : type === "growth-system"
+        ? cms.growthSystem
+        : cms.resources;
+
+    const item = findBySlug(collection, slug);
+
+    if (!item) {
+      return renderNotFoundPage();
+    }
+
+    const backPath =
+      type === "services"
+        ? "/services"
+        : type === "industries"
+        ? "/industries"
+        : type === "growth-system"
+        ? "/growth-system"
+        : "/resources";
+
+    const label =
+      type === "services"
+        ? "Service Page"
+        : type === "industries"
+        ? "Industry Page"
+        : type === "growth-system"
+        ? "Growth System Page"
+        : item.category;
+
+    return (
+      <>
+        <section className="section editorial-section cms-page">
+          <div className="cms-breadcrumbs">
+            <a href={href("/")}>Home</a>
+            <span>/</span>
+            <a href={href(backPath)}>
+              {type === "growth-system"
+                ? "Growth System"
+                : type.charAt(0).toUpperCase() + type.slice(1)}
+            </a>
+          </div>
+
+          <div className="cms-detail-layout">
+            <article className="cms-detail-main">
+              <p className="section-label gold">{label}</p>
+              <h1>{item.title || item.label}</h1>
+              <p className="large-editorial-copy">
+                {item.promise || item.summary}
+              </p>
+              <p>{item.summary}</p>
+
+              {item.deliverables && (
+                <div className="cms-detail-block">
+                  <h2>What this includes</h2>
+                  <div className="cms-check-grid">
+                    {item.deliverables.map((deliverable) => (
+                      <span key={deliverable}>
+                        <CheckCircle2 size={17} /> {deliverable}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {item.needs && (
+                <div className="cms-detail-block">
+                  <h2>Common needs</h2>
+                  <div className="cms-check-grid">
+                    {item.needs.map((need) => (
+                      <span key={need}>
+                        <CheckCircle2 size={17} /> {need}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {item.steps && (
+                <div className="cms-detail-block">
+                  <h2>How this step works</h2>
+                  <div className="cms-check-grid">
+                    {item.steps.map((step) => (
+                      <span key={step}>
+                        <CheckCircle2 size={17} /> {step}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="section-cta-row cms-detail-cta">
+                <ButtonLink path="/contact">Request Diagnostic</ButtonLink>
+                <ButtonLink variant="secondary" path="/services">
+                  View Services
+                </ButtonLink>
+              </div>
+            </article>
+
+            <aside className="cms-detail-sidebar">
+              <div className="sidebar-card">
+                <p className="section-label gold">CMS Page Type</p>
+                <h3>{label}</h3>
+                <p>
+                  This page is part of the BrownHill silo structure and can later be
+                  managed inside a CMS collection.
+                </p>
+              </div>
+
+              <div className="sidebar-card">
+                <p className="section-label gold">Related Links</p>
+                <div className="sidebar-links">
+                  {type === "services" &&
+                    item.relatedIndustries?.map((industrySlug) => {
+                      const industry = findBySlug(cms.industries, industrySlug);
+                      return industry ? (
+                        <a key={industry.slug} href={href(`/industries/${industry.slug}`)}>
+                          {industry.title}
+                        </a>
+                      ) : null;
+                    })}
+
+                  {type === "industries" &&
+                    item.relatedServices?.map((serviceSlug) => {
+                      const service = findBySlug(cms.services, serviceSlug);
+                      return service ? (
+                        <a key={service.slug} href={href(`/services/${service.slug}`)}>
+                          {service.title}
+                        </a>
+                      ) : null;
+                    })}
+
+                  {type === "resources" &&
+                    item.relatedServices?.map((serviceSlug) => {
+                      const service = findBySlug(cms.services, serviceSlug);
+                      return service ? (
+                        <a key={service.slug} href={href(`/services/${service.slug}`)}>
+                          {service.title}
+                        </a>
+                      ) : null;
+                    })}
+
+                  {type === "growth-system" &&
+                    cms.services.slice(0, 3).map((service) => (
+                      <a key={service.slug} href={href(`/services/${service.slug}`)}>
+                        {service.title}
+                      </a>
+                    ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {renderContactSection()}
+      </>
+    );
+  }
+
+  function renderFounderSection() {
+    return (
+      <section className="section editorial-section founder-bio-section">
         <div className="editorial-two-col">
           <div>
             <p className="section-label gold">Founder’s Note</p>
@@ -1086,8 +1611,12 @@ export default function App() {
           </div>
         </div>
       </section>
+    );
+  }
 
-      <section id="careers" className="section editorial-section dark-panel careers-section">
+  function renderCareersSection() {
+    return (
+      <section className="section editorial-section dark-panel careers-section">
         <div className="editorial-two-col">
           <div>
             <p className="section-label gold">Future Collaborators</p>
@@ -1117,14 +1646,18 @@ export default function App() {
               <span>Brand Management</span>
             </div>
 
-            <a className="career-link" href="#contact">
+            <a className="career-link" href={href("/contact")}>
               Connect for future opportunities <ArrowRight size={18} />
             </a>
           </div>
         </div>
       </section>
+    );
+  }
 
-      <section id="contact" className="section contact editorial-contact">
+  function renderContactSection() {
+    return (
+      <section className="section contact editorial-contact">
         <div className="two-col">
           <div>
             <p className="section-label gold">Start the Conversation</p>
@@ -1135,10 +1668,10 @@ export default function App() {
             </p>
 
             <div className="contact-list">
-              <p><Phone size={20} /> 850-221-3089</p>
-              <p><Mail size={20} /> info@emailaddress.com</p>
-              <p><Globe2 size={20} /> www.websiteaddress.com</p>
-              <p><MapPin size={20} /> Houston, TX</p>
+              <p><Phone size={20} /> {cms.site.phone}</p>
+              <p><Mail size={20} /> {cms.site.email}</p>
+              <p><Globe2 size={20} /> {cms.site.website}</p>
+              <p><MapPin size={20} /> {cms.site.location}</p>
             </div>
           </div>
 
@@ -1163,11 +1696,9 @@ export default function App() {
               <option>Marketing Diagnostic</option>
               <option>Growth Blueprint</option>
               <option>Marketing System Buildout</option>
-              <option>Brand Strategy</option>
-              <option>SEO / Search Visibility</option>
-              <option>Content & Media</option>
-              <option>AI Marketing Systems</option>
-              <option>Lead Generation</option>
+              {cms.services.map((service) => (
+                <option key={service.slug}>{service.title}</option>
+              ))}
             </select>
 
             <label>What growth challenge should we help solve?</label>
@@ -1183,6 +1714,128 @@ export default function App() {
           </form>
         </div>
       </section>
+    );
+  }
+
+  function renderAboutPage() {
+    return (
+      <>
+        {renderFounderSection()}
+        {renderCareersSection()}
+        {renderContactSection()}
+      </>
+    );
+  }
+
+  function renderContactPage() {
+    return renderContactSection();
+  }
+
+  function renderNotFoundPage() {
+    return (
+      <section className="section editorial-section cms-page">
+        <div className="cms-page-hero">
+          <p className="section-label gold">Page Not Found</p>
+          <h1>This page is not in the CMS yet.</h1>
+          <p>
+            Go back to the homepage or explore the service, industry, growth system,
+            and resource silos.
+          </p>
+          <div className="section-cta-row">
+            <ButtonLink path="/">Go Home</ButtonLink>
+            <ButtonLink variant="secondary" path="/services">
+              View Services
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  function renderCurrentPage() {
+    if (currentPath === "/") return renderHomePage();
+
+    if (currentPath === "/services") return renderHubPage("services");
+    if (currentPath === "/industries") return renderHubPage("industries");
+    if (currentPath === "/growth-system") return renderHubPage("growth-system");
+    if (currentPath === "/resources") return renderHubPage("resources");
+    if (currentPath === "/about") return renderAboutPage();
+    if (currentPath === "/contact") return renderContactPage();
+
+    const serviceMatch = currentPath.match(/^\/services\/([^/]+)$/);
+    if (serviceMatch) return renderDetailPage("services", serviceMatch[1]);
+
+    const industryMatch = currentPath.match(/^\/industries\/([^/]+)$/);
+    if (industryMatch) return renderDetailPage("industries", industryMatch[1]);
+
+    const growthMatch = currentPath.match(/^\/growth-system\/([^/]+)$/);
+    if (growthMatch) return renderDetailPage("growth-system", growthMatch[1]);
+
+    const resourceMatch = currentPath.match(/^\/resources\/([^/]+)$/);
+    if (resourceMatch) return renderDetailPage("resources", resourceMatch[1]);
+
+    return renderNotFoundPage();
+  }
+
+  return (
+    <main className="site theme-dark editorial-site">
+      <header className="cms-site-header">
+        <nav className={`nav editorial-nav ${navScrolled ? "nav-scrolled" : ""}`}>
+          <button
+            type="button"
+            className={`brand interactive-brand ${logoActive ? "active" : ""} ${
+              navScrolled ? "logo-scrolled" : ""
+            }`}
+            onClick={handleLogoClick}
+            aria-label="Go to homepage"
+          >
+            <span className="brand-logo-shell">
+              <img
+                src={brownHillLogo}
+                alt="BrownHill Marketing & Media logo"
+                className="brand-logo"
+              />
+
+              <span className="logo-orbit-dot dot-one" />
+              <span className="logo-orbit-dot dot-two" />
+              <span className="logo-orbit-dot dot-three" />
+              <span className="logo-orbit-dot dot-four" />
+            </span>
+
+            <span className="brand-text-wrap">
+              <span className="brand-subtitle">{cms.site.tagline}</span>
+              <span className="logo-ai-status">AI Signal Activated</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            className="mobile-menu-button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-label="Open menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <div className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
+            {cms.navigation.map((item) => (
+              <a
+                key={item.path}
+                href={href(item.path)}
+                className={
+                  currentPath === item.path || currentPath.startsWith(`${item.path}/`)
+                    ? "active"
+                    : ""
+                }
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </header>
+
+      {renderCurrentPage()}
 
       <div className={`ai-chat ${chatOpen ? "open" : ""}`}>
         {chatOpen && (
@@ -1276,9 +1929,9 @@ export default function App() {
       </div>
 
       <footer>
-        © {new Date().getFullYear()} BrownHill Marketing & Media, LLC. Brand
-        strategy, content, SEO, AI marketing systems, media, and lead generation.
-        All rights reserved.
+        © {new Date().getFullYear()} {cms.site.name}, LLC. Brand strategy,
+        content, SEO, AI marketing systems, media, and lead generation. All rights
+        reserved.
       </footer>
     </main>
   );
