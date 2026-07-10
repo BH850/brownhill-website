@@ -11439,3 +11439,80 @@ button.button.secondary svg {
     font-size: 2.3rem;
   }
 }
+/* =========================================================
+   BRIGHT GOLD ASK EDNA BUTTONS
+   Paste at the VERY BOTTOM of src/index.css
+========================================================= */
+
+/* Ask Edna First button on landing pages / hero sections */
+.landing-hero .button.secondary,
+.hero-actions .button.secondary {
+  background: #fbbf24 !important;
+  border: 1px solid #fbbf24 !important;
+  color: #170c07 !important;
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.18),
+    0 0 24px rgba(251, 191, 36, 0.28),
+    0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.landing-hero .button.secondary svg,
+.hero-actions .button.secondary svg {
+  color: #170c07 !important;
+  stroke: #170c07 !important;
+}
+
+.landing-hero .button.secondary:hover,
+.hero-actions .button.secondary:hover {
+  background: #fff7e6 !important;
+  border-color: #fff7e6 !important;
+  color: #170c07 !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 247, 230, 0.22),
+    0 0 30px rgba(251, 191, 36, 0.35),
+    0 22px 54px rgba(0, 0, 0, 0.34);
+}
+
+/* Floating Ask Edna button */
+.ai-chat-button {
+  background: #fbbf24 !important;
+  color: #170c07 !important;
+  border: 1px solid #fbbf24 !important;
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.18),
+    0 0 26px rgba(251, 191, 36, 0.3),
+    0 18px 54px rgba(0, 0, 0, 0.32) !important;
+}
+
+.ai-chat-button svg,
+.ai-chat-button span {
+  color: #170c07 !important;
+  stroke: #170c07 !important;
+}
+
+.ai-chat-button:hover {
+  background: #fff7e6 !important;
+  border-color: #fff7e6 !important;
+  color: #170c07 !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 247, 230, 0.18),
+    0 0 34px rgba(251, 191, 36, 0.38),
+    0 22px 60px rgba(0, 0, 0, 0.38) !important;
+}
+
+/* Edna chat send button */
+.ai-chat-form button {
+  background: #fbbf24 !important;
+  color: #170c07 !important;
+}
+
+.ai-chat-form button svg {
+  color: #170c07 !important;
+  stroke: #170c07 !important;
+}
+
+.ai-chat-form button:hover {
+  background: #fff7e6 !important;
+}
